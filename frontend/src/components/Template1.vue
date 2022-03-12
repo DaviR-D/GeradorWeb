@@ -9,8 +9,16 @@
 </template>
 
 <script>
+import { useIndexStore } from "@/stores/index";
+
 export default {
   name: "QuestionTemplate1",
+  data() {
+    return {
+      index: useIndexStore(),
+    };
+  },
+
   props: {
     image: {
       type: String,
@@ -32,6 +40,7 @@ export default {
       alternative == this.rightAnswer
         ? console.log("Você acertou!")
         : console.log("Você errou!");
+      this.index.increment();
     },
   },
 };
