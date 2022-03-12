@@ -1,8 +1,8 @@
 <template>
   <div>
-    <img :src="image" style="height: 400px; width: 600px" />
+    <img :src="data.image" style="height: 400px; width: 600px" />
 
-    <li v-for="alternative in alternatives" :key="alternative">
+    <li v-for="alternative in data.alternatives" :key="alternative">
       <button @click="checkAnswer(alternative)">{{ alternative }}</button>
     </li>
   </div>
@@ -20,24 +20,18 @@ export default {
   },
 
   props: {
-    image: {
-      type: String,
-      required: true,
-    },
-    alternatives: {
-      type: Array,
-
-      required: true,
-    },
-
-    rightAnswer: {
-      type: Number,
-      required: true,
+    data: {
+      type: Object,
+      default: () => ({
+        image: "",
+        alternatives: [1, 2, 3, 4],
+        rightAnswer: 1,
+      }),
     },
   },
   methods: {
     checkAnswer(alternative) {
-      alternative == this.rightAnswer
+      alternative == this.data.rightAnswer
         ? console.log("Você acertou!")
         : console.log("Você errou!");
       this.index.increment();
