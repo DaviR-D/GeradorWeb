@@ -1,0 +1,26 @@
+[
+  {
+    "word": "car",
+    "image": "images/car.jpg"
+  },
+
+  {
+    "word": "bike",
+    "image": "images/bike.jpg"
+  },
+
+  {
+    "word": "pig",
+    "image": "images/pig.jpg"
+  },
+
+  {
+    "word": "tree",
+    "image": "images/tree.jpg"
+  },
+
+  {
+    "word": "cat",
+    "image": "images/cat.jpg"
+  }
+]
