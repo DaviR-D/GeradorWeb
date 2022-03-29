@@ -23,6 +23,7 @@ export default {
     data: {
       type: Object,
       default: () => ({
+        description: "",
         image: "",
         alternatives: [1, 2, 3, 4],
         rightAnswer: 1,

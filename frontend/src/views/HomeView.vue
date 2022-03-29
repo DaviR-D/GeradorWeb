@@ -7,6 +7,11 @@
 <script setup>
 import QuestionTemplate1 from "@/components/Template1.vue";
 import { useIndexStore } from "@/stores/index";
+//import { axios } from "axios";
+
+/*axios
+  .get("http://127.0.0.1:8000/getAtividade")
+  .then((response) => (this.atividade1 = response.data));*/
 
 const useIndex = useIndexStore();
 
