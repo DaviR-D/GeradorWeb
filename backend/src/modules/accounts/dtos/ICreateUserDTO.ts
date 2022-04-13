@@ -4,6 +4,7 @@ interface ICreateUserDTO {
   email: string;
   id?: string;
   avatar?: string;
+  isTeacher: boolean;
 }
 
 export { ICreateUserDTO };

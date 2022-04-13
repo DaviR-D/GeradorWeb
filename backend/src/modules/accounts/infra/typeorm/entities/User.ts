@@ -16,6 +16,9 @@ class User {
   password: string;
 
   @Column()
+  isTeacher: boolean;
+
+  @Column()
   isAdmin: boolean;
 
   @Column()
