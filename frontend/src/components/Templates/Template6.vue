@@ -1,7 +1,7 @@
 <template>
   <div>
     <img :src="data.image" style="height: 400px; width: 600px" />
-    <input type="text" v-model="answer" />
+    <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
     <button @click="checkAnswer()">Confirmar</button>
   </div>
 </template>
@@ -10,7 +10,7 @@
 import { useIndexStore } from "@/stores/index";
 
 export default {
-  name: "QuestionTemplate1",
+  name: "TheTemplate1",
   data() {
     return {
       index: useIndexStore(),

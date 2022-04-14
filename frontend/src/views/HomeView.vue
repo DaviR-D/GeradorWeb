@@ -5,10 +5,10 @@
 </template>
 
 <script setup>
-import QuestionTemplate1 from "@/components/Templates/Template1.vue";
-import QuestionTemplate4 from "@/components/Templates/Template4.vue";
-import QuestionTemplate6 from "@/components/Templates/Template6.vue";
+import TheTemplate1 from "@/components/Templates/Template1.vue";
 import TheTemplate2 from "@/components/Templates/Template2.vue";
+import TheTemplate4 from "@/components/Templates/Template4.vue";
+import TheTemplate6 from "@/components/Templates/Template6.vue";
 import { useIndexStore } from "@/stores/index";
 import axios from "axios";
 
@@ -20,14 +20,14 @@ const useIndex = useIndexStore();
 
 const atividade = [
   {
-    template: eval("QuestionTemplate1"),
+    template: TheTemplate1,
     alternatives: ["Cow", "Cat", "Pig", "Bird"],
     rightAnswer: "Pig",
     image:
       "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
   },
   {
-    template: QuestionTemplate4,
+    template: TheTemplate4,
     images: [
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
       "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
@@ -38,7 +38,7 @@ const atividade = [
     rightAnswer: [4, 3, 1, 2],
   },
   {
-    template: QuestionTemplate6,
+    template: TheTemplate6,
     image:
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
     rightAnswer: "Dog",
@@ -49,10 +49,21 @@ const atividade = [
     image:
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
   },
-  
 ];
 
 const question = () => {
   return atividade[useIndex.getIndex];
 };
 </script>
+<style>
+button {
+  font-size: 100%;
+  width: 100%;
+  height: 50px;
+
+  background-color: #008cba;
+  border-color: transparent;
+  margin-bottom: 1%;
+  border-radius: 5px;
+}
+</style>

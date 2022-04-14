@@ -26,7 +26,7 @@
 import { useIndexStore } from "@/stores/index";
 
 export default {
-  name: "QuestionTemplate4",
+  name: "TheTemplate4",
   data() {
     return {
       index: useIndexStore(),

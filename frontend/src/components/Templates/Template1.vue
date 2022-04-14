@@ -1,9 +1,8 @@
-<template >
+<template>
   <div>
     <img :src="data.image" />
 
-    <li v-for="alternative in data.alternatives" :key="alternative"
-    >
+    <li v-for="alternative in data.alternatives" :key="alternative">
       <button style="border-radius: 5px" @click="checkAnswer(alternative)">
         {{ alternative }}
       </button>
@@ -11,11 +10,11 @@
   </div>
 </template>
 
-<script >
+<script>
 import { useIndexStore } from "@/stores/index";
 
 export default {
-  name: "QuestionTemplate1",
+  name: "TheTemplate1",
   data() {
     return {
       index: useIndexStore(),
@@ -50,14 +49,5 @@ img {
   width: 100%;
   border-radius: 5px;
   margin-bottom: 0.3%;
-}
-button {
-  font-size: 100%;
-  width: 100%;
-  height: 50px;
-
-  background-color: #008cba;
-  border-color: transparent;
-  margin-bottom: 1%;
 }
 </style>
