@@ -10,10 +10,10 @@ import { RouterView } from "vue-router";
 @import "@/assets/base.css";
 
 #app {
-  max-width: 1280px;
+  list-style: none;
+  max-width: 64%;
   margin: 0 auto;
   padding: 2rem;
-
   font-weight: normal;
 }
 
@@ -72,9 +72,9 @@ nav a:first-of-type {
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   header {
