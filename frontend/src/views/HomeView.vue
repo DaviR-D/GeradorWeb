@@ -27,6 +27,12 @@ const atividade = [
       "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
   },
   {
+    template: TheTemplate2,
+    text: "Dog",
+    image:
+      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
+  },
+  {
     template: TheTemplate4,
     images: [
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
@@ -43,12 +49,7 @@ const atividade = [
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
     rightAnswer: "Dog",
   },
-  {
-    template: TheTemplate2,
-    text: "Dog",
-    image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-  },
+  
 ];
 
 const question = () => {

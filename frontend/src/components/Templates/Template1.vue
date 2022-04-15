@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
 
     <li v-for="alternative in data.alternatives" :key="alternative">
@@ -48,6 +49,12 @@ img {
   height: 100%;
   width: 100%;
   border-radius: 5px;
+  margin-bottom: 0.3%;
+}
+.title{
+  text-align: center;
+  color: white;
+  text-decoration: underline;
   margin-bottom: 0.3%;
 }
 </style>

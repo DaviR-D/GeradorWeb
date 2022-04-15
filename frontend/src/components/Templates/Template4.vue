@@ -7,7 +7,7 @@
             <h1>{{ index + 1 }}</h1>
           </th>
           <th scope="col">
-            <img :src="image" style="height: 100px; width: 100px" />
+            <img  :src="image" />
           </th>
           <th scope="col">
             <h1>{{ data.words[data.rightAnswer[index] - 1] }}</h1>
@@ -55,3 +55,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>
