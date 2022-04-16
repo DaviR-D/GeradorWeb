@@ -1,8 +1,8 @@
 <template>
   <div>
-    <img :src="data.image" style="height: 400px; width: 600px" />
-    <h1>{{ data.text }}</h1>
-    <button @click="nextQuestion()">Entendido</button>
+    <img :src="data.image" />
+    <h1 class="h1Template2"> {{ data.text }} </h1>
+    <button class="btnTemplate2" @click="nextQuestion()">Entendido</button>
   </div>
 </template>
 
@@ -34,3 +34,22 @@ export default {
   },
 };
 </script>
+<style scoped>
+img{ 
+  max-width: 100%;
+  max-height: 100%;
+  border-radius:5px;
+  
+}
+.h1Template2{
+  text-align: center;
+  background-color:gray;
+  color: white;
+  font-weight: bold;
+  margin:0 20% 2% 20% ;
+  border-radius: 5px;
+}
+.btnTemplate2{
+  border-radius: 5px;
+}
+</style>

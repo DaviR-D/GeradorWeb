@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container" >
+    <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
-
     <li v-for="alternative in data.alternatives" :key="alternative">
       <button style="border-radius: 5px" @click="checkAnswer(alternative)">
         {{ alternative }}
@@ -43,11 +43,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.container {
+    display: column;
+    text-align: center;
+max-width: 100%;
+}
 img {
-  height: 100%;
-  width: 100%;
+  height: 60%;
+  width: 60%;
   border-radius: 5px;
   margin-bottom: 0.3%;
+}
+.title{
+  color: white;
+  text-decoration: underline;
+  margin-bottom: 0.3%;
+}
+button{
+  width: 60%;
 }
 </style>

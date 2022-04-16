@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <img :src="data.image" style="height: 400px; width: 600px" />
-    <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
-    <button @click="checkAnswer()">Confirmar</button>
+  <div class="container">
+    <h1 class="titleTemplate6">Coloque a resposta correta</h1>
+    <img class="imgTemplate6" :src="data.image" />
+    <p class="inputTemplate6">
+<input  type="text" v-model="answer" @keyup.enter="checkAnswer()" />
+    </p>
+    
+    <button class="btnTemplate6" @click="checkAnswer()">Confirmar</button>
   </div>
 </template>
 
@@ -38,3 +42,29 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  display: inline;
+  justify-content: center;
+}
+.imgTemplate6{
+  border-radius: 5px;
+  max-width: 100%;
+  margin-top:1%;
+}
+.btnTemplate6{
+  border-radius: 5px;
+  max-width: 100%;
+}
+.inputTemplate6{
+  text-align: center;
+  margin-bottom: 2%;
+}
+.titleTemplate6{
+  text-align: center;
+  color: white;
+  text-decoration: underline
+  
+}
+</style>
