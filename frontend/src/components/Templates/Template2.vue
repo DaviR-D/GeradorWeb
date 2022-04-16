@@ -44,6 +44,8 @@ img{
 .h1Template2{
   text-align: center;
   background-color:gray;
+  color: white;
+  font-weight: bold;
   margin:0 20% 2% 20% ;
   border-radius: 5px;
 }
