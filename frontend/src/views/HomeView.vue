@@ -20,6 +20,12 @@ const useIndex = useIndexStore();
 
 const atividade = [
   {
+    template: TheTemplate6,
+    image:
+      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
+    rightAnswer: "Dog",
+  },
+{
     template: TheTemplate1,
     alternatives: ["Cow", "Cat", "Pig", "Bird"],
     rightAnswer: "Pig",
@@ -43,12 +49,7 @@ const atividade = [
     words: ["Dog", "Pig", "Cat", "Horse"],
     rightAnswer: [4, 3, 1, 2],
   },
-  {
-    template: TheTemplate6,
-    image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-    rightAnswer: "Dog",
-  },
+
   
 ];
 

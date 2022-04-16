@@ -75,6 +75,7 @@ nav a:first-of-type {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 100%;
   }
 
   header {
