@@ -11,12 +11,16 @@
 
 <script>
 import { useIndexStore } from "@/stores/index";
+import { useScoreStore } from "@/stores/score";
+import { useCounterStore } from "@/stores/counter";
 
 export default {
   name: "TheTemplate5",
   data() {
     return {
       index: useIndexStore(),
+      score: useScoreStore(),
+      counter: useCounterStore(),
     };
   },
 
@@ -28,14 +32,19 @@ export default {
         word: "",
         images: [1, 2, 3, 4],
         rightAnswer: 1,
+        value: 5,
       }),
     },
   },
   methods: {
     checkAnswer(index) {
-      index == this.data.rightAnswer
-        ? console.log("Você acertou!")
-        : console.log("Você errou!");
+      if (index == this.data.rightAnswer) {
+        console.log("Você acertou!");
+        this.score.update(this.data.value);
+        this.counter.increment();
+      } else {
+        console.log("Você errou!");
+      }
       this.index.increment();
     },
   },

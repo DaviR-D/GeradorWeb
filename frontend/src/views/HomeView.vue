@@ -31,12 +31,14 @@ const atividade = [
     ],
     word: "Pig",
     rightAnswer: 1,
+    value: 5,
   },
   {
     template: TheTemplate6,
     image:
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
     rightAnswer: "Dog",
+    value: 5,
   },
   {
     template: TheTemplate1,
@@ -44,6 +46,7 @@ const atividade = [
     rightAnswer: "Pig",
     image:
       "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
+    value: 5,
   },
   {
     template: TheTemplate2,
@@ -61,6 +64,7 @@ const atividade = [
     ],
     words: ["Dog", "Pig", "Cat", "Horse"],
     rightAnswer: [4, 3, 1, 2],
+    value: 5,
   },
 ];
 

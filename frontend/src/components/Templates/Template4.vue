@@ -3,21 +3,27 @@
     <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
       <h1 class="indexTemplate4">{{ index + 1 }}</h1>
       <img class="imgTemplate4" :src="image" />
-      <h1 class="wordsTemplate4" >{{ data.words[data.rightAnswer[index] - 1] }}</h1>
+      <h1 class="wordsTemplate4">
+        {{ data.words[data.rightAnswer[index] - 1] }}
+      </h1>
       <input class="inputTemplate4" type="number" v-model="answer[index]" />
     </li>
-    <button style="border-radius:5px" @click="checkAnswer()">Confirmar</button>
+    <button style="border-radius: 5px" @click="checkAnswer()">Confirmar</button>
   </div>
 </template>
 
 <script>
 import { useIndexStore } from "@/stores/index";
+import { useScoreStore } from "@/stores/score";
+import { useCounterStore } from "@/stores/counter";
 
 export default {
   name: "TheTemplate4",
   data() {
     return {
       index: useIndexStore(),
+      score: useScoreStore(),
+      counter: useCounterStore(),
       answer: [],
     };
   },
@@ -30,14 +36,19 @@ export default {
         images: [],
         words: [],
         rightAnswer: [],
+        value: 5,
       }),
     },
   },
   methods: {
     checkAnswer() {
-      this.answer.toString() == this.data.rightAnswer.toString()
-        ? console.log("Você acertou!")
-        : console.log("Você errou!");
+      if (this.answer.toString() == this.data.rightAnswer.toString()) {
+        console.log("Você acertou!");
+        this.score.update(this.data.value);
+        this.counter.increment();
+      } else {
+        console.log("Você errou!");
+      }
       this.index.increment();
     },
   },
@@ -45,15 +56,15 @@ export default {
 </script>
 
 <style scoped>
- input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .container {
   display: table-cell;
-   text-align: center;
-   vertical-align: middle;  
+  text-align: center;
+  vertical-align: middle;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -61,13 +72,12 @@ export default {
   max-width: 100%;
 }
 .liTemplate4 {
-  display:flex;
+  display: flex;
   justify-content: center;
-  margin:1% 0 1% 0;
-  
+  margin: 1% 0 1% 0;
 }
 .indexTemplate4 {
-  margin:15% 2% 0 0;
+  margin: 15% 2% 0 0;
   color: white;
 }
 .imgTemplate4 {
@@ -79,10 +89,10 @@ export default {
 }
 .inputTemplate4 {
   margin-top: 17.5%;
-  height: 10%; 
+  height: 10%;
   max-width: 20%;
 }
-.wordsTemplate4{
+.wordsTemplate4 {
   min-width: 20%;
   margin-top: 15%;
   color: white;

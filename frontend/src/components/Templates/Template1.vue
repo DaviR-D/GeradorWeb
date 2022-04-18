@@ -1,5 +1,5 @@
 <template>
-  <div class="container" >
+  <div class="container">
     <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
@@ -12,12 +12,16 @@
 
 <script>
 import { useIndexStore } from "@/stores/index";
+import { useScoreStore } from "@/stores/score";
+import { useCounterStore } from "@/stores/counter";
 
 export default {
   name: "TheTemplate1",
   data() {
     return {
       index: useIndexStore(),
+      score: useScoreStore(),
+      counter: useCounterStore(),
     };
   },
 
@@ -29,14 +33,20 @@ export default {
         image: "",
         alternatives: [1, 2, 3, 4],
         rightAnswer: 1,
+        value: 5,
       }),
     },
   },
   methods: {
     checkAnswer(alternative) {
-      alternative == this.data.rightAnswer
-        ? console.log("Você acertou!")
-        : console.log("Você errou!");
+      if (alternative == this.data.rightAnswer) {
+        console.log("Você acertou!");
+        this.score.update(this.data.value);
+        this.counter.increment();
+      } else {
+        console.log("Você errou!");
+      }
+
       this.index.increment();
     },
   },
@@ -45,9 +55,9 @@ export default {
 
 <style scoped>
 .container {
-    display: column;
-    text-align: center;
-max-width: 100%;
+  display: column;
+  text-align: center;
+  max-width: 100%;
 }
 img {
   height: 60%;
@@ -55,12 +65,12 @@ img {
   border-radius: 5px;
   margin-bottom: 0.3%;
 }
-.title{
+.title {
   color: white;
   text-decoration: underline;
   margin-bottom: 0.3%;
 }
-button{
+button {
   width: 60%;
 }
 </style>
