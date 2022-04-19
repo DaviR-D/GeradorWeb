@@ -36,4 +36,4 @@ O projeto está em desenvolvimento.
 
 
 ---
-Obrigado por ceder seu tempo lendo sobre nosso trabalho.
+Obrigado por ceder seu tempo lendo sobre nosso trabalho!
