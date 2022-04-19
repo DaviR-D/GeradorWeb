@@ -72,5 +72,6 @@ img {
 }
 button {
   width: 60%;
+  cursor: pointer;
 }
 </style>

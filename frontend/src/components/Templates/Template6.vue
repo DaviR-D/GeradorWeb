@@ -65,6 +65,7 @@ export default {
 .btnTemplate6 {
   border-radius: 5px;
   max-width: 100%;
+  cursor: pointer;
 }
 .inputTemplate6 {
   text-align: center;

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="title">Explicação:</h1>
     <img :src="data.image" />
     <h1 class="h1Template2">{{ data.text }}</h1>
     <button class="btnTemplate2" @click="nextQuestion()">Entendido</button>
@@ -50,5 +51,11 @@ img {
 }
 .btnTemplate2 {
   border-radius: 5px;
+  cursor: pointer;
+}
+.title {
+  color: white;
+  text-decoration: underline;
+  text-align: center;
 }
 </style>
