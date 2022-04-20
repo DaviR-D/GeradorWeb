@@ -16,7 +16,6 @@
 <script>
 import { useIndexStore } from "@/stores/index";
 import { useScoreStore } from "@/stores/score";
-import { useCounterStore } from "@/stores/counter";
 
 export default {
   name: "TheTemplate4",
@@ -27,7 +26,6 @@ export default {
     return {
       index: useIndexStore(),
       score: useScoreStore(),
-      counter: useCounterStore(),
       answer: [],
       rightAnswer: [],
     };
@@ -55,10 +53,11 @@ export default {
       if (this.answer.toString() == this.rightAnswer.toString()) {
         console.log("Você acertou!");
         this.score.update(this.data.value);
-        this.counter.increment();
+        this.score.incrementAnswerCounter();
       } else {
         console.log("Você errou!");
       }
+      this.score.incrementQuestionCounter();
       this.index.increment();
     },
   },
