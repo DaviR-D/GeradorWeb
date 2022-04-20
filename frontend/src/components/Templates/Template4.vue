@@ -5,7 +5,7 @@
       <h1 class="indexTemplate4">{{ index + 1 }}</h1>
       <img class="imgTemplate4" :src="image" />
       <h1 class="wordsTemplate4">
-        {{ data.words[data.rightAnswer[index] - 1] }}
+        {{ data.words[rightAnswer[index] - 1] }}
       </h1>
       <input class="inputTemplate4" type="number" v-model="answer[index]" />
     </li>
@@ -20,12 +20,16 @@ import { useCounterStore } from "@/stores/counter";
 
 export default {
   name: "TheTemplate4",
+  mounted() {
+    this.generateAnswer();
+  },
   data() {
     return {
       index: useIndexStore(),
       score: useScoreStore(),
       counter: useCounterStore(),
       answer: [],
+      rightAnswer: [],
     };
   },
 
@@ -36,14 +40,19 @@ export default {
         description: "",
         images: [],
         words: [],
-        rightAnswer: [],
         value: 5,
       }),
     },
   },
   methods: {
+    generateAnswer() {
+      for (let i = 1; i < this.data.words.length + 1; i++) {
+        this.rightAnswer.push(i);
+      }
+      this.rightAnswer.sort(() => Math.random() - 0.5);
+    },
     checkAnswer() {
-      if (this.answer.toString() == this.data.rightAnswer.toString()) {
+      if (this.answer.toString() == this.rightAnswer.toString()) {
         console.log("Você acertou!");
         this.score.update(this.data.value);
         this.counter.increment();
