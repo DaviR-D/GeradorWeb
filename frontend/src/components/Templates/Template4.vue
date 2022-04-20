@@ -5,19 +5,26 @@
       <h1 class="indexTemplate4">{{ index + 1 }}</h1>
       <img class="imgTemplate4" :src="image" />
       <h1 class="wordsTemplate4">
-        {{ data.words[rightAnswer[index] - 1] }}
+        {{ data.words[correctAnswer[index] - 1] }}
       </h1>
       <input class="inputTemplate4" type="number" v-model="answer[index]" />
     </li>
     <button style="border-radius: 5px" @click="checkAnswer()">Confirmar</button>
+    <answer-message
+      v-if="answered"
+      :rightAnswer="rightAnswer"
+      :value="data.value"
+    />
   </div>
 </template>
 
 <script>
 import { useIndexStore } from "@/stores/index";
 import { useScoreStore } from "@/stores/score";
+import AnswerMessage from "@/components/AnswerMessage.vue";
 
 export default {
+  components: { AnswerMessage },
   name: "TheTemplate4",
   mounted() {
     this.generateAnswer();
@@ -27,7 +34,9 @@ export default {
       index: useIndexStore(),
       score: useScoreStore(),
       answer: [],
-      rightAnswer: [],
+      correctAnswer: [],
+      answered: false,
+      rightAnswer: false,
     };
   },
 
@@ -45,20 +54,19 @@ export default {
   methods: {
     generateAnswer() {
       for (let i = 1; i < this.data.words.length + 1; i++) {
-        this.rightAnswer.push(i);
+        this.correctAnswer.push(i);
       }
-      this.rightAnswer.sort(() => Math.random() - 0.5);
+      this.correctAnswer.sort(() => Math.random() - 0.5);
     },
     checkAnswer() {
-      if (this.answer.toString() == this.rightAnswer.toString()) {
+      if (this.answer.toString() == this.correctAnswer.toString()) {
         console.log("Você acertou!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
-      } else {
-        console.log("Você errou!");
+        this.rightAnswer = true;
       }
       this.score.incrementQuestionCounter();
-      this.index.increment();
+      this.answered = true;
     },
   },
 };

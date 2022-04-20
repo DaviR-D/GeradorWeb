@@ -7,20 +7,29 @@
     </p>
 
     <button class="btnTemplate6" @click="checkAnswer()">Confirmar</button>
+    <answer-message
+      v-if="answered"
+      :rightAnswer="rightAnswer"
+      :value="data.value"
+    />
   </div>
 </template>
 
 <script>
 import { useIndexStore } from "@/stores/index";
 import { useScoreStore } from "@/stores/score";
+import AnswerMessage from "@/components/AnswerMessage.vue";
 
 export default {
-  name: "TheTemplate1",
+  components: { AnswerMessage },
+  name: "TheTemplate6",
   data() {
     return {
       index: useIndexStore(),
       score: useScoreStore(),
       answer: "",
+      answered: false,
+      rightAnswer: false,
     };
   },
 
@@ -41,11 +50,10 @@ export default {
         console.log("Você acertou!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
-      } else {
-        console.log("Você errou!");
+        this.rightAnswer = true;
       }
       this.score.incrementQuestionCounter();
-      this.index.increment();
+      this.answered = true;
     },
   },
 };

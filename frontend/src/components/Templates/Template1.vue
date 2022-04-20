@@ -7,19 +7,28 @@
         {{ alternative }}
       </button>
     </li>
+    <answer-message
+      v-if="answered"
+      :rightAnswer="rightAnswer"
+      :value="data.value"
+    />
   </div>
 </template>
 
 <script>
 import { useIndexStore } from "@/stores/index";
 import { useScoreStore } from "@/stores/score";
+import AnswerMessage from "@/components/AnswerMessage.vue";
 
 export default {
+  components: { AnswerMessage },
   name: "TheTemplate1",
   data() {
     return {
       index: useIndexStore(),
       score: useScoreStore(),
+      answered: false,
+      rightAnswer: false,
     };
   },
 
@@ -38,14 +47,12 @@ export default {
   methods: {
     checkAnswer(alternative) {
       if (alternative == this.data.rightAnswer) {
-        console.log("Você acertou!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
-      } else {
-        console.log("Você errou!");
+        this.rightAnswer = true;
       }
       this.score.incrementQuestionCounter();
-      this.index.increment();
+      this.answered = true;
     },
   },
 };

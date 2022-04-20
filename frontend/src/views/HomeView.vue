@@ -22,6 +22,14 @@ const useIndex = useIndexStore();
 
 const atividade = [
   {
+    template: TheTemplate1,
+    alternatives: ["Cow", "Cat", "Pig", "Bird"],
+    rightAnswer: "Pig",
+    image:
+      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
+    value: 5,
+  },
+  {
     template: TheTemplate4,
     images: [
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
@@ -51,14 +59,7 @@ const atividade = [
     rightAnswer: "Dog",
     value: 5,
   },
-  {
-    template: TheTemplate1,
-    alternatives: ["Cow", "Cat", "Pig", "Bird"],
-    rightAnswer: "Pig",
-    image:
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
-    value: 5,
-  },
+
   {
     template: TheTemplate2,
     text: "Dog",
