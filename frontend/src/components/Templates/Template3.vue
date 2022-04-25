@@ -1,7 +1,13 @@
 <template>
   <div>
     <h1 class="title">Explicação:</h1>
-    <img :src="data.image" />
+    <li v-for="(image, index) in data.images" :key="index">
+      <img :src="image" />
+      <h1>
+        <strong>{{ data.words[index] }}</strong>
+      </h1>
+    </li>
+
     <h1 class="h1Template2">{{ data.text }}</h1>
     <button class="btnTemplate2" @click="nextQuestion()">Entendido</button>
   </div>
@@ -11,7 +17,7 @@
 import { useIndexStore } from "@/stores/index";
 
 export default {
-  name: "TheTemplate2",
+  name: "TheTemplate3",
   data() {
     return {
       index: useIndexStore(),
@@ -23,8 +29,8 @@ export default {
       type: Object,
       default: () => ({
         description: "",
-        image: "",
-        text: "",
+        images: "",
+        words: "",
       }),
     },
   },
@@ -37,8 +43,8 @@ export default {
 </script>
 <style scoped>
 img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 40%;
+  max-height: 40%;
   border-radius: 5px;
 }
 .h1Template2 {
