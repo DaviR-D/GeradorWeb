@@ -37,4 +37,11 @@ app.use(
   express.static(path.join(__dirname, "..", "..", "..", "..", "tmp", "avatar"))
 );
 
+app.use(
+  "/questions/images",
+  express.static(
+    path.join(__dirname, "..", "..", "..", "..", "tmp", "questionImages")
+  )
+);
+
 export { app };

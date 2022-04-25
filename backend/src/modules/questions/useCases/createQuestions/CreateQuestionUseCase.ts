@@ -21,7 +21,9 @@ class CreateQuestionUseCase {
       description,
       alternatives,
       answer,
+      score,
       template,
+      questionImages,
       activity_id,
     }: ICreateQuestionDTO,
     id: string
@@ -41,7 +43,9 @@ class CreateQuestionUseCase {
       description,
       alternatives,
       answer,
+      score,
       template,
+      questionImages,
       activity_id,
     });
   }

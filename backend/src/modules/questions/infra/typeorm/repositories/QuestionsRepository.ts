@@ -17,7 +17,9 @@ class QuestionsRepository implements IQuestionsRepository {
     description,
     alternatives,
     answer,
+    score,
     template,
+    questionImages,
     activity_id,
   }: ICreateQuestionDTO): Promise<Question> {
     const question = this.repository.create({
@@ -25,11 +27,21 @@ class QuestionsRepository implements IQuestionsRepository {
       description,
       alternatives,
       answer,
+      score,
       template,
+      questionImages,
       activity_id,
     });
 
     await this.repository.save(question);
+
+    return question;
+  }
+
+  async findQuestionById(question_id: string): Promise<Question> {
+    const question = await this.repository.findOne(question_id, {
+      relations: ["questionImages"],
+    });
 
     return question;
   }

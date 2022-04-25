@@ -28,6 +28,14 @@ class ActivitysRepository implements IActivitysRepository {
 
     return activity;
   }
+
+  async findByUser(user_id: string): Promise<Activity[]> {
+    const activity = await this.repository.find({
+      where: { user_id },
+    });
+
+    return activity;
+  }
 }
 
 export { ActivitysRepository };

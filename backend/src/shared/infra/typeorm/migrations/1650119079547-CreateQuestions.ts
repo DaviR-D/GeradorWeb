@@ -31,6 +31,11 @@ export class CreateQuestions1650119079547 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: "score",
+            type: "integer",
+            isNullable: true,
+          },
+          {
             name: "template",
             type: "integer",
             isNullable: true,

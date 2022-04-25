@@ -7,9 +7,18 @@ class CreateQuestionController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { activity_id } = request.params;
 
-    const { name, description, alternatives, answer, template } = request.body;
+    const { name, description, alternatives, answer, score, template } =
+      request.body;
 
     const { id } = request.user;
+
+    const requestImages = request.files as Express.Multer.File[];
+
+    const n = 1;
+
+    const images = requestImages?.map((image) => {
+      return { id: n * image.filename.length, path: image.filename };
+    });
 
     const createQuestionUseCase = container.resolve(CreateQuestionUseCase);
 
@@ -19,7 +28,9 @@ class CreateQuestionController {
         description,
         alternatives,
         answer,
+        score,
         template,
+        questionImages: images,
         activity_id,
       },
       id

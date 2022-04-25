@@ -4,11 +4,14 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
 import { Activity } from "@modules/activity/infra/typeorm/entities/Activity";
+
+import { QuestionImage } from "./QuestionImages";
 
 @Entity("questions")
 class Question {
@@ -28,6 +31,9 @@ class Question {
   answer: string;
 
   @Column()
+  score: number;
+
+  @Column()
   template: number;
 
   @ManyToOne(() => Activity)
@@ -36,6 +42,12 @@ class Question {
 
   @Column()
   activity_id: string;
+
+  @OneToMany(() => QuestionImage, (image) => image.question, {
+    cascade: ["insert", "update"],
+  })
+  @JoinColumn({ name: "question_id" })
+  questionImages: QuestionImage[];
 
   @CreateDateColumn()
   created_at: Date;
