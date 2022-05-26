@@ -15,13 +15,53 @@ import { useIndexStore } from "@/stores/index";
 import router from "../router";
 //import axios from "axios";
 
-/*axios
-  .get("http://127.0.0.1:8000/getAtividade")
-  .then((response) => (this.atividade1 = response.data));*/
-
 const useIndex = useIndexStore();
 
+/*const templates = {
+  1: () => {
+    /*question[image] = getImage(1)[image];
+    question[answer] = getImage(1)[answer];
+  },
+  2: () => {
+    return 2;
+  },
+  3: () => {
+    return 3;
+  },
+  4: () => {
+    return 4;
+  },
+  5: () => {
+    return 5;
+  },
+  6: () => {
+    return 6;
+  },
+};
+
+const generator = (numQuest) => {
+  let atividade = [];
+  for (let i = 0; i < numQuest; i++)
+    atividade.push(templates[Math.floor(Math.random() * 6) + 1]());
+  return atividade;
+};
+*/
+
 const atividade = [
+  {
+    template: TheTemplate1,
+    alternatives: ["Cow", "Cat", "Pig", "Bird"],
+    rightAnswer: "Pig",
+    image:
+      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
+    value: 5,
+  },
+  {
+    template: TheTemplate2,
+    text: "Dog",
+    image:
+      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
+  },
   {
     template: TheTemplate3,
     images: [
@@ -31,14 +71,6 @@ const atividade = [
       "https://fei-fan-production.s3.amazonaws.com/s3fs-public/160920-irish-2.jpg",
     ],
     words: ["Dog", "Pig", "Cat", "Horse"],
-  },
-  {
-    template: TheTemplate1,
-    alternatives: ["Cow", "Cat", "Pig", "Bird"],
-    rightAnswer: "Pig",
-    image:
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
-    value: 5,
   },
   {
     template: TheTemplate4,
@@ -69,13 +101,6 @@ const atividade = [
       "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
     rightAnswer: "Dog",
     value: 5,
-  },
-
-  {
-    template: TheTemplate2,
-    text: "Dog",
-    image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
   },
 ];
 
