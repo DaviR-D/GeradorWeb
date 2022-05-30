@@ -65,10 +65,11 @@ export default {
   max-width: 100%;
 }
 img {
-  height: 60%;
-  width: 60%;
+  height: 100%;
+  width: 100%;
   border-radius: 5px;
   margin-bottom: 0.3%;
+  border: 3px solid white;
 }
 .title {
   color: white;

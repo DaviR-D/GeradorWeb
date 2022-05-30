@@ -53,32 +53,32 @@ const atividade = [
     alternatives: ["Cow", "Cat", "Pig", "Bird"],
     rightAnswer: "Pig",
     image:
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
+      "https://i.imgur.com/e7yx8QO.png",
     value: 5,
   },
   {
     template: TheTemplate2,
     text: "Dog",
     image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
+      "https://i.imgur.com/yfg3vHp.png",
   },
   {
     template: TheTemplate3,
     images: [
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
-      "https://www.advantagepetcare.com.au/sites/g/files/adhwdz311/files/styles/paragraph_image/public/2020-07/istock-539027929_unrestricted_1110x800.jpg?itok=jiLQgT-c",
-      "https://fei-fan-production.s3.amazonaws.com/s3fs-public/160920-irish-2.jpg",
+      "https://i.imgur.com/yfg3vHp.png",
+      "https://i.imgur.com/e7yx8QO.png",
+      "https://i.imgur.com/RXHgMb3.png",
+      "https://i.imgur.com/vPbaA7i.png",
     ],
     words: ["Dog", "Pig", "Cat", "Horse"],
   },
   {
     template: TheTemplate4,
     images: [
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
-      "https://www.advantagepetcare.com.au/sites/g/files/adhwdz311/files/styles/paragraph_image/public/2020-07/istock-539027929_unrestricted_1110x800.jpg?itok=jiLQgT-c",
-      "https://fei-fan-production.s3.amazonaws.com/s3fs-public/160920-irish-2.jpg",
+      "https://i.imgur.com/yfg3vHp.png",
+      "https://i.imgur.com/e7yx8QO.png",
+      "https://i.imgur.com/RXHgMb3.png",
+      "https://i.imgur.com/vPbaA7i.png",
     ],
     words: ["Dog", "Pig", "Cat", "Horse"],
     value: 5,
@@ -86,10 +86,10 @@ const atividade = [
   {
     template: TheTemplate5,
     images: [
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
-      "https://www.advantagepetcare.com.au/sites/g/files/adhwdz311/files/styles/paragraph_image/public/2020-07/istock-539027929_unrestricted_1110x800.jpg?itok=jiLQgT-c",
-      "https://fei-fan-production.s3.amazonaws.com/s3fs-public/160920-irish-2.jpg",
+      "https://i.imgur.com/yfg3vHp.png",
+      "https://i.imgur.com/e7yx8QO.png",
+      "https://i.imgur.com/RXHgMb3.png",
+      "https://i.imgur.com/vPbaA7i.png",
     ],
     word: "Pig",
     rightAnswer: 1,
@@ -98,7 +98,7 @@ const atividade = [
   {
     template: TheTemplate6,
     image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
+      "https://i.imgur.com/yfg3vHp.png",
     rightAnswer: "Dog",
     value: 5,
   },
