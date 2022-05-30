@@ -52,15 +52,13 @@ const atividade = [
     template: TheTemplate1,
     alternatives: ["Cow", "Cat", "Pig", "Bird"],
     rightAnswer: "Pig",
-    image:
-      "https://i.imgur.com/e7yx8QO.png",
+    image: "https://i.imgur.com/e7yx8QO.png",
     value: 5,
   },
   {
     template: TheTemplate2,
     text: "Dog",
-    image:
-      "https://i.imgur.com/yfg3vHp.png",
+    image: "https://i.imgur.com/yfg3vHp.png",
   },
   {
     template: TheTemplate3,
@@ -97,8 +95,7 @@ const atividade = [
   },
   {
     template: TheTemplate6,
-    image:
-      "https://i.imgur.com/yfg3vHp.png",
+    image: "https://i.imgur.com/yfg3vHp.png",
     rightAnswer: "Dog",
     value: 5,
   },
