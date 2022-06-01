@@ -20,7 +20,6 @@ export default {
       index: useIndexStore(),
       words: [],
       images: [],
-      imageIndex: 0,
       value: "",
       question: {},
     };
