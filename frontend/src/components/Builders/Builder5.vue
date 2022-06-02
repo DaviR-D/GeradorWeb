@@ -48,6 +48,7 @@ export default {
     },
     save() {
       let question = {
+        template: "TheTemplate5",
         word: this.word,
         images: this.images,
         value: this.value,

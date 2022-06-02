@@ -42,6 +42,7 @@ export default {
     },
     save() {
       let question = {
+        template: "TheTemplate1",
         alternatives: this.alternatives,
         image: this.image,
         rightAnswer: this.rightAnswer,
