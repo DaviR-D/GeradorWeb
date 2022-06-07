@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="TheBuilder1" />
+    <component :is="template()" />
   </div>
 </template>
 
@@ -11,12 +11,11 @@ import TheBuilder3 from "@/components/Builders/Builder3.vue";
 import TheBuilder4 from "@/components/Builders/Builder4.vue";
 import TheBuilder5 from "@/components/Builders/Builder5.vue";
 import TheBuilder6 from "@/components/Builders/Builder6.vue";
-//import { useIndexStore } from "@/stores/index";
-//import router from "../router";
+import { useRoute } from "vue-router";
 
-//const useIndex = useIndexStore();
+const route = useRoute();
 
-/*const build = () => {
-  return eval("TheBuilder" + useIndex.getIndex);
-};*/
+const template = () => {
+  return eval("TheBuilder" + route.params.template);
+};
 </script>

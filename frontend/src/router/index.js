@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import FinishView from "../views/FinishView.vue";
 import BuildView from "../views/BuildView.vue";
+import TemplatesView from "../views/TemplatesView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,7 +18,12 @@ const router = createRouter({
       component: FinishView,
     },
     {
-      path: "/build",
+      path: "/templates",
+      name: "Templates",
+      component: TemplatesView,
+    },
+    {
+      path: "/build/:template",
       name: "build",
       component: BuildView,
     },
