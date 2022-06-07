@@ -3,40 +3,39 @@ import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
 import auth from "@config/auth";
-import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
-import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
+import { IStudentsRepository } from "@modules/students/repositories/IStudentsRepository";
+import { IStudentsTokensRepository } from "@modules/students/repositories/IUsersTokensRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
 
 interface IRequest {
-  email: string;
+  username: string;
   password: string;
 }
 
 interface IResponse {
-  user: {
-    name: string;
-    email: string;
+  student: {
+    username: string;
   };
   token: string;
   refresh_token: string;
 }
 
 @injectable()
-class AuthenticateUserUseCase {
+class AuthenticateStudentUseCase {
   constructor(
-    @inject("UsersRepository")
-    private usersRepository: IUsersRepository,
+    @inject("StudentsRepository")
+    private studentsRepository: IStudentsRepository,
 
-    @inject("UsersTokensRepository")
-    private usersTokensRepository: IUsersTokensRepository,
+    @inject("StudentsTokensRepository")
+    private studentsTokensRepository: IStudentsTokensRepository,
 
     @inject("DayjsDateProvider")
     private dateProvider: IDateProvider
   ) {}
 
-  async execute({ email, password }: IRequest): Promise<IResponse> {
-    const user = await this.usersRepository.findByEmail(email);
+  async execute({ username, password }: IRequest): Promise<IResponse> {
+    const student = await this.studentsRepository.findByUsername(username);
     const {
       expires_in_token,
       secret_refresh_token,
@@ -45,23 +44,23 @@ class AuthenticateUserUseCase {
       expires_refresh_token_days,
     } = auth;
 
-    if (!user) {
-      throw new AppError("Email or password incorrect");
+    if (!student) {
+      throw new AppError("Username or password incorrect");
     }
 
-    const passwordMatch = await compare(password, user.password);
+    const passwordMatch = await compare(password, student.password);
 
     if (!passwordMatch) {
-      throw new AppError("Email or password incorrect");
+      throw new AppError("Username or password incorrect");
     }
 
     const token = sign({}, secret_token, {
-      subject: user.id,
+      subject: student.id,
       expiresIn: expires_in_token,
     });
 
-    const refresh_token = sign({ email }, secret_refresh_token, {
-      subject: user.id,
+    const refresh_token = sign({ username }, secret_refresh_token, {
+      subject: student.id,
       expiresIn: expires_in_refresh_token,
     });
 
@@ -69,17 +68,16 @@ class AuthenticateUserUseCase {
       expires_refresh_token_days
     );
 
-    await this.usersTokensRepository.create({
-      user_id: user.id,
+    await this.studentsTokensRepository.create({
+      student_id: student.id,
       refresh_token,
       expires_date: refresh_token_expires_date,
     });
 
     const tokenReturn: IResponse = {
       token,
-      user: {
-        name: user.name,
-        email: user.email,
+      student: {
+        username: student.username,
       },
       refresh_token,
     };
@@ -88,4 +86,4 @@ class AuthenticateUserUseCase {
   }
 }
 
-export { AuthenticateUserUseCase };
+export { AuthenticateStudentUseCase };

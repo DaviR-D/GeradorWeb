@@ -11,7 +11,9 @@ import { IActivitysRepository } from "@modules/activity/repositories/IActivitysR
 import { QuestionsRepository } from "@modules/questions/infra/typeorm/repositories/QuestionsRepository";
 import { IQuestionsRepository } from "@modules/questions/repositories/IQuestionsRepository";
 import { StudentsRepository } from "@modules/students/infra/typeorm/repositories/StudentsRepository";
+import { StudentsTokensRepository } from "@modules/students/infra/typeorm/repositories/StudentsTokensRepository";
 import { IStudentsRepository } from "@modules/students/repositories/IStudentsRepository";
+import { IStudentsTokensRepository } from "@modules/students/repositories/IUsersTokensRepository";
 
 container.registerSingleton<IUsersRepository>(
   "UsersRepository",
@@ -36,4 +38,9 @@ container.registerSingleton<IQuestionsRepository>(
 container.registerSingleton<IStudentsRepository>(
   "StudentsRepository",
   StudentsRepository
+);
+
+container.registerSingleton<IStudentsTokensRepository>(
+  "StudentsTokensRepository",
+  StudentsTokensRepository
 );

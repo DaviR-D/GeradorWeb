@@ -22,10 +22,11 @@ class StudentsRepositoryInMemory implements IStudentsRepository {
     this.students.push(student);
   }
 
-  /* async findByEmail(email: string): Promise<User> {
-    return this.users.find((user) => user.email === email);
+  async findByUsername(username: string): Promise<Student> {
+    return this.students.find((student) => student.username === username);
   }
 
+  /*
   async findById(id: string): Promise<User> {
     return this.users.find((user) => user.id === id);
   } */

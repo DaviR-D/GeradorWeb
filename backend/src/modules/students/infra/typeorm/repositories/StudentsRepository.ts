@@ -26,13 +26,13 @@ class StudentsRepository implements IStudentsRepository {
     await this.repository.save(student);
   }
 
-  /*
-  async findByEmail(email: string): Promise<User> {
-    const user = await this.repository.findOne({ email });
+  async findByUsername(username: string): Promise<Student> {
+    const student = await this.repository.findOne({ username });
 
-    return user;
+    return student;
   }
 
+  /*
   async findById(id: string): Promise<User> {
     const user = await this.repository.findOne(id);
     return user;
