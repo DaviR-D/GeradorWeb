@@ -9,12 +9,8 @@
       </h1>
       <input class="inputTemplate4" type="number" v-model="answer[index]" />
     </li>
-    <button style="border-radius: 5px" @click="checkAnswer()">Confirmar</button>
-    <answer-message
-      v-if="answered"
-      :rightAnswer="rightAnswer"
-      :value="data.value"
-    />
+    <Button class="primary-button mr-2 mb-2" @click="checkAnswer()">Confirmar</Button>
+    <answer-message v-if="answered" :rightAnswer="rightAnswer" :value="data.value" />
   </div>
 </template>
 
@@ -78,6 +74,7 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 .container {
   display: table-cell;
   text-align: center;
@@ -88,15 +85,24 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 100%;
   max-width: 100%;
 }
+
+.title {
+  color: white;
+  text-decoration: underline;
+  text-align: center;
+}
+
 .liTemplate4 {
   display: flex;
   justify-content: center;
   margin: 1% 0 1% 0;
 }
+
 .indexTemplate4 {
   margin: 15% 2% 0 0;
   color: white;
 }
+
 .imgTemplate4 {
   width: 277px;
   height: 200px;
@@ -105,22 +111,28 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 3px;
   border: 3px solid white;
 }
-.inputTemplate4 {
-  margin-top: 17.5%;
-  height: 10%;
-  max-width: 20%;
-}
+
 .wordsTemplate4 {
   min-width: 20%;
   margin-top: 15%;
   color: white;
 }
-button {
+
+.inputTemplate4 {
+  margin-top: 17.5%;
+  height: 10%;
+  max-width: 20%;
+}
+
+Button {
   cursor: pointer;
 }
-.title {
-  color: white;
-  text-decoration: underline;
-  text-align: center;
+
+.primary-button {
+  margin-bottom: 1%;
+  justify-content: center;
+  height: 60px;
+  font-weight: bold;
+  font-size: large;
 }
 </style>
