@@ -76,8 +76,8 @@ h1 {
 .image {
   margin-top: 2%;
   border-radius: 3px;
-  width: 277px;
-  height: 200px;
+  width: 100%;
+  height: 100% ;
   margin: 0 3px 0 0;
   border: 3px solid white;
   cursor: pointer;
