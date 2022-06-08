@@ -3,10 +3,10 @@
     <h1 class="titleTemplate6">Coloque a resposta correta</h1>
     <img class="imgTemplate6" :src="data.image" />
     <p class="inputTemplate6">
-      <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
+      <input type="text"  v-model="answer" @keyup.enter="checkAnswer()" />
     </p>
 
-    <button class="btnTemplate6" @click="checkAnswer()">Confirmar</button>
+    <Button class="primary-button mr-2 mb-2"  @click="checkAnswer()">Confirmar</Button>
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"
@@ -57,6 +57,7 @@ export default {
     },
   },
 };
+
 </script>
 
 <style scoped>
@@ -69,11 +70,6 @@ export default {
   max-width: 100%;
   margin-top: 1%;
 }
-.btnTemplate6 {
-  border-radius: 5px;
-  max-width: 100%;
-  cursor: pointer;
-}
 .inputTemplate6 {
   text-align: center;
   margin-bottom: 2%;
@@ -82,5 +78,13 @@ export default {
   text-align: center;
   color: white;
   text-decoration: underline;
+}
+
+.primary-button {
+  margin-bottom: 1%;
+  justify-content: center;
+  height: 60px;
+  font-weight: bold;
+  font-size: large;
 }
 </style>
