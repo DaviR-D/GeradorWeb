@@ -1,15 +1,16 @@
 <template>
-  <div>
+  <div class="container">
     <h1 class="title">Explicação:</h1>
-    <li v-for="(image, index) in data.images" :key="index">
-      <img :src="image" />
-      <h1>
-        <strong>{{ data.words[index] }}</strong>
-      </h1>
-    </li>
+    <div class="images-aligned">
+      <li class="liTemplate3" v-for="(image, index) in data.images" :key="index">
+        <img :src="image" />
+        <h1 class="h1Template3">
+          <strong>{{ data.words[index] }}</strong>
+        </h1>
+      </li>
+    </div>
 
-    <h1 class="h1Template2">{{ data.text }}</h1>
-    <button class="btnTemplate2" @click="nextQuestion()">Entendido</button>
+    <button class="primary-button mr-2 mb-2" @click="nextQuestion()">Entendido</button>
   </div>
 </template>
 
@@ -42,26 +43,40 @@ export default {
 };
 </script>
 <style scoped>
-img {
-  max-width: 40%;
-  max-height: 40%;
-  border-radius: 5px;
+.container {
+  justify-content: center;
 }
-.h1Template2 {
-  text-align: center;
-  background-color: gray;
-  color: white;
-  font-weight: bold;
-  margin: 0 20% 2% 20%;
-  border-radius: 5px;
-}
-.btnTemplate2 {
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 .title {
   color: white;
   text-decoration: underline;
   text-align: center;
+}
+
+.images-aligned {
+  display: flex;
+}
+.liTemplate3{
+  margin: 2% 1px 2% 0px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.primary-button {
+  color: white;
+  margin-bottom: 1%;
+  justify-content: center;
+  height: 60px;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 5px;
+}
+Button {
+  cursor: pointer;
 }
 </style>
