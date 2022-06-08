@@ -3,9 +3,10 @@
     <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
-      <button style="border-radius: 5px" @click="checkAnswer(alternative)">
+      <Button class="primary-button mr-2 mb-2" @click="checkAnswer(alternative)">
+      
         {{ alternative }}
-      </button>
+      </Button>
     </li>
     <answer-message
       v-if="answered"
@@ -76,8 +77,14 @@ img {
   text-decoration: underline;
   margin-bottom: 0.3%;
 }
-button {
-  width: 60%;
+.primary-button{
+  margin-bottom: 1%;
+  justify-content: center;
+  height: 60px;
+  font-weight: bold;
+  font-size: large;
+}
+Button {
   cursor: pointer;
 }
 </style>
