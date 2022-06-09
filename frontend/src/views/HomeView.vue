@@ -105,6 +105,8 @@ const question = () => {
   if (useIndex.getIndex < atividade.length) return atividade[useIndex.getIndex];
   else router.push("end");
 };
+
+
 </script>
 <style>
 button {
