@@ -2,7 +2,7 @@
   <div class="container">
     <input type="file" @change="onFileChange" />
     <li v-for="i in [0, 1, 2, 3]" :key="i">
-      <input type="text" :placeholder="i + 1" v-model="alternatives[i]" />
+      <input class="inputAlternatives" type="text" :placeholder="i + 1" v-model="alternatives[i]" />
     </li>
     <input type="text" v-model="rightAnswer" placeholder="Resposta correta" />
     <input type="text" v-model="value" placeholder="Valor da questão" />
@@ -56,3 +56,32 @@ export default {
   },
 };
 </script>
+
+<style>
+.container {
+  text-align: center;
+}
+
+.fileUpload {
+  background-color: white;
+  width: 625px;
+  height: 359px;
+}
+
+.p-button.p-component.p-fileupload-choose.fileUpload {
+  justify-content: center;
+  background-color: white;
+  max-width: 625px;
+  max-height: 359px;
+}
+
+.p-button-label {
+  display: none;
+
+}
+
+.p-button-icon.p-button-icon-left.pi.pi-upload::before {
+  padding: 0%;
+  color: black;
+}
+</style>
