@@ -11,10 +11,15 @@ import { RouterView } from "vue-router";
 
 #app {
   list-style: none;
-  max-width: 64%;
-  margin: 0 auto;
+  max-width: 100%;
   padding: 2rem;
   font-weight: normal;
+}
+
+@media (max-width: 1025px) {
+  #app {
+    max-width: 100%;
+  }
 }
 
 header {
