@@ -60,6 +60,24 @@ export default {
   margin: 2% 1px 2% 0px;
 }
 
+@media(max-width:1665px){
+  .images-aligned {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .liTemplate3 {
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 1025px) {
+  .liTemplate3 {
+    margin: 0;
+    z-index: 1;
+  }
+}
+
 img {
   max-width: 100%;
   max-height: 100%;
