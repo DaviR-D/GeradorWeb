@@ -76,7 +76,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .container {
-  display: table-cell;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   vertical-align: middle;
   justify-content: center;
