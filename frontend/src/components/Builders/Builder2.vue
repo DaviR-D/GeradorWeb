@@ -10,6 +10,7 @@
 
 <script>
 import { useIndexStore } from "@/stores/index";
+import router from "@/router";
 
 export default {
   name: "TheBuilder2",
@@ -43,6 +44,7 @@ export default {
         image: this.image,
       };
       this.question = question;
+      router.push("/templates");
       //this.index.increment();
     },
   },
