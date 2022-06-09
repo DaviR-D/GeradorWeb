@@ -12,8 +12,8 @@ import PrimeVue from "primevue/config";
 import "primevue/resources/themes/saga-blue/theme.css"; //theme
 import "primevue/resources/primevue.min.css"; //core css
 import "primeicons/primeicons.css"; //icons
-
-import Button from "primevue/button";
+import FileUpload from "primevue/fileupload"; //input Upload
+import Button from "primevue/button"; // button
 
 const app = createApp(App);
 
@@ -22,6 +22,8 @@ app.use(router);
 app.use(VueAxios, axios);
 app.use(PrimeVue);
 
-app.component('Button',Button);
+app.component('Button', Button);
+app.component('FileUpload', FileUpload);
+
 
 app.mount("#app");
