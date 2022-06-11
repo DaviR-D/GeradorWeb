@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue";
 import FinishView from "../views/FinishView.vue";
 import BuildView from "../views/BuildView.vue";
 import TemplatesView from "../views/TemplatesView.vue";
+import LoginView from "../views/LoginView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: "/build/:template",
       name: "build",
       component: BuildView,
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: LoginView,
     },
   ],
 });
