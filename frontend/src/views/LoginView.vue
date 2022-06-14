@@ -9,6 +9,9 @@
 </template>
 
 <script>
+import InputText from "primevue/inputtext";
+import Password from "primevue/password";
+
 
 export default {
   components: { InputText, Password },
