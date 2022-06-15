@@ -16,10 +16,11 @@ import FileUpload from "primevue/fileupload"; //input Upload
 import Button from "primevue/button"; // button
 
 const app = createApp(App);
+const api = axios.create({ baseURL: "http://127.0.0.1:8000" });
 
 app.use(createPinia());
 app.use(router);
-app.use(VueAxios, axios);
+app.use(VueAxios, axios, api);
 app.use(PrimeVue);
 
 app.component('Button', Button);
