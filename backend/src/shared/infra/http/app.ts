@@ -8,13 +8,15 @@ import path from "path";
 import { AppError } from "@shared/errors/AppError";
 import createConnection from "@shared/infra/typeorm";
 
+import cors from "cors";
+
 import { router } from "./routes";
 
 createConnection();
 const app = express();
+app.use(cors());
 
 app.use(express.json());
-
 app.use(router);
 
 app.use(
