@@ -12,7 +12,7 @@
 <script>
 import InputText from "primevue/inputtext";
 import Password from "primevue/password";
-import useAuthStore from "@/stores/auth";
+import { useAuthStore } from "@/stores/auth";
 import axios from "axios";
 
 export default {
