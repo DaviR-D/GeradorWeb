@@ -10,9 +10,10 @@
 </template>
 
 <script>
+import { useAuthStore } from "@/stores/auth";
 import InputText from "primevue/inputtext";
 import Password from "primevue/password";
-import { useAuthStore } from "@/stores/auth";
+import router from "../router";
 import axios from "axios";
 
 export default {
@@ -35,7 +36,7 @@ export default {
         })
         .then((response) => {
           this.auth.saveToken(response.data.token);
-          console.log(this.auth.getToken);
+          router.push("/");
         });
     },
   },
