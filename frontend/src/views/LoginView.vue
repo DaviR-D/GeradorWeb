@@ -36,6 +36,7 @@ export default {
         })
         .then((response) => {
           this.auth.saveToken(response.data.token);
+          console.log(this.auth.getToken);
           router.push("/");
         });
     },
