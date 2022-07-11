@@ -1,12 +1,14 @@
 <template>
   <div class="container">
-    <input type="file" @change="onFileChange" />
-    <li v-for="i in [0, 1, 2, 3]" :key="i">
+    <li>
+      <input type="file" @change="onFileChange" />
+    </li>
+    <li class="liInputAlternatives" v-for="i in [0, 1, 2, 3]" :key="i">
       <input class="inputAlternatives" type="text" :placeholder="i + 1" v-model="alternatives[i]" />
     </li>
-    <input type="text" v-model="rightAnswer" placeholder="Resposta correta" />
-    <input type="text" v-model="value" placeholder="Valor da questão" />
-    <button @click="save()">Salvar</button>
+    <input class="inputRespostaCorreta" type="text" v-model="rightAnswer" placeholder="Resposta correta" />
+    <input class="inputValorQuestao" type="text" v-model="value" placeholder="Valor da questão" />
+    <Button class="primary-button mr-2 mb-2" @click="save()">Salvar</Button>
   </div>
 </template>
 
@@ -57,31 +59,29 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   text-align: center;
 }
-
-.fileUpload {
-  background-color: white;
-  width: 625px;
-  height: 359px;
+.liInputAlternatives{
+  margin-top: 0.2%;
 }
+.inputAlternatives{
+max-height: 3rem;
 
-.p-button.p-component.p-fileupload-choose.fileUpload {
-  justify-content: center;
-  background-color: white;
-  max-width: 625px;
-  max-height: 359px;
-}
 
-.p-button-label {
-  display: none;
 
 }
+.inputRespostaCorreta{
+  margin-right: 0.3%;
+  margin-top: 0.4%;
+}
 
-.p-button-icon.p-button-icon-left.pi.pi-upload::before {
-  padding: 0%;
-  color: black;
+.primary-button {
+   margin-top: 1%;
+   justify-content: center;
+   height: 60px;
+   font-weight: bold;
+   font-size: large;
 }
 </style>
