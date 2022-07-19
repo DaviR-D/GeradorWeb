@@ -7,7 +7,7 @@
       {{ questionCount }} questões e teve uma pontuação final de {{ score }}
     </p>
 
-    <a href="/"> Voltar </a>
+    <a href="/">Voltar</a>
   </div>
 </template>
 <script setup>
@@ -21,13 +21,17 @@ const questionCount = store.getQuestionCount;
 </script>
 <style scoped>
 a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 24px;
-  width: 30%;
+  width: 400px;
   text-align: center;
   border-radius: 8px;
   background: hsla(160, 100%, 37%, 1);
   box-shadow: 0 15px 20px 0 rgb(1, 160, 107);
   color: whitesmoke;
+  height: 50px;
 }
 
 h1 {
