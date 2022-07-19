@@ -1,10 +1,13 @@
 <template>
   <div class="container">
+    <img src="../assets/100daysui_100icon.png" alt="Troféu" />
     <h1>Parabéns</h1>
     <p>
       Você finalizou a atividade, acertou {{ answerCount }} de
       {{ questionCount }} questões e teve uma pontuação final de {{ score }}
     </p>
+
+    <a href="/"> Voltar </a>
   </div>
 </template>
 <script setup>
@@ -16,9 +19,35 @@ const score = store.getScore;
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 </script>
-<style>
+<style scoped>
+a {
+  font-size: 24px;
+  width: 30%;
+  text-align: center;
+  border-radius: 8px;
+  background: hsla(160, 100%, 37%, 1);
+  box-shadow: 0 15px 20px 0 rgb(1, 160, 107);
+  color: whitesmoke;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 500;
+  margin: 32px 0px;
+}
+
+p {
+  font-size: 24px;
+  text-align: center;
+  width: 80%;
+  margin: 28px 0px;
+}
+
 .container {
+  border-radius: 8px;
   height: 100%;
+  width: 50%;
+  padding: 24px 12px 24px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
