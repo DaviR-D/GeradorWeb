@@ -1,34 +1,39 @@
 <template>
-  <div class="container">
+  <div class="hero">
     <i
       class="pi pi-users"
       style="font-size: 5rem; color: whitesmoke; margin-bottom: 50px"
     ></i>
-    <InputText
-      id="username"
-      type="text"
-      v-model="username"
-      placeholder="E-mail"
-    />
-    <Password
-      v-model="password"
-      :feedback="false"
-      class="inputPassword"
-      placeholder="Password"
-    />
-    <button @click="Login">Login</button>
+    <div class="container">
+      <h1>Seja Bem vindo!</h1>
+      <p>Você esta logando como professor.</p>
+      <InputText
+        class="input"
+        id="username"
+        type="text"
+        v-model="username"
+        placeholder="E-mail"
+      />
+      <InputText
+        type="password"
+        v-model="password"
+        :feedback="false"
+        class="inputPassword input"
+        placeholder="Password"
+      />
+      <button @click="Login">Login</button>
+    </div>
   </div>
 </template>
 
 <script>
 import { useAuthStore } from "@/stores/auth";
 import InputText from "primevue/inputtext";
-import Password from "primevue/password";
 import router from "../router";
 import axios from "axios";
 
 export default {
-  components: { InputText, Password },
+  components: { InputText },
   name: "LoginView",
   data() {
     return {
@@ -55,11 +60,30 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+p {
+  margin-bottom: 90px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: whitesmoke;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 100% !important;
+  height: 10%;
+}
 .container {
   border: solid 1px #29292e;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 16px;
   width: 450px;
   height: 500px;
 
@@ -70,7 +94,8 @@ export default {
 }
 
 .inputPassword {
-  margin: 10px 0 10px;
+  margin: 10px 0px 80px 0px;
+  width: 100% !important;
 }
 
 button {

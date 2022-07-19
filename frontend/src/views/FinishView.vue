@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <h1>
-      Parabéns, você finalizou a atividade, acertou {{ answerCount }} de
+    <h1>Parabéns</h1>
+    <p>
+      Você finalizou a atividade, acertou {{ answerCount }} de
       {{ questionCount }} questões e teve uma pontuação final de {{ score }}
-    </h1>
+    </p>
   </div>
 </template>
 <script setup>
@@ -16,7 +17,15 @@ const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 </script>
 <style>
-.container{
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.container p {
+  color: whitesmoke;
 }
 </style>
