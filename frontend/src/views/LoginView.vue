@@ -23,6 +23,7 @@
       />
       <button @click="Login">Login</button>
     </div>
+    <a href="">Voltar</a>
   </div>
 </template>
 
@@ -62,6 +63,7 @@ export default {
 
 <style scoped>
 p {
+  font-size: 18px;
   margin-bottom: 90px;
 }
 
@@ -80,6 +82,7 @@ h1 {
 .input {
   width: 100% !important;
   height: 10%;
+  font-size: 18px;
 }
 .container {
   border: solid 1px #29292e;
@@ -106,9 +109,28 @@ button {
   font-size: 24px;
   cursor: pointer;
   transition: ease 0.75s;
+  background: hsla(160, 100%, 37%, 1);
 }
 
 button:hover {
   opacity: 0.78;
+}
+
+i:hover {
+  opacity: 0.7;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-size: 24px;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px -50px 80px 0 rgb(1, 160, 107);
+  color: whitesmoke;
 }
 </style>

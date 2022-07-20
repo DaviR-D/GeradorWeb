@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <t v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
-      <a @click="build(i)">Template {{ i }}</a>
+      <button @click="build(i)">Template {{ i }}</button>
     </t>
     <a @click="router.push('/')" class="colors">Encerrar</a>
   </div>
@@ -24,7 +24,9 @@ const build = (i) => {
   height: 60%;
 }
 
+button,
 a {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;

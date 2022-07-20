@@ -35,7 +35,7 @@ export default {
 };
 //import router from "../router";
 </script>
-<style>
+<style scoped>
 button {
   font-size: 100%;
   width: 100%;

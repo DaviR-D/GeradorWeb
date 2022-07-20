@@ -1,14 +1,25 @@
 <template>
   <div class="container">
-    <li>
-      <input type="file" @change="onFileChange" />
-    </li>
-    <li class="liInputAlternatives" v-for="i in [0, 1, 2, 3]" :key="i">
-      <input class="inputAlternatives" type="text" :placeholder="i + 1" v-model="alternatives[i]" />
-    </li>
-    <input class="inputRespostaCorreta" type="text" v-model="rightAnswer" placeholder="Resposta correta" />
-    <input class="inputValorQuestao" type="text" v-model="value" placeholder="Valor da questão" />
-    <Button class="primary-button mr-2 mb-2" @click="save()">Salvar</Button>
+    <input type="file" @change="onFileChange" />
+    <input
+      class="input margin"
+      type="text"
+      placeholder="Escreva as opções separando às por vírgulas"
+    />
+    <p>Exemplo: Carro, Moto, Casa, Computador</p>
+    <input
+      class="input"
+      type="text"
+      v-model="rightAnswer"
+      placeholder="Resposta correta"
+    />
+    <input
+      class="input"
+      type="text"
+      v-model="value"
+      placeholder="Valor da questão"
+    />
+    <Button class="" @click="save()">Salvar</Button>
   </div>
 </template>
 
@@ -60,28 +71,46 @@ export default {
 </script>
 
 <style scoped>
+input[type="file"] {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.input {
+  height: 4%;
+  width: 25%;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+button {
   text-align: center;
-}
-.liInputAlternatives{
-  margin-top: 0.2%;
-}
-.inputAlternatives{
-max-height: 3rem;
-
-
-
-}
-.inputRespostaCorreta{
-  margin-right: 0.3%;
-  margin-top: 0.4%;
+  border-radius: 4px !important;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  transition: ease 0.75s;
+  background: hsla(160, 100%, 37%, 1);
+  width: 30%;
 }
 
-.primary-button {
-   margin-top: 1%;
-   justify-content: center;
-   height: 60px;
-   font-weight: bold;
-   font-size: large;
+button:hover {
+  opacity: 0.78;
+}
+
+.margin {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 20px;
 }
 </style>

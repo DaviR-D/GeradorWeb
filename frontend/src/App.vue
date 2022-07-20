@@ -29,7 +29,8 @@ a,
   transition: 0.4s;
 }
 
-a:hover {
+a:hover,
+button:hover {
   opacity: 0.8;
 }
 </style>
