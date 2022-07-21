@@ -1,15 +1,29 @@
 <template>
-  <div class="container">
-    <h1 class="title">Associe as imagens com as palavras:</h1>
-    <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
-      <h1 class="indexTemplate4">{{ index + 1 }}</h1>
-      <img class="imgTemplate4" :src="image" />
-      <h1 class="wordsTemplate4">
-        {{ data.words[correctAnswer[index] - 1] }}
+  <div>
+      <h1 class="title">
+        Associe as imagens com as palavras:
       </h1>
-      <input class="inputTemplate4" type="number" v-model="answer[index]" />
-    </li>
-    <Button class="primary-button mr-2 mb-2" @click="checkAnswer()">Confirmar</Button>
+      <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
+        <div class="displayTemplate4">
+          <div>
+            <h1 class="indexTemplate4">{{ index + 1 }}</h1>
+          </div>
+          <div>
+            <img class="imgTemplate4" :src="image" />
+          </div>
+          <div>
+            <h1 class="wordsTemplate4">
+              {{ data.words[correctAnswer[index] - 1] }}
+            </h1>
+          </div>
+          <div>
+            <input class="inputTemplate4" type="number" v-model="answer[index]" />
+          </div>
+      </div>
+     </li>
+
+    
+    <button class="primary-button mr-2 mb-2" @click="checkAnswer()">Confirmar</button>
     <answer-message v-if="answered" :rightAnswer="rightAnswer" :value="data.value" />
   </div>
 </template>
@@ -75,18 +89,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  vertical-align: middle;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-}
-
 .title {
   color: white;
   text-decoration: underline;
@@ -94,13 +96,19 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .liTemplate4 {
-  display: flex;
-  justify-content: center;
+  list-style:none ;
   margin: 1% 0 1% 0;
 }
 
+.displayTemplate4{
+  display: flex;
+  align-items:center;
+
+}
+
 .indexTemplate4 {
-  margin: 15% 2% 0 0;
+  text-align:center;
+  margin-right:15px;
   color: white;
 }
 
@@ -108,24 +116,25 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 277px;
   height: 200px;
   max-height: 100%;
-  margin: 0 auto;
+  margin-right:15px;
   border-radius: 3px;
   border: 3px solid white;
 }
 
 .wordsTemplate4 {
-  min-width: 20%;
-  margin-top: 15%;
+  margin-right:15px;
+  min-width: 81px;
   color: white;
 }
 
 .inputTemplate4 {
-  margin-top: 17.5%;
   height: 10%;
-  max-width: 20%;
+  max-width: 150px;
 }
 
-Button {
+Button:hover{
+  color:white;
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -135,5 +144,6 @@ Button {
   height: 60px;
   font-weight: bold;
   font-size: large;
+  border-radius: 5px;
 }
 </style>

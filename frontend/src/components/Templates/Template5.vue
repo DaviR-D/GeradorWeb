@@ -82,7 +82,12 @@ h1 {
   border: 3px solid white;
   cursor: pointer;
 }
+img:hover{
+  opacity:0.5;
+  transition:0.4s;
+}
 li {
+  list-style:none ;
   text-align: center;
   max-width: 100%;
 }

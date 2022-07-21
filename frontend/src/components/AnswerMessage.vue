@@ -1,10 +1,15 @@
 <template>
   <div :style="messageColor" class="container">
-    <h1 class="h1Message">{{ answerMessage }}</h1>
-    <h1 class="h1Button">
-      <img class="acertou" :src="imageURL" alt="">
+    <div>
+        <h1 class="h1Message">{{ answerMessage }}</h1>
+    </div>
+    <div>
+      <h1 class="h1Button">
+      <img class="imgMessage" :src="imageURL" alt="">
       <button style="border-radius: 5px" @click="index.increment()">OK</button>
     </h1>
+    </div>
+    
   </div>
 </template>
 
@@ -42,7 +47,7 @@ export default {
         this.imageURL = "https://i.imgur.com/XgL6soA.png";
       } else {
         this.messageColor = "background-color: black";
-        this.answerMessage = "Você errou";
+        this.answerMessage = "Você errou!";
         this.messageColor = "background-color: #ff261b";
         this.imageURL = "https://i.imgur.com/nztO8KF.png";
       }
@@ -52,15 +57,21 @@ export default {
 };
 </script>
 <style scoped>
-.container {}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
 
-.acertou {
+.imgMessage {
   max-width: 10%;
   padding-right: 1%;
 
 }
 
 .h1Message {
+  color: white;
   justify-content: center;
   border-radius: 5px;
 }
@@ -69,5 +80,15 @@ export default {
   display: flex;
   align-items: center;
   padding-right: 1%;
+}
+button{
+  background-color: rgb(10,117,154);
+}
+button:hover{
+  color: whitesmoke;
+  transition: 0.5s;
+  cursor: pointer;
+  background-color: rgb(5, 110, 172);
+  opacity: 5;
 }
 </style>

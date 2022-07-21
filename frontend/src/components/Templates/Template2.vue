@@ -1,11 +1,11 @@
 <template>
-   <div id="container">
-      <h1 class="title">Explicação:</h1>
-      <img :src="data.image" />
-      <h1 class="h1Template2">{{ data.text }}</h1>
-      <Button class="primary-button mr-2 mb-2" @click="nextQuestion()"
-         >Entendido</Button
-      >
+   <div class="container">
+         <h1 class="title">Explicação:</h1>
+         <img :src="data.image" />
+         <h1 class="h1Template2">{{ data.text }}</h1>
+         <button class="primary-button mr-2 mb-2" @click="nextQuestion()">
+            Entendido
+         </button>
    </div>
 </template>
 
@@ -51,8 +51,8 @@ img {
 }
 .h1Template2 {
    text-align: center;
-   background-color: gray;
-   color: white;
+   background-color: #4b4b4b;
+   color: #a9a9a9;
    font-weight: bold;
    margin: 0 20% 2% 20%;
    border-radius: 5px;
@@ -63,10 +63,16 @@ img {
    height: 60px;
    font-weight: bold;
    font-size: large;
+   border-radius: 5px;
 }
 .title {
    color: white;
    text-decoration: underline;
    text-align: center;
 }
+Button:hover{
+   color:white;
+   transition: 0.3s;
+   cursor: pointer;
+ }
 </style>

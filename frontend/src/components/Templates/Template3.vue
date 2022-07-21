@@ -57,6 +57,8 @@ export default {
   display: flex;
 }
 .liTemplate3{
+  text-align:center;
+  list-style:none ;
   margin: 2% 1px 2% 0px;
 }
 
@@ -86,7 +88,6 @@ img {
 }
 
 .primary-button {
-  color: white;
   margin-bottom: 1%;
   justify-content: center;
   height: 60px;
@@ -94,7 +95,9 @@ img {
   font-size: large;
   border-radius: 5px;
 }
-Button {
+Button:hover{
+  color:white;
+  transition: 0.3s;
   cursor: pointer;
 }
 </style>

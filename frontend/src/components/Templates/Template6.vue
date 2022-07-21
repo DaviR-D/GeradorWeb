@@ -6,7 +6,7 @@
       <input type="text"  v-model="answer" @keyup.enter="checkAnswer()" />
     </p>
 
-    <Button class="primary-button mr-2 mb-2"  @click="checkAnswer()">Confirmar</Button>
+    <button class="primary-button mr-2 mb-2"  @click="checkAnswer()">Confirmar</Button>
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"
@@ -86,5 +86,11 @@ export default {
   height: 60px;
   font-weight: bold;
   font-size: large;
+  border-radius: 5px;
+}
+Button:hover{
+  color:white;
+  transition: 0.3s;
+  cursor: pointer;
 }
 </style>
