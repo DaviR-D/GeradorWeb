@@ -1,9 +1,16 @@
 <template>
   <div class="container">
-    <li v-for="i in [0, 1, 2, 3]" :key="i">
-      <input type="file" @change="(e) => onFileChange(e, i)" />
-      <input type="text" :placeholder="i + 1" v-model="words[i]" />
-    </li>
+    <ol>
+      <li v-for="i in [0, 1, 2, 3]" :key="i">
+        <input type="file" @change="(e) => onFileChange(e, i)" />
+        <input
+          type="text"
+          :placeholder="i + 1"
+          v-model="words[i]"
+          class="input"
+        />
+      </li>
+    </ol>
 
     <button @click="save()">Salvar</button>
   </div>
@@ -51,3 +58,51 @@ export default {
   },
 };
 </script>
+
+<style>
+input[type="file"] {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+}
+
+ol {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.input {
+  height: 80%;
+  width: 25%;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+button {
+  text-align: center;
+  border-radius: 4px !important;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  transition: ease 0.75s;
+  background: hsla(160, 100%, 37%, 1);
+  width: 50%;
+}
+
+button:hover {
+  opacity: 0.78;
+}
+</style>
