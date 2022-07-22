@@ -16,7 +16,7 @@
 <script setup>
 import router from "../router";
 
-let logado = true;
+let logado = false;
 </script>
 <style scoped>
 .container {
