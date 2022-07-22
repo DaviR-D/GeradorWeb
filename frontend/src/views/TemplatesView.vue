@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <t v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
-      <button @click="build(i)">Template {{ i }}</button>
+      <a @click="build(i)">Template {{ i }}</a>
     </t>
     <a @click="router.push('/')" class="colors">Encerrar</a>
   </div>
