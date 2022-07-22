@@ -19,7 +19,7 @@
       v-model="value"
       placeholder="Valor da questão"
     />
-    <Button class="" @click="save()">Salvar</Button>
+    <a class="" @click="save()">Salvar</a>
   </div>
 </template>
 
@@ -90,7 +90,7 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 
-button {
+a {
   text-align: center;
   border-radius: 4px !important;
   color: whitesmoke;
