@@ -1,45 +1,53 @@
 <template>
-  <div>
-    <component :is="question().template" :data="question()" />
+  <div class="container">
+    <div v-if="!logado">
+      <button @click="router.push('/login')">Login</button>
+      <button>Registro</button>
+    </div>
+    <div v-else class="options">
+      <a @click="router.push('/templates')" style="margin-bottom: 25px">
+        <t> Nova atividade </t>
+      </a>
+      <a @click="router.push('/list-lessons')">Atividades salvas</a>
+    </div>
   </div>
 </template>
 
 <script setup>
-import QuestionTemplate1 from "@/components/Templates/Template1.vue";
-import QuestionTemplate6 from "@/components/Templates/Template6.vue";
-import TheTemplate2 from "@/components/Templates/Template2.vue";
-import { useIndexStore } from "@/stores/index";
-import axios from "axios";
+import router from "../router";
 
-/*axios
-  .get("http://127.0.0.1:8000/getAtividade")
-  .then((response) => (this.atividade1 = response.data));*/
-
-const useIndex = useIndexStore();
-
-const atividade = [
-  {
-    template: QuestionTemplate6,
-    image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-    rightAnswer: "Dog",
-  },
-  {
-    template: TheTemplate2,
-    text: "Dog",
-    image:
-      "https://hddesktopwallpapers.in/wp-content/uploads/2015/09/beagle-dog-breeds-680x425.jpg",
-  },
-  {
-    template: eval("QuestionTemplate1"),
-    alternatives: ["Cow", "Cat", "Pig", "Bird"],
-    rightAnswer: "Pig",
-    image:
-      "https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555927033/shape/mentalfloss/200265153-001.jpg?itok=pt3-Ofki",
-  },
-];
-
-const question = () => {
-  return atividade[useIndex.getIndex];
-};
+let logado = true;
 </script>
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 24px;
+  width: 25%;
+  height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  background: hsla(160, 100%, 37%, 1);
+  box-shadow: 0 15px 20px 0 rgb(1, 160, 107);
+  color: whitesmoke;
+}
+</style>

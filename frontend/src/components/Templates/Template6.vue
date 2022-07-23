@@ -1,20 +1,35 @@
 <template>
-  <div>
-    <img :src="data.image" style="height: 400px; width: 600px" />
-    <input type="text" v-model="answer" />
-    <button @click="checkAnswer()">Confirmar</button>
+  <div class="container">
+    <h1 class="titleTemplate6">Coloque a resposta correta</h1>
+    <img class="imgTemplate6" :src="data.image" />
+    <p class="inputTemplate6">
+      <input type="text"  v-model="answer" @keyup.enter="checkAnswer()" />
+    </p>
+
+    <button class="primary-button mr-2 mb-2"  @click="checkAnswer()">Confirmar</Button>
+    <answer-message
+      v-if="answered"
+      :rightAnswer="rightAnswer"
+      :value="data.value"
+    />
   </div>
 </template>
 
 <script>
 import { useIndexStore } from "@/stores/index";
+import { useScoreStore } from "@/stores/score";
+import AnswerMessage from "@/components/AnswerMessage.vue";
 
 export default {
-  name: "QuestionTemplate1",
+  components: { AnswerMessage },
+  name: "TheTemplate6",
   data() {
     return {
       index: useIndexStore(),
+      score: useScoreStore(),
       answer: "",
+      answered: false,
+      rightAnswer: false,
     };
   },
 
@@ -25,16 +40,57 @@ export default {
         description: "",
         image: "",
         rightAnswer: 1,
+        value: 5,
       }),
     },
   },
   methods: {
     checkAnswer() {
-      this.answer.toLowerCase() == this.data.rightAnswer.toLowerCase()
-        ? console.log("Você acertou!")
-        : console.log("Você errou!");
-      this.index.increment();
+      if (this.answer.toLowerCase() == this.data.rightAnswer.toLowerCase()) {
+        console.log("Você acertou!");
+        this.score.update(this.data.value);
+        this.score.incrementAnswerCounter();
+        this.rightAnswer = true;
+      }
+      this.score.incrementQuestionCounter();
+      this.answered = true;
     },
   },
 };
+
 </script>
+
+<style scoped>
+.container {
+  display: inline;
+  justify-content: center;
+}
+.imgTemplate6 {
+  border-radius: 5px;
+  max-width: 100%;
+  margin-top: 1%;
+}
+.inputTemplate6 {
+  text-align: center;
+  margin-bottom: 2%;
+}
+.titleTemplate6 {
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+}
+
+.primary-button {
+  margin-bottom: 1%;
+  justify-content: center;
+  height: 60px;
+  font-weight: bold;
+  font-size: large;
+  border-radius: 5px;
+}
+Button:hover{
+  color:white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+</style>
