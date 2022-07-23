@@ -49,7 +49,6 @@ a {
   height: 50px;
   text-align: center;
   border-radius: 8px;
-  box-shadow: 0px -50px 80px 0 rgb(1, 160, 107);
   color: whitesmoke;
 }
 
