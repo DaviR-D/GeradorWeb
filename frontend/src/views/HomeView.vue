@@ -14,8 +14,12 @@
 </template>
 
 <script setup>
+//import { useAuthStore } from "@/stores/auth";
 import router from "../router";
-
+/*
+const auth = useAuthStore();
+const token = auth.getToken;
+*/
 let logado = true;
 </script>
 <style scoped>
