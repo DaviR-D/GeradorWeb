@@ -1,21 +1,25 @@
 <template>
   <div>
-    <li v-for="lesson in lessons" :key="lesson">{{ lesson }}</li>
+    <li v-for="lesson in lessons" :key="lesson">
+      <lesson-item :name="lesson.name" />
+    </li>
   </div>
 </template>
 
 <script>
 import { useAuthStore } from "@/stores/auth";
 import axios from "axios";
+import LessonItem from "@/components/LessonItem.vue";
 
 export default {
+  components: { LessonItem },
   name: "ListView",
   mounted() {
-    this.Busca();
+    //this.Busca();
   },
   data() {
     return {
-      lessons: [],
+      lessons: [{ name: "Atividade1" }, { name: "Atividade2" }],
       auth: useAuthStore(),
     };
   },
