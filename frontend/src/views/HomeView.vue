@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="token == 'token'">
+    <div v-if="!logado">
       <button @click="router.push('/login')">Login</button>
       <button>Registro</button>
     </div>
@@ -17,14 +17,10 @@
 import { useAuthStore } from "@/stores/auth";
 import router from "../router";
 
-const auth = useAuthStore();
-let token = auth.getToken;
+let logado = true;
 
-//token = "token";
-
-console.log(token);
-
-//let logado = true;
+//const auth = useAuthStore();
+//let token = auth.getToken;
 </script>
 <style scoped>
 .container {
