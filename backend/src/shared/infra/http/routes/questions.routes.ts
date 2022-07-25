@@ -4,6 +4,7 @@ import multer from "multer";
 import uploadConfig from "@config/upload";
 import { CreateQuestionController } from "@modules/questions/useCases/createQuestions/CreateQuestionController";
 import { ListQuestionByIdController } from "@modules/questions/useCases/listQuestionById/ListQuestionByIdController";
+import { ListQuestionsByActivityController } from "@modules/questions/useCases/listQuestionsByActivity/ListQuestionByIdController";
 
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { ensureTeacher } from "../middlewares/ensureTeacher";
@@ -16,6 +17,8 @@ const uploadQuestionImages = multer(
 
 const createQuestionController = new CreateQuestionController();
 const listQuestionByIdController = new ListQuestionByIdController();
+const listQuestionByActivityController =
+  new ListQuestionsByActivityController();
 
 questionsRoutes.post(
   "/:activity_id",
@@ -29,6 +32,11 @@ questionsRoutes.get(
   "/:question_id",
   ensureAuthenticated,
   listQuestionByIdController.handle
+);
+
+questionsRoutes.get(
+  "/questions/:activity_id",
+  listQuestionByActivityController.handle
 );
 
 export { questionsRoutes };

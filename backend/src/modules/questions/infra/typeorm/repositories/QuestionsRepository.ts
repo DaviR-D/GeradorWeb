@@ -45,6 +45,15 @@ class QuestionsRepository implements IQuestionsRepository {
 
     return question;
   }
+
+  async findQuestionsByActivity(activity_id: string): Promise<Question[]> {
+    const questions = await this.repository.find({
+      where: { activity_id },
+      relations: ["questionImages"],
+    });
+
+    return questions;
+  }
 }
 
 export { QuestionsRepository };
