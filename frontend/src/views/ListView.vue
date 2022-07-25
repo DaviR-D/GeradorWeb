@@ -1,8 +1,12 @@
 <template>
-  <div>
+  <div v-if="lessons.length">
     <li v-for="lesson in lessons" :key="lesson">
       <lesson-item :name="lesson.name" />
     </li>
+  </div>
+  <div v-else>
+    <h1>Nenhuma atividade disponível</h1>
+    <button @click="newLesson()">Criar atividade</button>
   </div>
 </template>
 
@@ -10,6 +14,7 @@
 import { useAuthStore } from "@/stores/auth";
 import axios from "axios";
 import LessonItem from "@/components/LessonItem.vue";
+import router from "@/router";
 
 export default {
   components: { LessonItem },
@@ -34,6 +39,9 @@ export default {
         .then((response) => {
           this.lessons = response.data;
         });
+    },
+    newLesson() {
+      router.push("/templates");
     },
   },
 };
