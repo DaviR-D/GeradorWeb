@@ -1,30 +1,33 @@
 <template>
   <div>
-      <h1 class="title">
-        Associe as imagens com as palavras:
-      </h1>
-      <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
-        <div class="displayTemplate4">
-          <div>
-            <h1 class="indexTemplate4">{{ index + 1 }}</h1>
-          </div>
-          <div>
-            <img class="imgTemplate4" :src="image" />
-          </div>
-          <div>
-            <h1 class="wordsTemplate4">
-              {{ data.words[correctAnswer[index] - 1] }}
-            </h1>
-          </div>
-          <div>
-            <input class="inputTemplate4" type="number" v-model="answer[index]" />
-          </div>
+    <h1 class="title">Associe as imagens com as palavras:</h1>
+    <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
+      <div class="displayTemplate4">
+        <div>
+          <h1 class="indexTemplate4">{{ index + 1 }}</h1>
+        </div>
+        <div>
+          <img class="imgTemplate4" :src="image" />
+        </div>
+        <div>
+          <h1 class="wordsTemplate4">
+            {{ data.words[correctAnswer[index] - 1] }}
+          </h1>
+        </div>
+        <div>
+          <input class="inputTemplate4" type="number" v-model="answer[index]" />
+        </div>
       </div>
-     </li>
+    </li>
 
-    
-    <button class="primary-button mr-2 mb-2" @click="checkAnswer()">Confirmar</button>
-    <answer-message v-if="answered" :rightAnswer="rightAnswer" :value="data.value" />
+    <button class="primary-button mr-2 mb-2" @click="checkAnswer()">
+      Confirmar
+    </button>
+    <answer-message
+      v-if="answered"
+      :rightAnswer="rightAnswer"
+      :value="data.value"
+    />
   </div>
 </template>
 
@@ -96,19 +99,18 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .liTemplate4 {
-  list-style:none ;
+  list-style: none;
   margin: 1% 0 1% 0;
 }
 
-.displayTemplate4{
+.displayTemplate4 {
   display: flex;
-  align-items:center;
-
+  align-items: center;
 }
 
 .indexTemplate4 {
-  text-align:center;
-  margin-right:15px;
+  text-align: center;
+  margin-right: 15px;
   color: white;
 }
 
@@ -116,13 +118,13 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 277px;
   height: 200px;
   max-height: 100%;
-  margin-right:15px;
+  margin-right: 15px;
   border-radius: 3px;
   border: 3px solid white;
 }
 
 .wordsTemplate4 {
-  margin-right:15px;
+  margin-right: 15px;
   min-width: 81px;
   color: white;
 }
@@ -132,8 +134,8 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 150px;
 }
 
-Button:hover{
-  color:white;
+Button:hover {
+  color: white;
   transition: 0.3s;
   cursor: pointer;
 }
