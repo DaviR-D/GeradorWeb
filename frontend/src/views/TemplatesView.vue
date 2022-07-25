@@ -18,10 +18,9 @@ const build = (i) => {
 <style scoped>
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  height: 60%;
+  height: 100%;
 }
 
 button,
@@ -42,5 +41,6 @@ a {
 .colors {
   margin-top: 25px;
   background: hsla(160, 100%, 37%, 1);
+  margin-bottom: 20px;
 }
 </style>
