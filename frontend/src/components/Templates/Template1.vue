@@ -91,12 +91,12 @@ img {
   border-radius: 5px;
 }
 
-Button:hover{
-  color:white;
+Button:hover {
+  color: white;
   transition: 0.3s;
   cursor: pointer;
 }
-li{
-  list-style:none ;
+li {
+  list-style: none;
 }
 </style>

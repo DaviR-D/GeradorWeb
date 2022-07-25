@@ -1,21 +1,30 @@
 <template>
-  <div>
-    <li v-for="lesson in lessons" :key="lesson">{{ lesson }}</li>
+  <div v-if="lessons.length">
+    <li v-for="lesson in lessons" :key="lesson">
+      <lesson-item :name="lesson.name" />
+    </li>
+  </div>
+  <div v-else>
+    <h1>Nenhuma atividade disponível</h1>
+    <button @click="newLesson()">Criar atividade</button>
   </div>
 </template>
 
 <script>
 import { useAuthStore } from "@/stores/auth";
 import axios from "axios";
+import LessonItem from "@/components/LessonItem.vue";
+import router from "@/router";
 
 export default {
+  components: { LessonItem },
   name: "ListView",
   mounted() {
-    this.Busca();
+    //this.Busca();
   },
   data() {
     return {
-      lessons: [],
+      lessons: [{ name: "Atividade1" }, { name: "Atividade2" }],
       auth: useAuthStore(),
     };
   },
@@ -30,6 +39,9 @@ export default {
         .then((response) => {
           this.lessons = response.data;
         });
+    },
+    newLesson() {
+      router.push("/templates");
     },
   },
 };
