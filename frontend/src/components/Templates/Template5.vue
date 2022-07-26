@@ -61,33 +61,28 @@ export default {
 };
 </script>
 <style scoped>
-.dataWord {
-  margin: 0 30% 2% 30%;
-  border: 2px solid white;
-}
 h1 {
-  margin-bottom: 2%;
   text-align: center;
   color: white;
 }
 .container {
   display: flex;
+  width: 100%;
+  height: 100%;
 }
 .image {
   margin-top: 2%;
   border-radius: 3px;
-  width: 100%;
-  height: 100% ;
   margin: 0 3px 0 0;
   border: 3px solid white;
   cursor: pointer;
 }
-img:hover{
-  opacity:0.5;
-  transition:0.4s;
+img:hover {
+  opacity: 0.5;
+  transition: 0.4s;
 }
 li {
-  list-style:none ;
+  list-style: none;
   text-align: center;
   max-width: 100%;
 }

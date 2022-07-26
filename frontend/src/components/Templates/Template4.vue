@@ -20,9 +20,7 @@
       </div>
     </li>
 
-    <button class="primary-button mr-2 mb-2" @click="checkAnswer()">
-      Confirmar
-    </button>
+    <button class="primary-button" @click="checkAnswer()">Confirmar</button>
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"
@@ -147,5 +145,6 @@ Button:hover {
   font-weight: bold;
   font-size: large;
   border-radius: 5px;
+  width: 100%;
 }
 </style>
