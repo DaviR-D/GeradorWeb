@@ -19,6 +19,7 @@ import { RouterView } from "vue-router";
 
 body {
   height: 100%;
+  min-height: auto;
 }
 
 a,
