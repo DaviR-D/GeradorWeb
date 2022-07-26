@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1 class="title">Associe as imagens com as palavras:</h1>
     <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
       <div class="displayTemplate4">
@@ -90,6 +90,11 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.container {
+  width: 100%;
+  height: 100%;
+}
+
 .title {
   color: white;
   text-decoration: underline;
@@ -98,7 +103,6 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .liTemplate4 {
   list-style: none;
-  margin: 1% 0 1% 0;
 }
 
 .displayTemplate4 {
@@ -130,12 +134,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .inputTemplate4 {
   height: 10%;
   max-width: 150px;
-}
-
-Button:hover {
-  color: white;
-  transition: 0.3s;
-  cursor: pointer;
 }
 
 .primary-button {
