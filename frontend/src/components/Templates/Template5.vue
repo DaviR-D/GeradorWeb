@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Selecione a imagem correspondente a palavra em inglês:</h1>
     <h1 class="dataWord">
       <strong>{{ data.word }}</strong>
     </h1>
-    <div class="container">
+    <div class="container-opt">
       <li v-for="(image, index) in data.images" :key="index">
         <img class="image" :src="image" @click="checkAnswer(index)" />
       </li>
@@ -61,12 +61,26 @@ export default {
 };
 </script>
 <style scoped>
+img {
+  width: 90%;
+  height: 50%;
+}
+
 h1 {
   text-align: center;
   color: white;
 }
+
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-opt {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
 }
@@ -77,10 +91,12 @@ h1 {
   border: 3px solid white;
   cursor: pointer;
 }
+
 img:hover {
   opacity: 0.5;
   transition: 0.4s;
 }
+
 li {
   list-style: none;
   text-align: center;
