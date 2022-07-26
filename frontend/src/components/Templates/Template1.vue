@@ -3,10 +3,7 @@
     <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
-      <button
-        class="primary-button mr-2 mb-2"
-        @click="checkAnswer(alternative)"
-      >
+      <button class="primary-button" @click="checkAnswer(alternative)">
         {{ alternative }}
       </button>
     </li>
@@ -69,8 +66,8 @@ export default {
 }
 
 img {
-  height: 100%;
-  width: 100%;
+  height: 25%;
+  width: 25%;
   border-radius: 5px;
   margin-bottom: 0.3%;
   border: 3px solid white;
@@ -83,6 +80,7 @@ img {
 }
 
 .primary-button {
+  width: 25%;
   margin-bottom: 1%;
   justify-content: center;
   height: 60px;
@@ -96,7 +94,9 @@ Button:hover {
   transition: 0.3s;
   cursor: pointer;
 }
+
 li {
   list-style: none;
+  width: 100%;
 }
 </style>
