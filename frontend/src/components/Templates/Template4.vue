@@ -131,17 +131,11 @@ input[type="number"]::-webkit-outer-spin-button {
   color: white;
 }
 
-.inputTemplate4 {
-  height: 10%;
-  max-width: 150px;
-}
-
 .primary-button {
   margin-bottom: 1%;
   justify-content: center;
   height: 60px;
   font-weight: bold;
-  font-size: large;
   border-radius: 5px;
   width: 100%;
 }

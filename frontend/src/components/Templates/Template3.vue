@@ -76,4 +76,8 @@ img {
   height: 60%;
   border: 1px solid whitesmoke;
 }
+
+h1 {
+  color: whitesmoke;
+}
 </style>

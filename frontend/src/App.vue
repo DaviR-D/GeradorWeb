@@ -62,4 +62,17 @@ input[type="file"] {
   margin-bottom: 20px;
   margin-right: 50px;
 }
+
+input {
+  border: none;
+  height: 50px;
+  box-shadow: 0px;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+  border-left: 4px solid rgba(41, 160, 41, 0.8);
+  border-bottom: 4px solid rgba(41, 160, 41, 0.8);
+}
 </style>
