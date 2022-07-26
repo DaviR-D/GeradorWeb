@@ -20,6 +20,11 @@ const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 </script>
 <style scoped>
+img {
+  width: 250px;
+  height: 150px;
+}
+
 a {
   display: flex;
   justify-content: center;

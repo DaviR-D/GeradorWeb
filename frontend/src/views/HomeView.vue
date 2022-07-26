@@ -4,7 +4,7 @@
       <button @click="router.push('/login')">Login</button>
       <button>Registro</button>
     </div>
-    <div v-else class="options">
+    <div v-else class="container-opt">
       <a @click="router.push('/templates')" style="margin-bottom: 25px">
         <t> Nova atividade </t>
       </a>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { useAuthStore } from "@/stores/auth";
+//import { useAuthStore } from "@/stores/auth";
 import router from "../router";
 
 let logado = true;
@@ -53,5 +53,9 @@ a {
   background: hsla(160, 100%, 37%, 1);
   box-shadow: 0 15px 20px 0 rgb(1, 160, 107);
   color: whitesmoke;
+}
+
+.container-opt {
+  height: 100vh;
 }
 </style>
