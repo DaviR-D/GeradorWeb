@@ -1,14 +1,26 @@
 <template>
   <div class="container">
-    <t v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
-      <a @click="build(i)">Template {{ i }}</a>
-    </t>
-    <a @click="router.push('/')" class="colors">Encerrar</a>
+    <h1>Selecione o template para a questão:</h1>
+    <div class="images-aligned">
+      <li v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
+        <img @click="build(i)" class="image" :src="images[i - 1]" />
+      </li>
+      <a @click="router.push('/')" class="colors">Encerrar</a>
+    </div>
   </div>
 </template>
 
 <script setup>
 import router from "../router";
+
+const images = [
+  "https://i.imgur.com/fSBLcSb.png",
+  "https://i.imgur.com/Evzg5OW.png",
+  "https://i.imgur.com/27qOslm.png",
+  "https://i.imgur.com/NvuyhMg.png",
+  "https://i.imgur.com/8qSh1bg.png",
+  "https://i.imgur.com/ndGjtf1.png",
+];
 
 const build = (i) => {
   router.push("/build/" + i);
@@ -21,6 +33,26 @@ const build = (i) => {
   align-items: center;
   flex-direction: column;
   height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid whitesmoke;
+}
+
+.images-aligned {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.image {
+  margin-top: 2%;
+  border-radius: 3px;
+  margin: 0 3px 0 0;
+  border: 3px solid white;
+  cursor: pointer;
 }
 
 button,
