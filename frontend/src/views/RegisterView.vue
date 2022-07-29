@@ -53,7 +53,7 @@ export default {
   methods: {
     Login() {
       axios
-        .post("http://localhost:3333/users", {
+        .post("http://localhost:3000/users", {
           name: this.username,
           password: this.password,
           email: this.email,

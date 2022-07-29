@@ -33,7 +33,7 @@ export default {
     Busca() {
       console.log(this.auth.getToken);
       axios
-        .get("http://localhost:3333/activitys", {
+        .get("http://localhost:3000/activitys", {
           headers: { Authorization: `Bearer ${this.auth.getToken}` },
         })
         .then((response) => {
