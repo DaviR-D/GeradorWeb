@@ -7,14 +7,14 @@
     <div class="container">
       <h1>Seja Bem vindo!</h1>
       <p>Você esta logando como professor.</p>
-      <InputText
+      <input
         class="input"
         id="username"
         type="text"
         v-model="username"
         placeholder="E-mail"
       />
-      <InputText
+      <input
         type="password"
         v-model="password"
         :feedback="false"
@@ -29,12 +29,10 @@
 
 <script>
 import { useAuthStore } from "@/stores/auth";
-import InputText from "primevue/inputtext";
 import router from "../router";
 import axios from "axios";
 
 export default {
-  components: { InputText },
   name: "LoginView",
   data() {
     return {
@@ -47,7 +45,7 @@ export default {
   methods: {
     Login() {
       axios
-        .post("http://localhost:3333/sessions", {
+        .post("http://localhost:3000/sessions", {
           email: this.username,
           password: this.password,
         })
