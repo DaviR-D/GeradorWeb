@@ -1,12 +1,14 @@
 <template>
   <div class="container">
-    <h1>Selecione o template para a questão:</h1>
+    <h1 style="color: white; margin-bottom: 40px">
+      Selecione o template para a questão:
+    </h1>
     <div class="images-aligned">
       <li v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
         <img @click="build(i)" class="image" :src="images[i - 1]" />
       </li>
-      <a @click="router.push('/')" class="colors">Encerrar</a>
     </div>
+    <a @click="router.push('/')" class="colors">Encerrar</a>
   </div>
 </template>
 
@@ -28,11 +30,16 @@ const build = (i) => {
 </script>
 
 <style scoped>
+li {
+  list-style: none;
+}
+
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 100%;
+  width: 98%;
 }
 
 img {
@@ -48,7 +55,6 @@ img {
 }
 
 .image {
-  margin-top: 2%;
   border-radius: 3px;
   margin: 0 3px 0 0;
   border: 3px solid white;
