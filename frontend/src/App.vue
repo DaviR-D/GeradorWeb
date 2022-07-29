@@ -76,4 +76,12 @@ input:focus {
   border-left: 4px solid rgba(41, 160, 41, 0.8);
   border-bottom: 4px solid rgba(41, 160, 41, 0.8);
 }
+
+ol {
+  list-style: none;
+}
+
+li {
+  list-style: none;
+}
 </style>
