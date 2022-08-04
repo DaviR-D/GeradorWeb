@@ -6,7 +6,6 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 
 import PrimeVue from "primevue/config";
-import "primeicons/primeicons.css"; //icons
 
 const app = createApp(App);
 
