@@ -13,10 +13,12 @@ import TheBuilder5 from "@/components/Builders/Builder5.vue";
 import TheBuilder6 from "@/components/Builders/Builder6.vue";
 import { useRoute } from "vue-router";
 
+const builders = [TheBuilder1,TheBuilder2,TheBuilder3,TheBuilder4,TheBuilder5,TheBuilder6];
+
 const route = useRoute();
 
 const template = () => {
-  // return eval("TheBuilder" + route.params.template);
-  return TheBuilder1;
+  return builders[route.params.template - 1];
+  
 };
 </script>
