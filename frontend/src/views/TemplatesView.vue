@@ -24,8 +24,8 @@ const images = [
   "https://i.imgur.com/ndGjtf1.png",
 ];
 
-const build = () => {
-  router.push("/build/1");
+const build = (i) => {
+  router.push("/build/" + i);
 };
 </script>
 
