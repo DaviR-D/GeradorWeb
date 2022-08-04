@@ -7,21 +7,21 @@
     <div class="container">
       <h1>Seja Bem vindo!</h1>
       <p>Criar uma conta de professor.</p>
-      <InputText
+      <input
         class="input"
         id="username"
         type="text"
         v-model="username"
         placeholder="Nome"
       />
-      <InputText
+      <input
         class="input"
         id="email"
         type="text"
         v-model="email"
         placeholder="E-mail"
       />
-      <InputText
+      <input
         type="password"
         v-model="password"
         :feedback="false"
@@ -35,12 +35,10 @@
 </template>
 
 <script>
-import InputText from "primevue/inputtext";
 import router from "../router";
 import axios from "axios";
 
 export default {
-  components: { InputText },
   name: "RegisterView",
   data() {
     return {
