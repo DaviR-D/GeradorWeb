@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import TheBuilder1 from "@/components/Builders/Builder1.vue";
+import {TheBuilder1} from "@/components/Builders/Builder1.vue";
 import TheBuilder2 from "@/components/Builders/Builder2.vue";
 import TheBuilder3 from "@/components/Builders/Builder3.vue";
 import TheBuilder4 from "@/components/Builders/Builder4.vue";
