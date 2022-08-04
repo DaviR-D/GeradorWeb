@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <input type="file" @change="onFileChange" />
+    <!-- <input type="file" @change="onFileChange" /> -->
     <input
       class="input margin"
       type="text"
