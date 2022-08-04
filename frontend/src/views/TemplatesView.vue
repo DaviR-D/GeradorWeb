@@ -25,7 +25,7 @@ const images = [
 ];
 
 const build = (i) => {
-  router.push("/build" + i);
+  router.push("/build/" + i);
 };
 </script>
 

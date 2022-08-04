@@ -27,7 +27,7 @@ const router = createRouter({
       component: TemplatesView,
     },
     {
-      path: "/build:template",
+      path: "/build/:template",
       name: "Build",
       component: BuildView,
     },
