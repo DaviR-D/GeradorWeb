@@ -20,11 +20,11 @@ class CreateActivityController {
 
     const createActivityUseCase = _tsyringe.container.resolve(_CreateActivityUseCase.CreateAcitvityUseCase);
 
-    await createActivityUseCase.execute({
+    const activity = await createActivityUseCase.execute({
       name,
       user_id: id
     });
-    return response.status(201).send();
+    return response.status(201).json(activity);
   }
 
 }

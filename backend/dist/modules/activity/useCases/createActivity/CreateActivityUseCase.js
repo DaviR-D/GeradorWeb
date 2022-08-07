@@ -22,10 +22,11 @@ let CreateAcitvityUseCase = (_dec = (0, _tsyringe.injectable)(), _dec2 = functio
     name,
     user_id
   }) {
-    await this.activitysRepositories.create({
+    const activity = await this.activitysRepositories.create({
       name,
       user_id
     });
+    return activity;
   }
 
 }) || _class) || _class) || _class) || _class);
