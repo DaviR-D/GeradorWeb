@@ -4,8 +4,6 @@
 Desenvolvido para auxiliar os professores nas aulas de materias em geral, o professor faz o seu cadastro e de seus alunos. O professor pode criar atividades com diversas questões utilizando templates pré-selecionados. 
 
 O aluno pode logar na aplicação e verificar em seu painel atividades cadastradas pelos professor, ao realizar a atividade é mostrado a quantidade de acertos do aluno.   
-      
-## 📋 Projeto ainda em desenvolvimento
 
 ## 📦 Ferramentas utilizadas no desenvolvimento
 
@@ -26,7 +24,7 @@ O aluno pode logar na aplicação e verificar em seu painel atividades cadastrad
 
 ## 📌 Versão
 
-O projeto está em desenvolvimento.
+### 📋 Projeto ainda em desenvolvimento
 
 ## ✒️ Autores
 | [<img src="https://avatars.githubusercontent.com/u/29382059?v=4" width=115><br><sub>Davi</sub>](https://github.com/DaviR-D) | [<img src="https://avatars.githubusercontent.com/u/48157305?v=4" width=115><br><sub>Felipe Ferreira</sub>](https://github.com/FelipeFerreiraDev) | [<img src="https://avatars.githubusercontent.com/u/82893740?v=4" width=115><br><sub>Geovane Rigonato</sub>](https://github.com/GeovaaneRigonato) |
