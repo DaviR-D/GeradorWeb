@@ -1,9 +1,5 @@
 <template>
   <div class="hero">
-    <i
-      class="pi pi-users"
-      style="font-size: 5rem; color: whitesmoke; margin-bottom: 50px"
-    ></i>
     <div class="container">
       <h1>Seja Bem vindo!</h1>
       <p>Você esta logando como professor.</p>
@@ -75,6 +71,7 @@ h1 {
   align-items: center;
   flex-direction: column;
   height: 100%;
+  margin-top: 30px;
 }
 
 .input {
