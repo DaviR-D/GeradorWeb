@@ -9,6 +9,7 @@
         <t> Nova atividade </t>
       </a>
       <a @click="router.push('/list-lessons')">Atividades salvas</a>
+      <a class="aToLesson" @click="router.push('/lesson')">Lesson</a>
     </div>
   </div>
 </template>
@@ -73,5 +74,8 @@ a {
 
 .container-opt {
   height: 100vh;
+}
+.aToLesson{
+  margin-top: 1.3%;
 }
 </style>
