@@ -84,8 +84,8 @@ input[type="file"] {
   width: 100vw;
 }
 .input {
-  height: 4%;
-  width: 25%;
+  height: 8%;
+  width: 28%;
   font-size: 16px;
   margin-bottom: 20px;
 }

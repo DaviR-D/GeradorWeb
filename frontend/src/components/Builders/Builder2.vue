@@ -70,7 +70,7 @@ input[type="file"] {
   width: 100vw;
 }
 .input {
-  height: 4%;
+  height: 8%;
   width: 25%;
   font-size: 16px;
   margin-bottom: 20px;

@@ -12,7 +12,7 @@
 
     <input
       type="text"
-      style="height: 3%; margin-bottom: 20px"
+      style="height: 8%; margin-bottom: 20px"
       v-model="value"
       placeholder="Valor da questão"
     />
