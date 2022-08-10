@@ -5,7 +5,7 @@
       <button>Registro</button>
     </div>
     <div v-else class="container-opt">
-      <a @click="router.push('/templates')" style="margin-bottom: 25px">
+      <a @click="newLesson" style="margin-bottom: 25px">
         <t> Nova atividade </t>
       </a>
       <a @click="router.push('/list-lessons')">Atividades salvas</a>
@@ -16,6 +16,22 @@
 <script setup>
 //import { useAuthStore } from "@/stores/auth";
 import router from "../router";
+//import axios from "axios";
+
+const newLesson = () => {
+  // console.log(localStorage.getItem("token"));
+  // axios
+  //   .post("http://localhost:3000/activitys", {
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("token"),
+  //     },
+  //     name: "Teste",
+  //   })
+  //   .then((response) => {
+  //     console.log(response);
+  //   });
+  router.push("/templates");
+};
 
 let logado = true;
 

@@ -61,11 +61,6 @@ export default {
 };
 </script>
 <style scoped>
-img {
-  width: 90%;
-  height: 50%;
-}
-
 h1 {
   text-align: center;
   color: white;
