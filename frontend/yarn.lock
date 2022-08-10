@@ -1018,11 +1018,6 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-phosphor-vue@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/phosphor-vue/-/phosphor-vue-1.4.2.tgz#84c24521fb42b59ecb9d68295c92c0de41a9c21b"
-  integrity sha512-RFbJplmCZ7E/sv+xKmxOpIJ08ZZufL4lVx8t2a5St4juRZtW7XC8szSQ32qJUHBlBtjr6nS8lDiu/CJuhEOjIg==
-
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"

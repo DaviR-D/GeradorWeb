@@ -1,5 +1,31 @@
 <template>
   <div class="hero">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="124"
+      height="124"
+      fill="#FFF"
+      viewBox="0 0 256 256"
+    >
+      <rect width="124" height="124" fill="none"></rect>
+      <circle
+        cx="128"
+        cy="96"
+        r="64"
+        fill="none"
+        stroke="#FFF"
+        stroke-miterlimit="10"
+        stroke-width="16"
+      ></circle>
+      <path
+        d="M31,216a112,112,0,0,1,194,0"
+        fill="none"
+        stroke="#FFF"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="16"
+      ></path>
+    </svg>
     <div class="container">
       <h1>Seja Bem vindo!</h1>
       <p>Você esta logando como professor.</p>
