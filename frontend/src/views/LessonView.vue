@@ -47,38 +47,102 @@ const generator = (numQuest) => {
 };
 */
 
+// const atividade = [
+//   {
+//     template: TheTemplate1,
+//     alternatives: ["Cow", "Cat", "Pig", "Bird"],
+//     rightAnswer: "Pig",
+//     image: "https://i.imgur.com/e7yx8QO.png",
+//     value: 5,
+//   },
+//   {
+//     template: TheTemplate2,
+//     text: "Dog",
+//     image: "https://i.imgur.com/yfg3vHp.png",
+//   },
+//   {
+//     template: TheTemplate3,
+//     images: [
+//       "https://i.imgur.com/yfg3vHp.png",
+//       "https://i.imgur.com/e7yx8QO.png",
+//       "https://i.imgur.com/RXHgMb3.png",
+//       "https://i.imgur.com/vPbaA7i.png",
+//     ],
+//     words: ["Dog", "Pig", "Cat", "Horse"],
+//   },
+//   {
+//     template: TheTemplate4,
+//     images: [
+//       "https://i.imgur.com/yfg3vHp.png",
+//       "https://i.imgur.com/e7yx8QO.png",
+//       "https://i.imgur.com/RXHgMb3.png",
+//       "https://i.imgur.com/vPbaA7i.png",
+//     ],
+//     words: ["Dog", "Pig", "Cat", "Horse"],
+//     value: 5,
+//   },
+//   {
+//     template: TheTemplate5,
+//     images: [
+//       "https://i.imgur.com/yfg3vHp.png",
+//       "https://i.imgur.com/e7yx8QO.png",
+//       "https://i.imgur.com/RXHgMb3.png",
+//       "https://i.imgur.com/vPbaA7i.png",
+//     ],
+//     word: "Pig",
+//     rightAnswer: 1,
+//     value: 5,
+//   },
+//   {
+//     template: TheTemplate6,
+//     image: "https://i.imgur.com/yfg3vHp.png",
+//     rightAnswer: "Dog",
+//     value: 5,
+//   },
+//];
+
 const atividade = [
+  {
+    template: TheTemplate1,
+    alternatives: ["Red", "Pink", "Orange", "Yellow"],
+    rightAnswer: "Red",
+    image: "https://i.imgur.com/YlLskJx.jpeg",
+    value: 5,
+  },
+  {
+    template: TheTemplate6,
+    image: "https://i.imgur.com/9piFhH2.png",
+    rightAnswer: "green",
+    value: 5,
+  },
+  {
+    template: TheTemplate5,
+    images: [
+      "https://i.imgur.com/zcYCPz0.jpeg",
+      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/RXHgMb3.png",
+      "https://i.imgur.com/YlLskJx.jpeg",
+    ],
+    word: "Blue",
+    rightAnswer: 0,
+    value: 5,
+  },
+  {
+    template: TheTemplate4,
+    images: [
+      "https://i.imgur.com/YlLskJx.jpeg",
+      "https://i.imgur.com/LkSUeAO.png",
+      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/zcYCPz0.jpeg",
+    ],
+    words: ["Red", "Yellow", "Green", "Blue"],
+    value: 5,
+  },
   {
     template: TheTemplate1,
     alternatives: ["Cow", "Cat", "Pig", "Bird"],
     rightAnswer: "Pig",
     image: "https://i.imgur.com/e7yx8QO.png",
-    value: 5,
-  },
-  {
-    template: TheTemplate2,
-    text: "Dog",
-    image: "https://i.imgur.com/yfg3vHp.png",
-  },
-  {
-    template: TheTemplate3,
-    images: [
-      "https://i.imgur.com/yfg3vHp.png",
-      "https://i.imgur.com/e7yx8QO.png",
-      "https://i.imgur.com/RXHgMb3.png",
-      "https://i.imgur.com/vPbaA7i.png",
-    ],
-    words: ["Dog", "Pig", "Cat", "Horse"],
-  },
-  {
-    template: TheTemplate4,
-    images: [
-      "https://i.imgur.com/yfg3vHp.png",
-      "https://i.imgur.com/e7yx8QO.png",
-      "https://i.imgur.com/RXHgMb3.png",
-      "https://i.imgur.com/vPbaA7i.png",
-    ],
-    words: ["Dog", "Pig", "Cat", "Horse"],
     value: 5,
   },
   {
