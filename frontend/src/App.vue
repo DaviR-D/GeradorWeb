@@ -18,8 +18,8 @@ import { RouterView } from "vue-router";
 }
 
 img {
-  max-width: 300px;
-  max-height: 300px;
+  width: 619px;
+  height: 353px;
 }
 
 body {

@@ -45,10 +45,10 @@ export default {
         this.answerMessage =
           "Parabéns, você acertou! +" + this.value + " pontos";
         this.messageColor = "background-color: #32CD32";
+        
         this.imageURL = "https://i.imgur.com/XgL6soA.png";
       } else {
-        this.messageColor = "background-color: black";
-        this.answerMessage = "Você errou!";
+        this.answerMessage = "Que pena, você errou 😐";
         this.messageColor = "background-color: #ff261b";
         this.imageURL = "https://i.imgur.com/nztO8KF.png";
       }
@@ -63,11 +63,16 @@ export default {
   flex-direction: column;
   align-items: center;
   border-radius: 5px;
+  height: 30%;
+  width: 30%;
 }
 
 .imgMessage {
-  max-width: 10%;
-  padding-right: 1%;
+  width: 150px !important;
+  height: 150px !important;
+  
+  
+  padding-right: 1% !important;
 }
 
 .h1Message {
@@ -77,11 +82,13 @@ export default {
 }
 
 .h1Button {
+  
   display: flex;
   align-items: center;
   padding-right: 1%;
 }
 button {
+  width: 300px !important;
   background-color: rgb(10, 117, 154);
 }
 button:hover {
