@@ -5,7 +5,6 @@
     <p class="inputTemplate6">
       <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
     </p>
-
     <button class="primary-button" @click="checkAnswer()">Confirmar</button>
     <answer-message
       v-if="answered"

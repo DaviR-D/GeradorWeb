@@ -60,16 +60,16 @@ const generator = (numQuest) => {
 //     text: "Dog",
 //     image: "https://i.imgur.com/yfg3vHp.png",
 //   },
-//   {
-//     template: TheTemplate3,
-//     images: [
-//       "https://i.imgur.com/yfg3vHp.png",
-//       "https://i.imgur.com/e7yx8QO.png",
-//       "https://i.imgur.com/RXHgMb3.png",
-//       "https://i.imgur.com/vPbaA7i.png",
-//     ],
-//     words: ["Dog", "Pig", "Cat", "Horse"],
-//   },
+  // {
+  //   template: TheTemplate3,
+  //   images: [
+  //     "https://i.imgur.com/yfg3vHp.png",
+  //     "https://i.imgur.com/e7yx8QO.png",
+  //     "https://i.imgur.com/RXHgMb3.png",
+  //     "https://i.imgur.com/vPbaA7i.png",
+  //   ],
+  //   words: ["Dog", "Pig", "Cat", "Horse"],
+  // },
 //   {
 //     template: TheTemplate4,
 //     images: [
@@ -103,40 +103,92 @@ const generator = (numQuest) => {
 
 const atividade = [
   {
+    template: TheTemplate3,
+    images: [
+      "https://i.imgur.com/YlLskJx.jpeg",
+      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/zcYCPz0.jpeg",
+      "https://i.imgur.com/cqEUQZS.png",
+    ],
+    words: ["Red", "Green", "Blue", "Yellow"],
+  },
+   {
+    template: TheTemplate2,
+    text: "Red",
+    image: "https://i.imgur.com/YlLskJx.jpeg",
+  },
+  
+  {
     template: TheTemplate1,
     alternatives: ["Red", "Pink", "Orange", "Yellow"],
     rightAnswer: "Red",
-    image: "https://i.imgur.com/YlLskJx.jpeg",
+    image: "https://i.imgur.com/AUzj2bD.png",
     value: 5,
   },
   {
-    template: TheTemplate6,
+    template: TheTemplate2,
+    text: "Green",
     image: "https://i.imgur.com/9piFhH2.png",
+  },
+  {
+    template: TheTemplate6,
+    image: "https://i.imgur.com/hzwkILL.png",
     rightAnswer: "green",
     value: 5,
+  },
+  {
+    template: TheTemplate2,
+    text: "Blue",
+    image: "https://i.imgur.com/zcYCPz0.jpeg",
   },
   {
     template: TheTemplate5,
     images: [
       "https://i.imgur.com/zcYCPz0.jpeg",
-      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/hzwkILL.png",
       "https://i.imgur.com/RXHgMb3.png",
-      "https://i.imgur.com/YlLskJx.jpeg",
+      "https://i.imgur.com/AUzj2bD.png",
     ],
     word: "Blue",
     rightAnswer: 0,
     value: 5,
   },
   {
+    template: TheTemplate2,
+    text: "Orange",
+    image: "https://i.imgur.com/xYCsfOp.png",
+  },
+  {
+    template: TheTemplate6,
+    image: "https://i.imgur.com/xYCsfOp.png",
+    rightAnswer: "Orange",
+    value: 5,
+  },
+  {
     template: TheTemplate4,
     images: [
-      "https://i.imgur.com/YlLskJx.jpeg",
-      "https://i.imgur.com/LkSUeAO.png",
-      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/AUzj2bD.png",
+      "https://i.imgur.com/cqEUQZS.png",
+      "https://i.imgur.com/hzwkILL.png",
       "https://i.imgur.com/zcYCPz0.jpeg",
     ],
     words: ["Red", "Yellow", "Green", "Blue"],
     value: 5,
+  },
+  {
+    template: TheTemplate3,
+    images: [
+      "https://i.imgur.com/yfg3vHp.png",
+      "https://i.imgur.com/e7yx8QO.png",
+      "https://i.imgur.com/RXHgMb3.png",
+      "https://i.imgur.com/vPbaA7i.png",
+    ],
+    words: ["Dog", "Pig", "Cat", "Horse"],
+  },
+  {
+    template: TheTemplate2,
+    text: "Pig",
+    image: "https://i.imgur.com/e7yx8QO.png",
   },
   {
     template: TheTemplate1,
@@ -156,6 +208,11 @@ const atividade = [
     word: "Pig",
     rightAnswer: 1,
     value: 5,
+  },
+  {
+    template: TheTemplate2,
+    text: "Dog",
+    image: "https://i.imgur.com/yfg3vHp.png",
   },
   {
     template: TheTemplate6,

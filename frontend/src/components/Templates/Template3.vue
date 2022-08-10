@@ -72,12 +72,13 @@ export default {
 }
 
 img {
-  width: 100%;
-  height: 60%;
   border: 1px solid whitesmoke;
 }
 
 h1 {
   color: whitesmoke;
+}
+.primary-button{
+  margin-top: 1%;
 }
 </style>
