@@ -17,6 +17,11 @@ import { RouterView } from "vue-router";
   height: 100%;
 }
 
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
 body {
   height: 100%;
   min-height: auto;
