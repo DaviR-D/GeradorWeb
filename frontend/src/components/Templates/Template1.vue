@@ -81,9 +81,9 @@ img {
 
 .primary-button {
   width: 25%;
-  margin-bottom: 1%;
+  margin-bottom: 0.3%;
   justify-content: center;
-  height: 60px;
+  height: 90 px;
   font-weight: bold;
   font-size: large;
   border-radius: 5px;
