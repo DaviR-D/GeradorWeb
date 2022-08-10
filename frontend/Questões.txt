@@ -1,0 +1,73 @@
+    ENSINA O NOME DA COR VERMELHA EM INGLÊS E EM SEGUIDA PERGUNTA
+  {
+    template: TheTemplate2,
+    text: "Red",
+    image: "https://i.imgur.com/YlLskJx.jpeg",
+  },
+    {
+    template: TheTemplate1,
+    alternatives: ["Red", "Pink", "Orange", "Yellow"],
+    rightAnswer: "Red",
+    image: "https://i.imgur.com/YlLskJx.jpeg",
+    value: 5,
+  },  
+
+
+    ENSINA O NOME DA COR VERDE EM INGLÊS E EM SEGUIDA PERGUNTA
+  {
+    template: TheTemplate2,
+    text: "Green",
+    image: "https://i.imgur.com/9piFhH2.png",
+  },
+    {
+    template: TheTemplate6,
+    image: "https://i.imgur.com/9piFhH2.png",
+    rightAnswer: "green",
+    value: 5,
+  },
+
+
+    ENSINA O NOME DA COR AZUL EM INGLÊS E EM SEGUIDA PERGUNTA
+  {
+    template: TheTemplate2,
+    text: "Blue",
+    image: "https://i.imgur.com/zcYCPz0.jpeg",
+  },
+  {
+    template: TheTemplate5,
+    images: [
+      "https://i.imgur.com/zcYCPz0.jpeg",
+      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/RXHgMb3.png",
+      "https://i.imgur.com/YlLskJx.jpeg",
+    ],
+    word: "Blue",
+    rightAnswer: 1,
+    value: 5,
+  },
+
+
+
+ENSINANDO AS CORES
+  {
+    template: TheTemplate3,
+    images: [
+      "https://i.imgur.com/LkSUeAO.png",
+      "https://i.imgur.com/YlLskJx.jpeg",
+      "https://i.imgur.com/zcYCPz0.jpeg",
+      "https://i.imgur.com/9piFhH2.png",
+    ],
+    words: ["Yellow", "Red", "Blue", "Green"],
+  },
+  {
+    template: TheTemplate4,
+    images: [
+      "https://i.imgur.com/YlLskJx.jpeg",
+      "https://i.imgur.com/LkSUeAO.png",
+      "https://i.imgur.com/9piFhH2.png",
+      "https://i.imgur.com/zcYCPz0.jpeg",
+    ],
+    words: ["Red", "Yellow", "Green", "Blue"],
+    value: 5,
+  },
+  
