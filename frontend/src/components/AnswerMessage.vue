@@ -64,7 +64,7 @@ export default {
   align-items: center;
   border-radius: 5px;
   height: 30%;
-  width: 30%;
+  width: 60%;
 }
 
 .imgMessage {
