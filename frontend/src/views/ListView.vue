@@ -34,7 +34,9 @@ export default {
       console.log(this.auth.getToken);
       axios
         .get("http://localhost:3000/activitys", {
-          headers: { Authorization: `Bearer ${this.auth.getToken}` },
+          headers: {
+            Authorization: `Bearer ${this.auth.getToken}`,
+          },
         })
         .then((response) => {
           this.lessons = response.data;
