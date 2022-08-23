@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-opt">
     <div v-if="!logado">
       <button @click="router.push('/login')">Login</button>
       <button>Registro</button>
@@ -75,7 +75,7 @@ a {
 .container-opt {
   height: 100vh;
 }
-.aToLesson{
+.aToLesson {
   margin-top: 1.3%;
 }
 </style>
