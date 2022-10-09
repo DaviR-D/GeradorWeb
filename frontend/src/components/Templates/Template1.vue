@@ -48,24 +48,26 @@ export default {
     },
   },
   methods: {
-    openToast() {
+    openToast(icon, message) {
       this.$toast.open({
-        message: "Test message from Vue",
-        type: "success",
+        message: message,
+        type: icon,
         duration: 5000,
         dismissible: true,
+        position: "top-right",
       });
     },
     checkAnswer(alternative) {
       if (alternative == this.data.rightAnswer) {
-        this.openToast();
+        this.openToast("success", "Resposta correta!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;
+      } else if (alternative != this.data.rightAnswer) {
+        this.openToast("error", "Resposta errada!");
+        this.score.decrementAnswerCounter();
+        this.rightAnswer = false;
       }
-      this.openToast();
-      this.score.incrementQuestionCounter();
-      this.answered = true;
     },
   },
 };
