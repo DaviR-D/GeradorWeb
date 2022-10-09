@@ -1,14 +1,12 @@
 <template>
-  <div class=" ">
-    <h1 style="color: white; margin-bottom: 40px">
-      Selecione o template para a questão:
-    </h1>
-    <div class="images-aligned">
+  <div>
+    <h1>Selecione o template para a questão:</h1>
+    <div>
       <li v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
-        <img @click="build(i)" class="image" :src="images[i - 1]" />
+        <img @click="build(i)" :src="images[i - 1]" />
       </li>
     </div>
-    <a @click="router.push('/')" class="colors">Encerrar</a>
+    <a @click="router.push('/')">Encerrar</a>
   </div>
 </template>
 

@@ -1,24 +1,13 @@
 <template>
-  <div class=" ">
+  <div>
     <input type="file" @change="onFileChange" />
     <input
-      class="input margin"
       type="text"
       placeholder="Escreva as opções separando às por vírgulas"
     />
     <p>Exemplo: Carro, Moto, Casa, Computador</p>
-    <input
-      class="input"
-      type="text"
-      v-model="rightAnswer"
-      placeholder="Resposta correta"
-    />
-    <input
-      class="input"
-      type="text"
-      v-model="value"
-      placeholder="Valor da questão"
-    />
+    <input type="text" v-model="rightAnswer" placeholder="Resposta correta" />
+    <input type="text" v-model="value" placeholder="Valor da questão" />
     <a class="" @click="save()">Salvar</a>
   </div>
 </template>

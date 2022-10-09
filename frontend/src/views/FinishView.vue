@@ -1,5 +1,5 @@
 <template>
-  <div class=" ">
+  <div>
     <img src="../assets/100daysui_100icon.png" alt="Troféu" />
     <h1>Parabéns</h1>
     <p>

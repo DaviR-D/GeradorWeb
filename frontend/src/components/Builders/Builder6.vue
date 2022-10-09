@@ -1,18 +1,8 @@
 <template>
-  <div class=" ">
+  <div>
     <input type="file" @change="onFileChange" />
-    <input
-      type="text"
-      class="input"
-      placeholder="Palavra"
-      v-model="rightAnswer"
-    />
-    <input
-      type="text"
-      class="input"
-      v-model="value"
-      placeholder="Valor da questão"
-    />
+    <input type="text" placeholder="Palavra" v-model="rightAnswer" />
+    <input type="text" v-model="value" placeholder="Valor da questão" />
     <button @click="save()">Salvar</button>
   </div>
 </template>

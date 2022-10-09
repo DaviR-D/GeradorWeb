@@ -1,21 +1,11 @@
 <template>
-  <div class=" ">
+  <div>
     <li v-for="i in [0, 1, 2, 3]" :key="i">
       <input type="file" @change="(e) => onFileChange(e, i)" />
-      <input
-        type="text"
-        class="input"
-        :placeholder="i + 1"
-        v-model="words[i]"
-      />
+      <input type="text" :placeholder="i + 1" v-model="words[i]" />
     </li>
 
-    <input
-      type="text"
-      style="height: 8%; margin-bottom: 20px"
-      v-model="value"
-      placeholder="Valor da questão"
-    />
+    <input type="text" v-model="value" placeholder="Valor da questão" />
     <button @click="save()">Salvar</button>
   </div>
 </template>

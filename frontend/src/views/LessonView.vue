@@ -13,7 +13,6 @@ import TheTemplate5 from "@/components/Templates/Template5.vue";
 import TheTemplate6 from "@/components/Templates/Template6.vue";
 import { useIndexStore } from "@/stores/index";
 import router from "../router";
-//import axios from "axios";
 
 const useIndex = useIndexStore();
 
