@@ -1,27 +1,34 @@
 <template>
-  <div class="flex flex-col">
-    <h1>template4</h1>
+  <div class="flex flex-col items-center justify-center h-screen">
     <h1 class="">Associe as imagens com as palavras:</h1>
-    <li class="list-none" v-for="(image, index) in data.images" :key="index">
-      <div class="grid grid-cols-4">
-        <div>
-          <h1 class="col-span-1">{{ index + 1 }}</h1>
+    <li
+      class="list-none mb-4"
+      v-for="(image, index) in data.images"
+      :key="index"
+    >
+      <div class="grid grid-cols-8 h-24">
+        <div class="col-span-2"></div>
+        <div class="col-span-1 flex justify-center mr-2 items-center">
+          <h1>{{ index + 1 }}</h1>
         </div>
-        <div>
-          <img class="col-span-2" :src="image" />
+        <div class="col-span-1 flex items-center justify-center">
+          <img :src="image" class="imagem" />
         </div>
-        <div>
-          <h1 class="col-span-3">
+        <div class="col-span-1 flex items-center justify-start ml-20">
+          <h1>
             {{ data.words[correctAnswer[index] - 1] }}
           </h1>
         </div>
-        <div>
-          <input class="col-span-4" type="number" v-model="answer[index]" />
+        <div class="col-span-1 flex items-center justify-center">
+          <input type="number" v-model="answer[index]" />
         </div>
       </div>
     </li>
+    <div class="w-full flex items-center justify-center">
+      <button class="botao ml-16" @click="checkAnswer()">Confirmar</button>
+    </div>
 
-    <button class="" @click="checkAnswer()">Confirmar</button>
+    
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"
@@ -83,3 +90,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.imagem {
+  height: 96px !important;
+}
+</style>

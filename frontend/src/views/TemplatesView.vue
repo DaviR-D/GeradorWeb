@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="flex flex-col items-center justify-center">
     <h1>Selecione o template para a questão:</h1>
-    <div>
-      <li v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
-        <img @click="build(i)" :src="images[i - 1]" />
+    <div class="grid grid-cols-3 gap-4">
+      <li class="list-none" v-for="i in [1, 2, 3, 4, 5, 6]" :key="i">
+        <img class="img imagem" @click="build(i)" :src="images[i - 1]" />
       </li>
     </div>
-    <a @click="router.push('/')">Encerrar</a>
+    <a
+      class="bg-green-600 rounded w-96 h-14 mt-12 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+      @click="router.push('/')"
+      >Encerrar</a
+    >
   </div>
 </template>
 
@@ -26,3 +30,8 @@ const build = (i) => {
   router.push("/build/" + i);
 };
 </script>
+<style scoped>
+.imagem {
+  height: 350px;
+}
+</style>

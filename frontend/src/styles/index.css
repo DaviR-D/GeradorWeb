@@ -80,11 +80,14 @@ button{
 @apply w-[576px] h-80
 }
 
+.botao{
+ @apply bg-green-400 rounded p-2 h-16 w-screen max-w-5xl mt-2 mb-3 shadow-md text-white font-bold shadow-green-600 hover:brightness-75;
+}
 body {
-  @apply bg-gray-100 text-gray-100;
+  @apply bg-gray-500 text-gray-100;
   color: black;
   -webkit-font-smoothing: antialiased;
-  background-color: #1b1b1b;
+  
 }
 
 section {
