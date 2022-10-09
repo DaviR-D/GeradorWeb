@@ -1,5 +1,8 @@
 <template>
-  <div>{{ name }} <button>Editar</button><button>Remover</button></div>
+  <div>
+    {{ name }} <button class="w-60 h-14">Editar</button
+    ><button class="w-60 h-14">Remover</button>
+  </div>
 </template>
 
 <script>
