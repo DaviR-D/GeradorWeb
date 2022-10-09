@@ -1,5 +1,6 @@
 <template>
   <div class=" ">
+    <h1>template4</h1>
     <h1 class="title">Associe as imagens com as palavras:</h1>
     <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
       <div class="displayTemplate4">

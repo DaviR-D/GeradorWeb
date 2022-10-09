@@ -1,5 +1,6 @@
 <template>
   <div class=" ">
+    <h1>template5</h1>
     <h1>Selecione a imagem correspondente a palavra em inglês:</h1>
     <h1 class="dataWord">
       <strong>{{ data.word }}</strong>

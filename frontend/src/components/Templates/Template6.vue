@@ -1,5 +1,6 @@
 <template>
   <div class=" ">
+    <h1>template6</h1>
     <h1 class="titleTemplate6">Coloque a resposta correta</h1>
     <img class="imgTemplate6" :src="data.image" />
     <p class="inputTemplate6">

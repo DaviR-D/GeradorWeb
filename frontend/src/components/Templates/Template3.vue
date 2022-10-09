@@ -1,5 +1,6 @@
 <template>
   <div class=" ">
+    <h1 class="title">template3:</h1>
     <h1 class="title">Explicação:</h1>
     <div class="images-aligned">
       <li

@@ -1,5 +1,6 @@
 <template>
   <div class=" ">
+    <h1 class="title">template2</h1>
     <h1 class="title">Explicação:</h1>
     <img :src="data.image" />
     <h1 class="h1Template2">{{ data.text }}</h1>
