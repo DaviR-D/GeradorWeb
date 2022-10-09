@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col items-center justify-center h-screen">
-    <div class="border-[1px] p-4 w-1/3">
+    <div class="border-[1px] p-4 w-1/3 rounded">
       <div class="flex flex-col items-center justify-center text-white gap-4">
         <h1>Seja Bem vindo!</h1>
         <img src="../assets/login (1).png" class="h-20 w-20" alt="">
