@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class=" ">
     <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
@@ -57,46 +57,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container {
-  display: column;
-  text-align: center;
-  max-width: 100%;
-}
-
-img {
-  height: 25%;
-  width: 25%;
-  border-radius: 5px;
-  margin-bottom: 0.3%;
-  border: 3px solid white;
-}
-
-.title {
-  color: white;
-  text-decoration: underline;
-  margin-bottom: 0.3%;
-}
-
-.primary-button {
-  width: 25%;
-  margin-bottom: 0.3%;
-  justify-content: center;
-  height: 90 px;
-  font-weight: bold;
-  font-size: large;
-  border-radius: 5px;
-}
-
-Button:hover {
-  color: white;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-li {
-  list-style: none;
-  width: 100%;
-}
-</style>

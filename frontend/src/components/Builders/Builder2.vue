@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class=" ">
     <input type="file" @change="onFileChange" />
 
     <input
@@ -55,40 +55,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-input[type="file"] {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-}
-.input {
-  height: 8%;
-  width: 25%;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-button {
-  text-align: center;
-  border-radius: 4px !important;
-  color: whitesmoke;
-  font-weight: bold;
-  font-size: 24px;
-  cursor: pointer;
-  transition: ease 0.75s;
-  background: hsla(160, 100%, 37%, 1);
-  width: 30%;
-}
-
-button:hover {
-  opacity: 0.78;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class=" ">
     <h1 class="titleTemplate6">Coloque a resposta correta</h1>
     <img class="imgTemplate6" :src="data.image" />
     <p class="inputTemplate6">
@@ -57,51 +57,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container {
-  display: inline;
-  justify-content: center;
-}
-.imgTemplate6 {
-  border-radius: 5px;
-  max-width: 100%;
-  margin-top: 1%;
-}
-.inputTemplate6 {
-  text-align: center;
-  margin-bottom: 2%;
-}
-
-input {
-  height: 50px;
-  border-radius: 4px;
-}
-
-input:focus {
-  outline: none;
-  border-left: 4px solid green;
-  border-bottom: 4px solid green;
-}
-.titleTemplate6 {
-  text-align: center;
-  color: white;
-  text-decoration: underline;
-}
-
-.primary-button {
-  margin-bottom: 1%;
-  justify-content: center;
-  height: 60px;
-  font-weight: bold;
-  font-size: large;
-  border-radius: 5px;
-  width: 100%;
-}
-
-Button:hover {
-  color: white;
-  transition: 0.3s;
-  cursor: pointer;
-}
-</style>

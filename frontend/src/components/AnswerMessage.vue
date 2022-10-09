@@ -1,5 +1,5 @@
 <template>
-  <div :style="messageColor" class="container">
+  <div :style="messageColor" class=" ">
     <div>
       <h1 class="h1Message">{{ answerMessage }}</h1>
     </div>
@@ -45,7 +45,7 @@ export default {
         this.answerMessage =
           "Parabéns, você acertou! +" + this.value + " pontos";
         this.messageColor = "background-color: #32CD32";
-        
+
         this.imageURL = "https://i.imgur.com/XgL6soA.png";
       } else {
         this.answerMessage = "Que pena, você errou 😐";
@@ -57,45 +57,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 5px;
-  height: 30%;
-  width: 30%;
-}
-
-.imgMessage {
-  width: 150px !important;
-  height: 150px !important;
-  
-  
-  padding-right: 1% !important;
-}
-
-.h1Message {
-  color: white;
-  justify-content: center;
-  border-radius: 5px;
-}
-
-.h1Button {
-  
-  display: flex;
-  align-items: center;
-  padding-right: 1%;
-}
-button {
-  width: 300px !important;
-  background-color: rgb(10, 117, 154);
-}
-button:hover {
-  color: whitesmoke;
-  transition: 0.5s;
-  cursor: pointer;
-  background-color: rgb(5, 110, 172);
-  opacity: 5;
-}
-</style>

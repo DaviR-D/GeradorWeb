@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class=" ">
     <h1 class="title">Associe as imagens com as palavras:</h1>
     <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
       <div class="displayTemplate4">
@@ -82,61 +82,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-}
-
-.title {
-  color: white;
-  text-decoration: underline;
-  text-align: center;
-}
-
-.liTemplate4 {
-  list-style: none;
-}
-
-.displayTemplate4 {
-  display: flex;
-  align-items: center;
-}
-
-.indexTemplate4 {
-  text-align: center;
-  margin-right: 15px;
-  color: white;
-}
-
-.imgTemplate4 {
-  width: 277px;
-  height: 200px;
-  max-height: 100%;
-  margin-right: 15px;
-  border-radius: 3px;
-  border: 3px solid white;
-}
-
-.wordsTemplate4 {
-  margin-right: 15px;
-  min-width: 81px;
-  color: white;
-}
-
-.primary-button {
-  margin-bottom: 1%;
-  justify-content: center;
-  height: 60px;
-  font-weight: bold;
-  border-radius: 5px;
-  width: 100%;
-}
-</style>

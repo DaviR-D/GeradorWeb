@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class=" ">
     <h1 class="title">Explicação:</h1>
     <div class="images-aligned">
       <li
@@ -48,37 +48,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.container {
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-}
-
-.title {
-  color: white;
-  text-decoration: underline;
-  text-align: center;
-}
-
-.images-aligned {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.liTemplate3 {
-  text-align: center;
-  list-style: none;
-}
-
-img {
-  border: 1px solid whitesmoke;
-}
-
-h1 {
-  color: whitesmoke;
-}
-.primary-button{
-  margin-top: 1%;
-}
-</style>

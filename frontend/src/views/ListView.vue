@@ -47,14 +47,3 @@ export default {
 };
 //import router from "../router";
 </script>
-<style scoped>
-button {
-  font-size: 100%;
-  width: 100%;
-  height: 50px;
-  background-color: #008cba;
-  border-color: transparent;
-  margin-bottom: 1%;
-  border-radius: 5px;
-}
-</style>

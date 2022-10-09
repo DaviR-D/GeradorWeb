@@ -60,16 +60,16 @@ const generator = (numQuest) => {
 //     text: "Dog",
 //     image: "https://i.imgur.com/yfg3vHp.png",
 //   },
-  // {
-  //   template: TheTemplate3,
-  //   images: [
-  //     "https://i.imgur.com/yfg3vHp.png",
-  //     "https://i.imgur.com/e7yx8QO.png",
-  //     "https://i.imgur.com/RXHgMb3.png",
-  //     "https://i.imgur.com/vPbaA7i.png",
-  //   ],
-  //   words: ["Dog", "Pig", "Cat", "Horse"],
-  // },
+// {
+//   template: TheTemplate3,
+//   images: [
+//     "https://i.imgur.com/yfg3vHp.png",
+//     "https://i.imgur.com/e7yx8QO.png",
+//     "https://i.imgur.com/RXHgMb3.png",
+//     "https://i.imgur.com/vPbaA7i.png",
+//   ],
+//   words: ["Dog", "Pig", "Cat", "Horse"],
+// },
 //   {
 //     template: TheTemplate4,
 //     images: [
@@ -112,12 +112,12 @@ const atividade = [
     ],
     words: ["Red", "Green", "Blue", "Yellow"],
   },
-   {
+  {
     template: TheTemplate2,
     text: "Red",
     image: "https://i.imgur.com/YlLskJx.jpeg",
   },
-  
+
   {
     template: TheTemplate1,
     alternatives: ["Red", "Pink", "Orange", "Yellow"],
@@ -227,14 +227,3 @@ const question = () => {
   else router.push("end");
 };
 </script>
-<style>
-button {
-  font-size: 100%;
-  width: 100%;
-  height: 50px;
-  background-color: #008cba;
-  border-color: transparent;
-  margin-bottom: 1%;
-  border-radius: 5px;
-}
-</style>
