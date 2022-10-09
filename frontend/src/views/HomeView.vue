@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="w-full flex justify-center items-center h-screen">
     <div v-if="!logado">
       <button @click="router.push('/login')">Login</button>
       <button>Registro</button>
