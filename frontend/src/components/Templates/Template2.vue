@@ -1,10 +1,10 @@
 <template>
-  <div class=" ">
+  <div class="flex flex-col items-center justify-center">
     <h1 class="">template2</h1>
     <h1 class="">Explicação:</h1>
     <img :src="data.image" />
     <h1 class="">{{ data.text }}</h1>
-    <button class="" @click="nextQuestion()">Entendido</button>
+    <button @click="nextQuestion()">Entendido</button>
   </div>
 </template>
 
