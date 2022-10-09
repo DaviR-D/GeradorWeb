@@ -1,12 +1,15 @@
 <template>
   <div class="w-full flex justify-center items-center h-screen">
     <div v-if="!logado">
-      <button @click="router.push('/login')">Login</button>
-      <button>Registro</button>
+      <a @click="router.push('/login')">Login</a>
+      <a>Registro</a>
     </div>
-    <div v-else>
-      <a @click="newLesson">
-        <t> Nova atividade </t>
+    <div v-else class="flex flex-col">
+      <a
+        @click="newLesson"
+        class="bg-green-600 rounded w-48 h-8 flex justify-center items-center text-white font-bold hover:brightness-75 hover:animate-spin"
+      >
+        <t>Nova atividade</t>
       </a>
       <a @click="router.push('/list-lessons')">Atividades salvas</a>
     </div>
