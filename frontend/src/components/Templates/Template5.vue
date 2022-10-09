@@ -1,17 +1,13 @@
 <template>
-<<<<<<< HEAD
-  <div>
-=======
   <div class=" ">
     <h1>template5</h1>
->>>>>>> 4629165f668b7586df6cfffcc97d4e6347ae86db
     <h1>Selecione a imagem correspondente a palavra em inglês:</h1>
-    <h1>
+    <h1 class="dataWord">
       <strong>{{ data.word }}</strong>
     </h1>
-    <div>
+    <div class=" -opt">
       <li v-for="(image, index) in data.images" :key="index">
-        <img :src="image" @click="checkAnswer(index)" />
+        <img class="image" :src="image" @click="checkAnswer(index)" />
       </li>
     </div>
     <answer-message
