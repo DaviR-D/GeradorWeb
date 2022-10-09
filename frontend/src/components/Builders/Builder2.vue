@@ -1,13 +1,8 @@
 <template>
-  <div class=" ">
+  <div>
     <input type="file" @change="onFileChange" />
 
-    <input
-      type="text"
-      placeholder="Digite a palavra correta"
-      v-model="text"
-      class="input"
-    />
+    <input type="text" placeholder="Digite a palavra correta" v-model="text" />
 
     <button @click="save()">Salvar</button>
   </div>

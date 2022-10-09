@@ -1,20 +1,14 @@
 <template>
-  <div class=" ">
-    <input type="text" class="input" placeholder="Palavra" v-model="word" />
+  <div>
+    <input type="text" placeholder="Palavra" v-model="word" />
     <li v-for="i in [0, 1, 2, 3]" :key="i">
       {{ i }}
       <input type="file" @change="(e) => onFileChange(e, i)" />
     </li>
 
+    <input type="text" v-model="value" placeholder="Valor da questão" />
     <input
       type="text"
-      class="input"
-      v-model="value"
-      placeholder="Valor da questão"
-    />
-    <input
-      type="text"
-      class="input"
       v-model="rightAnswer"
       placeholder="Alternativa correta (número)"
     />

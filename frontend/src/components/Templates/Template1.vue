@@ -1,9 +1,9 @@
 <template>
-  <div class=" ">
-    <h1 class="title">Selecione a opção correspondente a imagem</h1>
+  <div>
+    <h1>Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
-      <button class="primary-button" @click="checkAnswer(alternative)">
+      <button @click="checkAnswer(alternative)">
         {{ alternative }}
       </button>
     </li>

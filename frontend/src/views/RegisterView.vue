@@ -1,31 +1,14 @@
 <template>
-  <div class="hero">
-    <i
-      class="pi pi-users"
-      style="font-size: 5rem; color: whitesmoke; margin-bottom: 50px"
-    ></i>
-    <div class=" ">
+  <div>
+    <div>
       <h1>Seja Bem vindo!</h1>
       <p>Criar uma conta de professor.</p>
-      <input
-        class="input"
-        id="username"
-        type="text"
-        v-model="username"
-        placeholder="Nome"
-      />
-      <input
-        class="input"
-        id="email"
-        type="text"
-        v-model="email"
-        placeholder="E-mail"
-      />
+      <input id="username" type="text" v-model="username" placeholder="Nome" />
+      <input id="email" type="text" v-model="email" placeholder="E-mail" />
       <input
         type="password"
         v-model="password"
         :feedback="false"
-        class="inputPassword input"
         placeholder="Password"
       />
       <button @click="Login">Registrar</button>

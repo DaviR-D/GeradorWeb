@@ -1,14 +1,12 @@
 <template>
-  <div :style="messageColor" class=" ">
+  <div :style="messageColor">
     <div>
-      <h1 class="h1Message">{{ answerMessage }}</h1>
+      <h1>{{ answerMessage }}</h1>
     </div>
     <div>
-      <h1 class="h1Button">
-        <img class="imgMessage" :src="imageURL" alt="" />
-        <button style="border-radius: 5px" @click="index.increment()">
-          OK
-        </button>
+      <h1>
+        <img :src="imageURL" alt="" />
+        <button @click="index.increment()">OK</button>
       </h1>
     </div>
   </div>

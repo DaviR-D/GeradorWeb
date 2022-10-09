@@ -1,11 +1,11 @@
 <template>
-  <div class="  bg-slate-400 w-full m-0">
+  <div class="">
     <div v-if="!logado">
       <button @click="router.push('/login')">Login</button>
       <button>Registro</button>
     </div>
-    <div v-else class=" -opt">
-      <a @click="newLesson" style="margin-bottom: 25px">
+    <div v-else>
+      <a @click="newLesson">
         <t> Nova atividade </t>
       </a>
       <a @click="router.push('/list-lessons')">Atividades salvas</a>
