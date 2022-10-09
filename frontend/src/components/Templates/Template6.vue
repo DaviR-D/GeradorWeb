@@ -1,12 +1,12 @@
 <template>
   <div class=" ">
     <h1>template6</h1>
-    <h1 class="titleTemplate6">Coloque a resposta correta</h1>
-    <img class="imgTemplate6" :src="data.image" />
-    <p class="inputTemplate6">
+    <h1 class="">Coloque a resposta correta</h1>
+    <img class="" :src="data.image" />
+    <p class="">
       <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
     </p>
-    <button class="primary-button" @click="checkAnswer()">Confirmar</button>
+    <button class="" @click="checkAnswer()">Confirmar</button>
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"

@@ -1,27 +1,27 @@
 <template>
   <div class=" ">
     <h1>template4</h1>
-    <h1 class="title">Associe as imagens com as palavras:</h1>
-    <li class="liTemplate4" v-for="(image, index) in data.images" :key="index">
-      <div class="displayTemplate4">
+    <h1 class="">Associe as imagens com as palavras:</h1>
+    <li class="" v-for="(image, index) in data.images" :key="index">
+      <div class="">
         <div>
-          <h1 class="indexTemplate4">{{ index + 1 }}</h1>
+          <h1 class="">{{ index + 1 }}</h1>
         </div>
         <div>
-          <img class="imgTemplate4" :src="image" />
+          <img class="" :src="image" />
         </div>
         <div>
-          <h1 class="wordsTemplate4">
+          <h1 class="">
             {{ data.words[correctAnswer[index] - 1] }}
           </h1>
         </div>
         <div>
-          <input class="inputTemplate4" type="number" v-model="answer[index]" />
+          <input class="" type="number" v-model="answer[index]" />
         </div>
       </div>
     </li>
 
-    <button class="primary-button" @click="checkAnswer()">Confirmar</button>
+    <button class="" @click="checkAnswer()">Confirmar</button>
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"

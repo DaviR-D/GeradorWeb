@@ -2,10 +2,10 @@
   <div class=" ">
     <h1>template5</h1>
     <h1>Selecione a imagem correspondente a palavra em inglês:</h1>
-    <h1 class="dataWord">
+    <h1 class="">
       <strong>{{ data.word }}</strong>
     </h1>
-    <div class=" -opt">
+    <div class="">
       <li v-for="(image, index) in data.images" :key="index">
         <img class="image" :src="image" @click="checkAnswer(index)" />
       </li>
