@@ -1,7 +1,7 @@
 <template>
+  <h1>Template1</h1>
+  <h1 class="title">Selecione a opção correspondente a imagem</h1>
   <div class="">
-    <h1>Template1</h1>
-    <h1 class="title">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
       <button class="primary-button" @click="checkAnswer(alternative)">
