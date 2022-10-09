@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex flex-col items-center justify-center w-full justify-center h-screen"
-  >
+  <div class="flex flex-col items-center w-full justify-center h-screen">
     <h1 class="">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" class="img mb-4" />
     <li
@@ -24,10 +22,9 @@
 <script>
 import { useIndexStore } from "@/stores/index";
 import { useScoreStore } from "@/stores/score";
-import AnswerMessage from "@/components/AnswerMessage.vue";
+//import AnswerMessage from "@/components/AnswerMessage.vue";
 
 export default {
-  components: { AnswerMessage },
   name: "TheTemplate1",
   data() {
     return {
@@ -51,12 +48,22 @@ export default {
     },
   },
   methods: {
+    openToast() {
+      this.$toast.open({
+        message: "Test message from Vue",
+        type: "success",
+        duration: 5000,
+        dismissible: true,
+      });
+    },
     checkAnswer(alternative) {
       if (alternative == this.data.rightAnswer) {
+        this.openToast();
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;
       }
+      this.openToast();
       this.score.incrementQuestionCounter();
       this.answered = true;
     },
