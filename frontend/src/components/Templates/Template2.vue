@@ -1,8 +1,7 @@
 <template>
-  <div class="flex flex-col items-center justify-center">
-    <h1 class="">template2</h1>
+  <div class="flex flex-col items-center justify-center h-screen">
     <h1 class="">Explicação:</h1>
-    <img :src="data.image" />
+    <img :src="data.image" class="img" />
     <h1 class="">{{ data.text }}</h1>
     <button @click="nextQuestion()">Entendido</button>
   </div>

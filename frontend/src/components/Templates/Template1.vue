@@ -1,10 +1,15 @@
 <template>
-  <h1>Template1</h1>
-  <h1 class="">Selecione a opção correspondente a imagem</h1>
-  <div class="">
-    <img :src="data.image" />
-    <li v-for="alternative in data.alternatives" :key="alternative">
-      <button class="" @click="checkAnswer(alternative)">
+  <div
+    class="flex flex-col items-center justify-center w-full justify-center h-screen"
+  >
+    <h1 class="">Selecione a opção correspondente a imagem</h1>
+    <img :src="data.image" class="img mb-4" />
+    <li
+      v-for="alternative in data.alternatives"
+      :key="alternative"
+      class="list-none w-full flex flex-col items-center justify-center"
+    >
+      <button @click="checkAnswer(alternative)">
         {{ alternative }}
       </button>
     </li>

@@ -1,10 +1,14 @@
 <template>
-  <div class=" ">
-    <h1>template6</h1>
+  <div class="flex flex-col items-center justify-center h-screen">
     <h1 class="">Coloque a resposta correta</h1>
-    <img class="" :src="data.image" />
-    <p class="">
-      <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
+    <img class="img mb-4" :src="data.image" />
+    <p class="w-full flex items-center justify-center">
+      <input
+        type="text"
+        class=""
+        v-model="answer"
+        @keyup.enter="checkAnswer()"
+      />
     </p>
     <button class="" @click="checkAnswer()">Confirmar</button>
     <answer-message

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center justify-center h-screen">
     <h1 class="">Explicação:</h1>
     <div class="grid grid-cols-2 gap-8">
       <li class="list-none" v-for="(image, index) in data.images" :key="index">

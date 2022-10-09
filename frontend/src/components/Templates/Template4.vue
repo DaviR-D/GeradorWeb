@@ -1,22 +1,22 @@
 <template>
-  <div class=" ">
+  <div class="flex flex-col">
     <h1>template4</h1>
     <h1 class="">Associe as imagens com as palavras:</h1>
-    <li class="" v-for="(image, index) in data.images" :key="index">
-      <div class="">
+    <li class="list-none" v-for="(image, index) in data.images" :key="index">
+      <div class="grid grid-cols-4">
         <div>
-          <h1 class="">{{ index + 1 }}</h1>
+          <h1 class="col-span-1">{{ index + 1 }}</h1>
         </div>
         <div>
-          <img class="" :src="image" />
+          <img class="col-span-2" :src="image" />
         </div>
         <div>
-          <h1 class="">
+          <h1 class="col-span-3">
             {{ data.words[correctAnswer[index] - 1] }}
           </h1>
         </div>
         <div>
-          <input class="" type="number" v-model="answer[index]" />
+          <input class="col-span-4" type="number" v-model="answer[index]" />
         </div>
       </div>
     </li>
