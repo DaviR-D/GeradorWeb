@@ -1,6 +1,12 @@
 <template>
+<<<<<<< HEAD
   <div>
     <h1>Selecione a opção correspondente a imagem</h1>
+=======
+  <div class="">
+    <h1>Template1</h1>
+    <h1 class="title">Selecione a opção correspondente a imagem</h1>
+>>>>>>> 4629165f668b7586df6cfffcc97d4e6347ae86db
     <img :src="data.image" />
     <li v-for="alternative in data.alternatives" :key="alternative">
       <button @click="checkAnswer(alternative)">

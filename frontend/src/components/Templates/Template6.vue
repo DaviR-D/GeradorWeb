@@ -1,8 +1,16 @@
 <template>
+<<<<<<< HEAD
   <div>
     <h1>Coloque a resposta correta</h1>
     <img :src="data.image" />
     <p>
+=======
+  <div class=" ">
+    <h1>template6</h1>
+    <h1 class="titleTemplate6">Coloque a resposta correta</h1>
+    <img class="imgTemplate6" :src="data.image" />
+    <p class="inputTemplate6">
+>>>>>>> 4629165f668b7586df6cfffcc97d4e6347ae86db
       <input type="text" v-model="answer" @keyup.enter="checkAnswer()" />
     </p>
     <button @click="checkAnswer()">Confirmar</button>

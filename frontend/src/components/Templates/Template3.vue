@@ -1,8 +1,20 @@
 <template>
+<<<<<<< HEAD
   <div>
     <h1>Explicação:</h1>
     <div>
       <li v-for="(image, index) in data.images" :key="index">
+=======
+  <div class=" ">
+    <h1 class="title">template3:</h1>
+    <h1 class="title">Explicação:</h1>
+    <div class="images-aligned">
+      <li
+        class="liTemplate3"
+        v-for="(image, index) in data.images"
+        :key="index"
+      >
+>>>>>>> 4629165f668b7586df6cfffcc97d4e6347ae86db
         <img :src="image" />
         <h1>
           <strong>{{ data.words[index] }}</strong>

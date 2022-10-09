@@ -1,5 +1,10 @@
 <template>
+<<<<<<< HEAD
   <div>
+=======
+  <div class=" ">
+    <h1>template5</h1>
+>>>>>>> 4629165f668b7586df6cfffcc97d4e6347ae86db
     <h1>Selecione a imagem correspondente a palavra em inglês:</h1>
     <h1>
       <strong>{{ data.word }}</strong>
