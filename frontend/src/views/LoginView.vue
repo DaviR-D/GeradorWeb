@@ -1,23 +1,30 @@
 <template>
-  <div>
-    <div>
-      <h1>Seja Bem vindo!</h1>
-      <p>Você esta logando como professor.</p>
-      <input
-        id="username"
-        type="text"
-        v-model="username"
-        placeholder="E-mail"
-      />
-      <input
-        type="password"
-        v-model="password"
-        :feedback="false"
-        placeholder="Password"
-      />
-      <button @click="Login">Login</button>
+  <div class="flex flex-col items-center justify-center h-screen">
+    <div class="border-[1px] p-4 w-1/3">
+      <div class="flex flex-col items-center justify-center text-white gap-4">
+        <h1>Seja Bem vindo!</h1>
+        <img src="../assets/login (1).png" class="h-20 w-20" alt="">
+        <p class="font-bold">Você esta logando como professor.</p>
+        <input
+          class="h-10 w-3/4 p-2 rounded"
+          id="username"
+          type="text"
+          v-model="username"
+          placeholder="E-mail"
+        />
+        <input
+          class="h-10 w-3/4 p-2 rounded"
+          type="password"
+          v-model="password"
+          :feedback="false"
+          placeholder="Password"
+        />
+      </div>
+      <div class="mt-4 flex flex-col items-center justify-center">
+        <button class="h-12 text-xl" @click="Login">Login</button>
+        <a class="anchor text-xl flex items-center justify-center h-12" href="">Voltar</a>
+      </div>
     </div>
-    <a href="">Voltar</a>
   </div>
 </template>
 

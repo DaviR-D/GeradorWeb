@@ -1,19 +1,37 @@
 <template>
-  <div>
-    <div>
-      <h1>Seja Bem vindo!</h1>
-      <p>Criar uma conta de professor.</p>
-      <input id="username" type="text" v-model="username" placeholder="Nome" />
-      <input id="email" type="text" v-model="email" placeholder="E-mail" />
-      <input
-        type="password"
-        v-model="password"
-        :feedback="false"
-        placeholder="Password"
-      />
-      <button @click="Login">Registrar</button>
+  <div class="flex flex-col items-center justify-center h-screen">
+    <div class="border-[1px] p-4 w-1/3">
+      <div class="flex flex-col items-center justify-center text-white gap-4">
+        <h1>Seja Bem vindo!</h1>
+        <img src="../assets/in.png" class="h-20 w-20" alt="">
+        <p class="font-bold">Criar uma conta como professor.</p>
+        <input
+          class="h-10 w-3/4 p-2 rounded"
+          id="username"
+          type="text"
+          v-model="username"
+          placeholder="Nome"
+        />
+        <input
+          class="h-10 w-3/4 p-2 rounded"
+          id="email"
+          type="text"
+          v-model="email"
+          placeholder="E-mail"
+        />
+        <input
+          class="h-10 w-3/4 p-2 rounded"
+          type="password"
+          v-model="password"
+          :feedback="false"
+          placeholder="Password"
+        />
+      </div>
+      <div class="mt-4 flex flex-col items-center justify-center">
+        <button class="h-12 text-xl" @click="Login">Registrar</button>
+        <a class="anchor text-xl flex items-center justify-center h-12" href="">Voltar</a>
+      </div>
     </div>
-    <a href="">Voltar</a>
   </div>
 </template>
 

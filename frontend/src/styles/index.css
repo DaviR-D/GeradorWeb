@@ -76,6 +76,10 @@ img{
 button{
   @apply bg-green-400 rounded p-2 w-full h-16 max-w-xl mt-2 mb-3 shadow-md text-white font-bold shadow-green-600 hover:brightness-75;
 }
+
+.anchor{
+  @apply bg-green-400 rounded p-2 w-full h-12 max-w-xl mt-2 mb-3 shadow-md text-white font-bold shadow-green-600 hover:brightness-75;
+}
 .img{
 @apply w-[576px] h-80
 }
