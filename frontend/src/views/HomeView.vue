@@ -179,6 +179,11 @@
         @click="router.push('/list-lessons')"
         >Atividades salvas</a
       >
+      <a
+        class="anchor rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        @click="router.push('/lesson')"
+        >Atividade</a
+      >
     </div>
   </div>
 </template>

@@ -1,34 +1,37 @@
 <template>
-  <div class="flex flex-col items-center justify-center h-screen">
-    <h1 class="">Associe as imagens com as palavras:</h1>
+  <div class="flex flex-col items-center justify-center h-screen w-screen">
+    <h1 class="text-base md:text-2xl">Associe as imagens com as palavras:</h1>
     <li
       class="list-none mb-4"
       v-for="(image, index) in data.images"
       :key="index"
     >
-      <div class="grid grid-cols-8 h-24">
-        <div class="col-span-2"></div>
+      <div class="grid grid-cols-8 gap-2 h-24">
+        <div class="display-none md:col-span-1"></div>
         <div class="col-span-1 flex justify-center mr-2 items-center">
           <h1>{{ index + 1 }}</h1>
         </div>
-        <div class="col-span-1 flex items-center justify-center">
+        <div class="col-span-2 flex items-center justify-center">
           <img :src="image" class="imagem" />
         </div>
-        <div class="col-span-1 flex items-center justify-start ml-20">
+        <div class="col-span-2 flex items-center justify-center">
+          <input
+            class="max-w-[60px] md:max-w-[100px]"
+            type="number"
+            v-model="answer[index]"
+          />
+        </div>
+        <div class="col-span-1 flex items-center justify-start">
           <h1>
             {{ data.words[correctAnswer[index] - 1] }}
           </h1>
         </div>
-        <div class="col-span-1 flex items-center justify-center">
-          <input type="number" v-model="answer[index]" />
-        </div>
       </div>
     </li>
     <div class="w-full flex items-center justify-center">
-      <button class="botao ml-16" @click="checkAnswer()">Confirmar</button>
+      <button class="botao ml-10 md:ml-0" @click="checkAnswer()">Confirmar</button>
     </div>
 
-    
     <answer-message
       v-if="answered"
       :rightAnswer="rightAnswer"

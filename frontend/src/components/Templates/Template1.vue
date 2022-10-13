@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col items-center w-full justify-center h-screen">
-    <h1 class="">Selecione a opção correspondente a imagem</h1>
-    <img :src="data.image" class="img mb-4" />
+    <h1 class="text-sm md:text-2xl lg:text-4xl">Selecione a opção correspondente a imagem</h1>
+    <img
+      :src="data.image"
+      class="max-h-[300px] max-w-[300px] md:max-w-lg md:max-h-96 img mb-4"
+    />
     <li
       v-for="alternative in data.alternatives"
       :key="alternative"

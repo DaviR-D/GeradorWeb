@@ -83,6 +83,9 @@ button{
 .img{
 @apply w-[576px] h-80
 }
+.button{
+  @apply bg-green-400 rounded p-2 h-16 w-[300px] mt-2 mb-3 shadow-md text-white font-bold shadow-green-600 hover:brightness-75;
+}
 
 .botao{
  @apply bg-green-400 rounded p-2 h-16 w-screen max-w-5xl mt-2 mb-3 shadow-md text-white font-bold shadow-green-600 hover:brightness-75;

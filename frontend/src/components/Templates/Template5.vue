@@ -2,13 +2,19 @@
   <div
     class="flex flex-col justify-center items-center justify-items-center h-screen"
   >
-    <h1>Selecione a imagem correspondente a palavra em inglês:</h1>
+    <h1 class="text-sm md:text-xl lg:text-2xl xl:text-4xl">
+      Selecione a imagem correspondente a palavra em inglês:
+    </h1>
     <h1 class="">
       <strong>{{ data.word }}</strong>
     </h1>
-    <div class="flex gap-4">
+    <div class="flex flex-col gap-4 md:flex md:flex-row">
       <li class="list-none" v-for="(image, index) in data.images" :key="index">
-        <img class="" :src="image" @click="checkAnswer(index)" />
+        <img
+          class="img max-h-[200px] max-w-[200px] md:max-w-[160px] md:max-h-[160px] lg:max-w-[230px] lg:max-h-[220px] xl:max-w-xs xl:max-h-80"
+          :src="image"
+          @click="checkAnswer(index)"
+        />
       </li>
     </div>
     <answer-message
