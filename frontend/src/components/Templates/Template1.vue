@@ -1,10 +1,7 @@
 <template>
   <div class="flex flex-col items-center w-full justify-center h-screen">
-    <h1 class="text-sm md:text-2xl lg:text-4xl">Selecione a opção correspondente a imagem</h1>
-    <img
-      :src="data.image"
-      class="max-h-[300px] max-w-[300px] md:max-w-lg md:max-h-96 img mb-4"
-    />
+    <h1 class="">Selecione a opção correspondente a imagem</h1>
+    <img :src="data.image" class="img mb-4" />
     <li
       v-for="alternative in data.alternatives"
       :key="alternative"
@@ -14,20 +11,21 @@
         {{ alternative }}
       </button>
     </li>
-    <answer-message
-      v-if="answered"
-      :rightAnswer="rightAnswer"
-      :value="data.value"
-    />
   </div>
+  <answer-message
+    v-if="answered"
+    :rightAnswer="rightAnswer"
+    :value="data.value"
+  />
 </template>
 
 <script>
 import { useIndexStore } from "@/stores/index";
 import { useScoreStore } from "@/stores/score";
-//import AnswerMessage from "@/components/AnswerMessage.vue";
+import AnswerMessage from "@/components/AnswerMessage.vue";
 
 export default {
+  components: { AnswerMessage },
   name: "TheTemplate1",
   data() {
     return {
@@ -62,15 +60,17 @@ export default {
     },
     checkAnswer(alternative) {
       if (alternative == this.data.rightAnswer) {
-        this.openToast("success", "Resposta correta!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;
-      } else if (alternative != this.data.rightAnswer) {
+        this.openToast("success", "Resposta correta!");
+      } else {
         this.openToast("error", "Resposta errada!");
+        this.answered = true;
         this.score.decrementAnswerCounter();
         this.rightAnswer = false;
       }
+      this.answered = true;
     },
   },
 };
