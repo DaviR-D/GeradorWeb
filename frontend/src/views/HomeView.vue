@@ -15,29 +15,29 @@
 </template>
 
 <script setup>
-//import { useAuthStore } from "@/stores/auth";
 import router from "../router";
-//import axios from "axios";
+import axios from "axios";
 
 const newLesson = () => {
-  // console.log(localStorage.getItem("token"));
-  // axios
-  //   .post("http://localhost:3000/activitys", {
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem("token"),
-  //     },
-  //     name: "Teste",
-  //   })
-  //   .then((response) => {
-  //     console.log(response);
-  //   });
-  router.push("/templates");
+  let lessonId;
+  console.log(localStorage.getItem("token"));
+  axios
+    .post(
+      "http://localhost:3000/activitys",
+      { name: "Teste4" },
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    )
+    .then((response) => {
+      lessonId = response.data.id;
+    });
+  router.push("/templates/" + lessonId);
 };
 
 let logado = true;
-
-//const auth = useAuthStore();
-//let token = auth.getToken;
 </script>
 <style scoped>
 .container {

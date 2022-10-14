@@ -22,7 +22,7 @@ const router = createRouter({
       component: FinishView,
     },
     {
-      path: "/templates",
+      path: "/templates/:lessonId",
       name: "Templates",
       component: TemplatesView,
     },
