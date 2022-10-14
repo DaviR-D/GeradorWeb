@@ -31,7 +31,7 @@ export default {
     };
   },
 
-  props: {},
+  props: { lessonId: { type: String } },
   methods: {
     onFileChange(e, i) {
       var files = e.target.files || e.dataTransfer.files;
@@ -52,7 +52,7 @@ export default {
         images: this.images,
       };
       this.question = question;
-      router.push("/templates");
+      router.push("/templates/" + this.lessonId);
       //this.index.increment();
     },
   },

@@ -14,6 +14,9 @@
 
 <script setup>
 import router from "../router";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 const images = [
   "https://i.imgur.com/fSBLcSb.png",
@@ -25,7 +28,7 @@ const images = [
 ];
 
 const build = (i) => {
-  router.push("/build/" + i);
+  router.push("/build/" + route.params.lessonId + "/" + i);
 };
 </script>
 

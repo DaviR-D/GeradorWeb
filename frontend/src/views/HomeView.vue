@@ -18,13 +18,14 @@
 import router from "../router";
 import axios from "axios";
 
+let lessonId;
+
 const newLesson = () => {
-  let lessonId;
   console.log(localStorage.getItem("token"));
   axios
     .post(
       "http://localhost:3000/activitys",
-      { name: "Teste4" },
+      { name: "Teste" },
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
@@ -33,8 +34,8 @@ const newLesson = () => {
     )
     .then((response) => {
       lessonId = response.data.id;
+      router.push("/templates/" + lessonId);
     });
-  router.push("/templates/" + lessonId);
 };
 
 let logado = true;

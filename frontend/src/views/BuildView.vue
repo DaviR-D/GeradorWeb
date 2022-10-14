@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="template()" />
+    <component :is="template()" :lessonId="lessonId" />
   </div>
 </template>
 
@@ -13,12 +13,20 @@ import TheBuilder5 from "@/components/Builders/Builder5.vue";
 import TheBuilder6 from "@/components/Builders/Builder6.vue";
 import { useRoute } from "vue-router";
 
-const builders = [TheBuilder1,TheBuilder2,TheBuilder3,TheBuilder4,TheBuilder5,TheBuilder6];
+const builders = [
+  TheBuilder1,
+  TheBuilder2,
+  TheBuilder3,
+  TheBuilder4,
+  TheBuilder5,
+  TheBuilder6,
+];
 
 const route = useRoute();
 
+const lessonId = route.params.lessonId;
+
 const template = () => {
   return builders[route.params.template - 1];
-  
 };
 </script>
