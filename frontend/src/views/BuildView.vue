@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="template()" />
+    <component :is="template()" :lessonId="lessonId" />
   </div>
 </template>
 
@@ -23,6 +23,8 @@ const builders = [
 ];
 
 const route = useRoute();
+
+const lessonId = route.params.lessonId;
 
 const template = () => {
   return builders[route.params.template - 1];

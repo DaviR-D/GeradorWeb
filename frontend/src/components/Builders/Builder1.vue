@@ -38,6 +38,7 @@
 <script>
 import { useIndexStore } from "@/stores/index";
 import router from "@/router";
+import axios from "axios";
 
 export default {
   name: "TheBuilder1",
@@ -52,7 +53,7 @@ export default {
     };
   },
 
-  props: {},
+  props: { lessonId: { type: String } },
   methods: {
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
@@ -75,7 +76,20 @@ export default {
         value: this.value,
       };
       this.question = question;
-      router.push("/templates");
+      axios
+        .post(
+          "http://localhost:3000/questions/" + this.lessonId,
+          { name: "questão" },
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        });
+      router.push("/templates/" + this.lessonId);
       //this.index.increment();
     },
   },

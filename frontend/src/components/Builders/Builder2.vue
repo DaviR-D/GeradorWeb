@@ -39,7 +39,7 @@ export default {
     };
   },
 
-  props: {},
+  props: { lessonId: { type: String } },
   methods: {
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
@@ -60,7 +60,7 @@ export default {
         image: this.image,
       };
       this.question = question;
-      router.push("/templates");
+      router.push("/templates/" + this.lessonId);
       //this.index.increment();
     },
   },

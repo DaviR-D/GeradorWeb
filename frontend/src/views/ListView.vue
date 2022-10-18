@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { useAuthStore } from "@/stores/auth";
 import axios from "axios";
 import LessonItem from "@/components/LessonItem.vue";
 import router from "@/router";
@@ -28,21 +27,23 @@ export default {
   components: { LessonItem },
   name: "ListView",
   mounted() {
-    //this.Busca();
+    this.Busca();
   },
   data() {
     return {
       lessons: [{ name: "Atividade1" }, { name: "Atividade2" }],
-      auth: useAuthStore(),
+      token: localStorage.getItem("token"),
     };
   },
 
   methods: {
     Busca() {
-      console.log(this.auth.getToken);
+      console.log(this.token);
       axios
         .get("http://localhost:3000/activitys", {
-          headers: { Authorization: `Bearer ${this.auth.getToken}` },
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
         })
         .then((response) => {
           this.lessons = response.data;

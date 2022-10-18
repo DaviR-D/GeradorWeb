@@ -22,12 +22,12 @@ const router = createRouter({
       component: FinishView,
     },
     {
-      path: "/templates",
+      path: "/templates/:lessonId",
       name: "Templates",
       component: TemplatesView,
     },
     {
-      path: "/build/:template",
+      path: "/build/:lessonId/:template",
       name: "Build",
       component: BuildView,
     },
@@ -42,7 +42,7 @@ const router = createRouter({
       component: RegisterView,
     },
     {
-      path: "/lesson",
+      path: "/lesson/:lesson",
       name: "Lesson",
       component: LessonView,
     },
