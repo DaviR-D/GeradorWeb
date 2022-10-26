@@ -63,14 +63,9 @@ export default {
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;
-        this.openToast("success", "Resposta correta!");
-      } else {
-        this.openToast("error", "Resposta errada!");
-        this.answered = true;
-        this.score.decrementAnswerCounter();
-        this.rightAnswer = false;
       }
       this.answered = true;
+      this.score.incrementQuestionCounter();
     },
   },
 };

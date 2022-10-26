@@ -56,7 +56,6 @@ export default {
   methods: {
     checkAnswer() {
       if (this.answer.toLowerCase() == this.data.rightAnswer.toLowerCase()) {
-        console.log("Você acertou!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;

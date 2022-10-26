@@ -57,7 +57,6 @@ export default {
   methods: {
     checkAnswer(index) {
       if (index == this.data.rightAnswer) {
-        console.log("Você acertou!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;

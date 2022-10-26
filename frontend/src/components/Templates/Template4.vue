@@ -29,7 +29,9 @@
       </div>
     </li>
     <div class="w-full flex items-center justify-center">
-      <button class="botao ml-10 md:ml-0" @click="checkAnswer()">Confirmar</button>
+      <button class="botao ml-10 md:ml-0" @click="checkAnswer()">
+        Confirmar
+      </button>
     </div>
 
     <answer-message
@@ -82,7 +84,6 @@ export default {
     },
     checkAnswer() {
       if (this.answer.toString() == this.correctAnswer.toString()) {
-        console.log("Você acertou!");
         this.score.update(this.data.value);
         this.score.incrementAnswerCounter();
         this.rightAnswer = true;
