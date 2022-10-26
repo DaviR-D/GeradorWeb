@@ -122,7 +122,7 @@ const atividade = [
   // },
   {
     template: TheTemplate1,
-    alternatives: ["Red", "Pink", "Orange", "Yellow"],
+    alternatives: "Red, Pink, Orange, Yellow",
     rightAnswer: "Red",
     image: "https://i.imgur.com/AUzj2bD.png",
     value: 1,

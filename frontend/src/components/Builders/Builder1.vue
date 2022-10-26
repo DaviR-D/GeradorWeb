@@ -12,6 +12,7 @@
         class="rounded p-2 shadow-sm w-96 shadow-slate-50"
         type="text"
         placeholder="Escreva as opções separando às por vírgulas"
+        v-model="alternatives"
       />
       <p class="text-lg mb-4">Exemplo: Carro, Moto, Casa, Computador</p>
       <input
@@ -69,23 +70,20 @@ export default {
     },
     save() {
       let question = {
-        template: "TheTemplate1",
+        name: "Questão",
+        template: 1,
         alternatives: this.alternatives,
-        image: this.image,
-        rightAnswer: this.rightAnswer,
-        value: this.value,
+        answer: this.rightAnswer,
+        score: this.value,
+        questionImages: [this.image],
       };
       this.question = question;
       axios
-        .post(
-          "http://localhost:3000/questions/" + this.lessonId,
-          { name: "questão" },
-          {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        )
+        .post("http://localhost:3000/questions/" + this.lessonId, question, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
         .then((response) => {
           console.log(response);
         });

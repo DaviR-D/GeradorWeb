@@ -3,7 +3,7 @@
     <h1 class="">Selecione a opção correspondente a imagem</h1>
     <img :src="data.image" class="img mb-4" />
     <li
-      v-for="alternative in data.alternatives"
+      v-for="alternative in data.alternatives.split(', ')"
       :key="alternative"
       class="list-none w-full flex flex-col items-center justify-center"
     >
@@ -42,7 +42,7 @@ export default {
       default: () => ({
         description: "",
         image: "",
-        alternatives: [1, 2, 3, 4],
+        alternatives: "[1, 2, 3, 4]",
         rightAnswer: 1,
         value: 5,
       }),
