@@ -69,14 +69,14 @@ export default {
       reader.readAsDataURL(file);
     },
     save() {
-      let question = {
-        name: "Questão",
-        template: 1,
-        alternatives: this.alternatives,
-        answer: this.rightAnswer,
-        score: this.value,
-        questionImages: [this.image],
-      };
+      let question = new FormData();
+      question.append("name", "Questão");
+      question.append("template", 1);
+      question.append("alternatives", this.alternatives);
+      question.append("answer", this.rightAnswer);
+      question.append("score", this.value);
+      question.append("questionImages", [this.image]);
+
       this.question = question;
       axios
         .post("http://localhost:3000/questions/" + this.lessonId, question, {
