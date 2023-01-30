@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center w-full justify-center h-screen">
     <h1 class="">Selecione a opção correspondente a imagem</h1>
-    <img :src="data.image" class="img mb-4" />
+    <img :src="data.questionImages[0]['url']" class="img mb-4" />
     <li
       v-for="alternative in data.alternatives.split(', ')"
       :key="alternative"
@@ -41,7 +41,7 @@ export default {
       type: Object,
       default: () => ({
         description: "",
-        image: "",
+        questionImages: "",
         alternatives: "[1, 2, 3, 4]",
         rightAnswer: 1,
         value: 5,

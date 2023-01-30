@@ -8,6 +8,7 @@
         <lesson-item
           class="flex items-center justify-center gap-2"
           :name="lesson.name"
+          :id="lesson.id"
         />
       </li>
     </div>
@@ -31,14 +32,13 @@ export default {
   },
   data() {
     return {
-      lessons: [{ name: "Atividade1" }, { name: "Atividade2" }],
+      lessons: [],
       token: localStorage.getItem("token"),
     };
   },
 
   methods: {
     Busca() {
-      console.log(this.token);
       axios
         .get("http://localhost:3000/activitys", {
           headers: {
