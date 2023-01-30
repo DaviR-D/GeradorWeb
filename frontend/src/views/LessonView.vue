@@ -20,7 +20,7 @@ const useIndex = useIndexStore();
 
 const route = useRoute();
 
-var lesson = {};
+var lesson = [];
 
 const loadLesson = async () =>
   await axios
@@ -33,18 +33,14 @@ const loadLesson = async () =>
       }
     )
     .then((response) => {
-      lesson = response.data;
+      lesson = response.data[0];
+      lesson.template = eval("TheTemplate" + lesson.template);
       console.log(lesson);
     });
 
 loadLesson();
 
-// const question = () => {
-//   if (useIndex.getIndex < atividade.length) return atividade[useIndex.getIndex];
-//   else router.push("end");
-// };
-
-const question = () => {
+const question = async () => {
   if (useIndex.getIndex < lesson.length) return lesson[useIndex.getIndex];
   else router.push("/end");
 };
