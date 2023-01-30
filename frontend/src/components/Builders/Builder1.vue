@@ -58,16 +58,9 @@ export default {
   methods: {
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.createImage(files[0]);
+      this.image = files[0];
     },
-    createImage(file) {
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        this.image = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
+
     save() {
       let question = new FormData();
       question.append("name", "Questão");
@@ -75,7 +68,7 @@ export default {
       question.append("alternatives", this.alternatives);
       question.append("answer", this.rightAnswer);
       question.append("score", this.value);
-      question.append("questionImages", [this.image]);
+      question.append("questionImages", this.image);
 
       this.question = question;
       axios
