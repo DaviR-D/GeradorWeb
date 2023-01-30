@@ -1,6 +1,6 @@
 <template>
   <div>
-    <component :is="question().template" :data="question()" />
+    <component :is="templates[question().template - 1]" :data="question()" />
   </div>
 </template>
 
@@ -17,31 +17,73 @@ import { useRoute } from "vue-router";
 import axios from "axios";
 
 const useIndex = useIndexStore();
-
 const route = useRoute();
 
-var lesson = [];
+var templates = [
+  TheTemplate1,
+  TheTemplate2,
+  TheTemplate3,
+  TheTemplate4,
+  TheTemplate5,
+  TheTemplate6,
+];
 
-const loadLesson = async () =>
-  await axios
-    .get(
-      "http://localhost:3000/questions/questions/" + route.params.lesson_id,
+//var lesson = [];
+var lesson = [
+  {
+    id: "66296dbf-c31c-46d8-be72-e8f5568b9bb1",
+    name: "Questão",
+    description: null,
+    alternatives: "car, pig, dog, cat",
+    answer: "car",
+    score: 5,
+    template: 1,
+    activity: "f0e7dc21-f696-4d0a-817d-ba915054ac6e",
+    questionImages: [
       {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    )
-    .then((response) => {
-      lesson = response.data[0];
-      lesson.template = eval("TheTemplate" + lesson.template);
-      console.log(lesson);
-    });
+        id: 3,
+        url: "http://localhost:3000/questions/images/e5251ecbfe75de63c5a018b1558e1997-f6f157f.jpg",
+      },
+    ],
+  },
+  {
+    id: "66296dbf-c31c-46d8-be72-e8f5568b9bb1",
+    name: "Questão",
+    description: null,
+    alternatives: "car, pig, dog, cat",
+    answer: "car",
+    score: 5,
+    template: 1,
+    activity: "f0e7dc21-f696-4d0a-817d-ba915054ac6e",
+    questionImages: [
+      {
+        id: 3,
+        url: "http://localhost:3000/questions/images/e5251ecbfe75de63c5a018b1558e1997-f6f157f.jpg",
+      },
+    ],
+  },
+];
 
-loadLesson();
+// const loadLesson = async () =>
+//   await axios
+//     .get(
+//       "http://localhost:3000/questions/questions/" + route.params.lesson_id,
+//       {
+//         headers: {
+//           Authorization: `Bearer ${localStorage.getItem("token")}`,
+//         },
+//       }
+//     )
+//     .then((response) => {
+//       lesson = response.data;
+//     });
 
-const question = async () => {
-  if (useIndex.getIndex < lesson.length) return lesson[useIndex.getIndex];
-  else router.push("/end");
+// loadLesson();
+
+const question = () => {
+  if (useIndex.getIndex < lesson.length) {
+    lesson[useIndex.getIndex].rightAnswer = lesson[useIndex.getIndex].answer;
+    return lesson[useIndex.getIndex];
+  } else router.push("/end");
 };
 </script>

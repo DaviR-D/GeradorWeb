@@ -1,8 +1,6 @@
 <template>
   <div class="flex w-full items-center justify-center">
-    <button @click="index.increment()" class="bg-gray-400 shadow-none">
-      Próximo
-    </button>
+    <button @click="next()" class="bg-gray-400 shadow-none">Próximo</button>
   </div>
 </template>
 
@@ -28,6 +26,11 @@ export default {
     },
   },
   methods: {
+    next() {
+      this.index.increment();
+      this.$parent.answered = false;
+      this.$parent.rightAnswer = false;
+    },
     openToast(icon, message) {
       this.$toast.open({
         message: message,
