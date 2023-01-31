@@ -21,6 +21,7 @@
 <script>
 import { useIndexStore } from "@/stores/index";
 import router from "@/router";
+import axios from "axios";
 
 export default {
   name: "TheBuilder3",
@@ -28,7 +29,7 @@ export default {
     return {
       index: useIndexStore(),
       words: [],
-      images: [],
+      images: [0, 1, 2, 3],
       question: {},
     };
   },
@@ -38,24 +39,29 @@ export default {
     onFileChange(e, i) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
-      this.createImage(files[0], i);
+      this.images[i] = files[0];
     },
-    createImage(file, i) {
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        this.images[i] = e.target.result;
-      };
-      reader.readAsDataURL(file);
-    },
+
     save() {
-      let question = {
-        template: "TheTemplate3",
-        words: this.words,
-        images: this.images,
-      };
+      let question = new FormData();
+      question.append("name", "Questão");
+      question.append("template", 3);
+      question.append("description", this.words.join(", "));
+      this.images.forEach((image) => {
+        question.append("questionImages", image);
+      });
+
       this.question = question;
+      axios
+        .post("http://localhost:3000/questions/" + this.lessonId, question, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        });
       router.push("/templates/" + this.lessonId);
-      //this.index.increment();
     },
   },
 };

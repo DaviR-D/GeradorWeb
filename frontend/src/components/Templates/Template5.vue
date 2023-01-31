@@ -9,10 +9,14 @@
       <strong>{{ data.word }}</strong>
     </h1>
     <div class="flex flex-col gap-4 md:flex md:flex-row">
-      <li class="list-none" v-for="(image, index) in data.images" :key="index">
+      <li
+        class="list-none"
+        v-for="(image, index) in data.questionImages"
+        :key="index"
+      >
         <img
           class="img max-h-[200px] max-w-[200px] md:max-w-[160px] md:max-h-[160px] lg:max-w-[230px] lg:max-h-[220px] xl:max-w-xs xl:max-h-80"
-          :src="image"
+          :src="image['url']"
           @click="checkAnswer(index)"
         />
       </li>

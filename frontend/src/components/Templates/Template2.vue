@@ -2,10 +2,10 @@
   <div class="flex flex-col items-center justify-center h-screen">
     <h1 class="">Explicação:</h1>
     <img
-      :src="data.image"
+      :src="data.questionImages[0]['url']"
       class="img max-h-[300px] max-w-[300px] md:max-w-lg md:max-h-96"
     />
-    <h1>{{ data.text }}</h1>
+    <h1>{{ data.description }}</h1>
     <button @click="nextQuestion()">Entendido</button>
   </div>
 </template>
@@ -27,7 +27,6 @@ export default {
       default: () => ({
         description: "",
         image: "",
-        text: "",
       }),
     },
   },

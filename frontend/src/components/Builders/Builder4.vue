@@ -33,6 +33,7 @@
 <script>
 import { useIndexStore } from "@/stores/index";
 import router from "@/router";
+import axios from "axios";
 
 export default {
   name: "TheBuilder4",
@@ -69,7 +70,6 @@ export default {
       };
       this.question = question;
       router.push("/templates/" + this.lessonId);
-      //this.index.increment();
     },
   },
 };

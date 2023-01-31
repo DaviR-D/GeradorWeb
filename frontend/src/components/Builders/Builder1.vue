@@ -58,6 +58,7 @@ export default {
   methods: {
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
       this.image = files[0];
     },
 
@@ -81,7 +82,6 @@ export default {
           console.log(response);
         });
       router.push("/templates/" + this.lessonId);
-      //this.index.increment();
     },
   },
 };

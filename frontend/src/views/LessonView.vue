@@ -31,6 +31,7 @@ export default {
       )
       .then((response) => {
         this.lesson = response.data;
+        console.log(this.lesson);
       });
   },
   data() {

@@ -2,7 +2,7 @@
   <div class="h-screen w-screen flex items-center justify-center text-white">
     <div class="border-[1px] flex flex-col p-4 gap-4 items-center rounded">
       <h1>Imagem de exemplo:</h1>
-      <img src="https://i.imgur.com/8qSh1bg.png" class="w-full" alt="">
+      <img src="https://i.imgur.com/8qSh1bg.png" class="w-full" alt="" />
       <input
         class="rounded p-2 shadow-sm w-96 shadow-slate-50"
         type="text"
@@ -38,6 +38,7 @@
 <script>
 import { useIndexStore } from "@/stores/index";
 import router from "@/router";
+import axios from "axios";
 
 export default {
   name: "TheBuilder5",
@@ -76,7 +77,6 @@ export default {
       };
       this.question = question;
       router.push("/templates/" + this.lessonId);
-      //this.index.increment();
     },
   },
 };

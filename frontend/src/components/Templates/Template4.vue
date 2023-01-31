@@ -3,7 +3,7 @@
     <h1 class="text-base md:text-2xl">Associe as imagens com as palavras:</h1>
     <li
       class="list-none mb-4"
-      v-for="(image, index) in data.images"
+      v-for="(image, index) in data.questionImages"
       :key="index"
     >
       <div class="grid grid-cols-8 gap-2 h-24">
@@ -12,7 +12,7 @@
           <h1>{{ index + 1 }}</h1>
         </div>
         <div class="col-span-2 flex items-center justify-center">
-          <img :src="image" class="imagem" />
+          <img :src="image['url']" class="imagem" />
         </div>
         <div class="col-span-2 flex items-center justify-center">
           <input
