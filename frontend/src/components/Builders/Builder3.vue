@@ -29,7 +29,7 @@ export default {
     return {
       index: useIndexStore(),
       words: [],
-      images: [0, 1, 2, 3],
+      images: [],
       question: {},
     };
   },
@@ -52,6 +52,7 @@ export default {
       });
 
       this.question = question;
+      console.log(question);
       axios
         .post("http://localhost:3000/questions/" + this.lessonId, question, {
           headers: {

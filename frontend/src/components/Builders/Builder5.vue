@@ -58,24 +58,30 @@ export default {
     onFileChange(e, i) {
       var files = e.target.files || e.dataTransfer.files;
       if (!files.length) return;
-      this.createImage(files[0], i);
-    },
-    createImage(file, i) {
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        this.images[i] = e.target.result;
-      };
-      reader.readAsDataURL(file);
+      this.images[i] = files[0];
     },
     save() {
-      let question = {
-        template: "TheTemplate5",
-        word: this.word,
-        images: this.images,
-        value: this.value,
-        rightAnswer: this.rightAnswer,
-      };
+      let question = new FormData();
+      question.append("name", "Questão");
+      question.append("template", 5);
+      question.append("description", this.word);
+      question.append("answer", this.rightAnswer);
+      question.append("score", this.value);
+      this.images.forEach((image) => {
+        question.append("questionImages", image);
+      });
+
       this.question = question;
+      console.log(question);
+      axios
+        .post("http://localhost:3000/questions/" + this.lessonId, question, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then((response) => {
+          console.log(response);
+        });
       router.push("/templates/" + this.lessonId);
     },
   },

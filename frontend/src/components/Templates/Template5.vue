@@ -6,7 +6,7 @@
       Selecione a imagem correspondente a palavra em inglês:
     </h1>
     <h1 class="">
-      <strong>{{ data.word }}</strong>
+      <strong>{{ data.description }}</strong>
     </h1>
     <div class="flex flex-col gap-4 md:flex md:flex-row">
       <li

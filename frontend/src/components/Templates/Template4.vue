@@ -23,7 +23,7 @@
         </div>
         <div class="col-span-1 flex items-center justify-start">
           <h1>
-            {{ data.words[correctAnswer[index] - 1] }}
+            {{ data.description.split(", ")[correctAnswer[index] - 1] }}
           </h1>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     generateAnswer() {
-      for (let i = 1; i < this.data.words.length + 1; i++) {
+      for (let i = 1; i < this.data.description.split(", ").length + 1; i++) {
         this.correctAnswer.push(i);
       }
       this.correctAnswer.sort(() => Math.random() - 0.5);
