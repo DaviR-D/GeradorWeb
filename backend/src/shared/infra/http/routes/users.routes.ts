@@ -6,6 +6,7 @@ import { CreateUserController } from "@modules/accounts/useCases/createUser/Crea
 import { UpdateUserAvatarController } from "@modules/accounts/useCases/updateUserAvatar/UpdateUserAvatarController";
 
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+import { ensureTeacher } from "../middlewares/ensureTeacher";
 
 const usersRoutes = Router();
 
@@ -15,6 +16,8 @@ const createUserController = new CreateUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
 
 usersRoutes.post("/", createUserController.handle);
+
+usersRoutes.get("/logged", ensureAuthenticated, ensureTeacher);
 
 usersRoutes.patch(
   "/avatar",

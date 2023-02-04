@@ -163,9 +163,19 @@
         fill="#3f3d56"
       />
     </svg>
-    <div v-if="!logado">
-      <a @click="router.push('/login')">Login</a>
-      <a>Registro</a>
+    <div
+      v-if="!logado"
+      class="flex flex-col p-16 gap-8 border border-gray-400 rounded"
+    >
+      <a
+        @click="router.push('/login')"
+        class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        >Login</a
+      >
+      <a
+        class="bg-green-500 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        >Registro</a
+      >
     </div>
     <div v-else class="flex flex-col p-16 gap-8 border border-gray-400 rounded">
       <a
@@ -181,38 +191,59 @@
       >
       <a
         class="anchor rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
-        @click="router.push('/lesson')"
+        @click="change()"
         >Atividade</a
       >
     </div>
   </div>
 </template>
 
-<script setup>
+<script>
 import router from "../router";
 import axios from "axios";
 
-let lessonId;
+export default {
+  name: "TheBuilder1",
 
-const newLesson = () => {
-  console.log(localStorage.getItem("token"));
-  axios
-    .post(
-      "http://localhost:3000/activitys",
-      { name: "Teste" },
-      {
+  beforeMount() {
+    axios
+      .get("http://localhost:3000/users/logged", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
-      }
-    )
-    .then((response) => {
-      lessonId = response.data.id;
-      router.push("/templates/" + lessonId);
-    });
-};
+      })
+      .catch((response) => {
+        if (!(response.response.status == 401)) {
+          this.logado = true;
+          return;
+        }
+      });
+  },
 
-let logado = true;
+  data() {
+    return { logado: false, lessonId: "", router: router };
+  },
+
+  props: {},
+  methods: {
+    newLesson() {
+      axios
+        .post(
+          "http://localhost:3000/activitys",
+          { name: "Teste" },
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((response) => {
+          this.lessonId = response.data.id;
+          router.push("/templates/" + this.lessonId);
+        });
+    },
+  },
+};
 </script>
 
 <style></style>
