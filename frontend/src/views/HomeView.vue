@@ -179,7 +179,7 @@
     </div>
     <div v-else class="flex flex-col p-16 gap-8 border border-gray-400 rounded">
       <a
-        @click="newLesson"
+        @click="showNewLesson = true"
         class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
       >
         <t>Nova atividade</t>
@@ -191,19 +191,21 @@
       >
       <a
         class="anchor rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
-        @click="change()"
-        >Atividade</a
+        >Cadastrar Aluno</a
       >
     </div>
+    <new-lesson v-if="showNewLesson" />
   </div>
 </template>
 
 <script>
+import NewLesson from "../components/NewLesson.vue";
 import router from "../router";
 import axios from "axios";
 
 export default {
-  name: "TheBuilder1",
+  components: { NewLesson },
+  name: "HomeView",
 
   beforeMount() {
     axios
@@ -221,29 +223,30 @@ export default {
   },
 
   data() {
-    return { logado: false, lessonId: "", router: router };
+    return {
+      logado: false,
+      lessonId: "",
+      router: router,
+      showNewLesson: false,
+      lessonName: "",
+    };
   },
 
   props: {},
-  methods: {
-    newLesson() {
-      axios
-        .post(
-          "http://localhost:3000/activitys",
-          { name: "Teste" },
-          {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        )
-        .then((response) => {
-          this.lessonId = response.data.id;
-          router.push("/templates/" + this.lessonId);
-        });
-    },
-  },
+  methods: {},
 };
 </script>
 
-<style></style>
+<style>
+.dialog {
+  width: 25%;
+  height: 10%;
+  text-align: center;
+  position: absolute;
+  top: auto;
+  left: auto;
+  margin: auto;
+  background-color: rgb(54, 54, 54);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
