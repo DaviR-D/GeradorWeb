@@ -173,12 +173,14 @@
         >Login</a
       >
       <a
+        @click="router.push('/register/true')"
         class="bg-green-500 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
         >Registro</a
       >
     </div>
     <div v-else class="flex flex-col p-16 gap-8 border border-gray-400 rounded">
       <a
+        v-if="isTeacher"
         @click="showNewLesson = true"
         class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
       >
@@ -190,8 +192,15 @@
         >Atividades salvas</a
       >
       <a
+        @click="router.push('/register/false')"
+        v-if="isTeacher"
         class="anchor rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
         >Cadastrar Aluno</a
+      >
+      <a
+        @click="router.push('/login')"
+        class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        >Trocar de usuário</a
       >
     </div>
     <new-lesson v-if="showNewLesson" />
@@ -216,6 +225,7 @@ export default {
       })
       .catch((response) => {
         if (!(response.response.status == 401)) {
+          if (response.response.status == 404) this.isTeacher = true;
           this.logado = true;
           return;
         }
@@ -229,6 +239,7 @@ export default {
       router: router,
       showNewLesson: false,
       lessonName: "",
+      isTeacher: false,
     };
   },
 

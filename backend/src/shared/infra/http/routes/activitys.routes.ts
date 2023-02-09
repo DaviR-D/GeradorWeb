@@ -21,7 +21,6 @@ activitysRoutes.post(
 activitysRoutes.get(
   "/",
   ensureAuthenticated,
-  ensureTeacher,
   listActivityByUserController.handle
 );
 
