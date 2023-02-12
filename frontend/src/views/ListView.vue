@@ -11,21 +11,29 @@
           :id="lesson.id"
         />
       </li>
+      <new-lesson v-if="showNewLesson" />
     </div>
     <div v-else>
       <h1>Nenhuma atividade disponível</h1>
-      <button @click="newLesson()">Criar atividade</button>
     </div>
+  </div>
+  <div class="flex items-center justify-center">
+    <button
+      @click="showNewLesson = true"
+      class="flex items-center justify-center"
+    >
+      Criar atividade
+    </button>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import LessonItem from "@/components/LessonItem.vue";
-import router from "@/router";
+import NewLesson from "../components/NewLesson.vue";
 
 export default {
-  components: { LessonItem },
+  components: { LessonItem, NewLesson },
   name: "ListView",
   mounted() {
     this.Busca();
@@ -34,6 +42,7 @@ export default {
     return {
       lessons: [],
       token: localStorage.getItem("token"),
+      showNewLesson: false,
     };
   },
 
@@ -48,9 +57,6 @@ export default {
         .then((response) => {
           this.lessons = response.data;
         });
-    },
-    newLesson() {
-      router.push("/templates");
     },
   },
 };

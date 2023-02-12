@@ -163,13 +163,25 @@
         fill="#3f3d56"
       />
     </svg>
-    <div v-if="!logado">
-      <a @click="router.push('/login')">Login</a>
-      <a>Registro</a>
+    <div
+      v-if="!logado"
+      class="flex flex-col p-16 gap-8 border border-gray-400 rounded"
+    >
+      <a
+        @click="router.push('/login')"
+        class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        >Login</a
+      >
+      <a
+        @click="router.push('/register/true')"
+        class="bg-green-500 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        >Registro</a
+      >
     </div>
     <div v-else class="flex flex-col p-16 gap-8 border border-gray-400 rounded">
       <a
-        @click="newLesson"
+        v-if="isTeacher"
+        @click="showNewLesson = true"
         class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
       >
         <t>Nova atividade</t>
@@ -180,20 +192,30 @@
         >Atividades salvas</a
       >
       <a
+        @click="router.push('/register/false')"
+        v-if="isTeacher"
         class="anchor rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
-        @click="router.push('/lesson')"
-        >Atividade</a
+        >Cadastrar Aluno</a
+      >
+      <a
+        @click="router.push('/login')"
+        class="bg-green-600 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        >Trocar de usuário</a
       >
     </div>
+    <new-lesson v-if="showNewLesson" />
   </div>
 </template>
 
-<script setup>
+<script>
+import NewLesson from "../components/NewLesson.vue";
 import router from "../router";
 import axios from "axios";
 import api from "../service/api";
 
-let lessonId;
+export default {
+  components: { NewLesson },
+  name: "HomeView",
 
 const newLesson = () => {
   console.log(localStorage.getItem("token"));
@@ -205,15 +227,42 @@ const newLesson = () => {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
-      }
-    )
-    .then((response) => {
-      lessonId = response.data.id;
-      router.push("/templates/" + lessonId);
-    });
-};
+      })
+      .catch((response) => {
+        if (!(response.response.status == 401)) {
+          if (response.response.status == 404) this.isTeacher = true;
+          this.logado = true;
+          return;
+        }
+      });
+  },
 
-let logado = true;
+  data() {
+    return {
+      logado: false,
+      lessonId: "",
+      router: router,
+      showNewLesson: false,
+      lessonName: "",
+      isTeacher: false,
+    };
+  },
+
+  props: {},
+  methods: {},
+};
 </script>
 
-<style></style>
+<style>
+.dialog {
+  width: 25%;
+  height: 10%;
+  text-align: center;
+  position: absolute;
+  top: auto;
+  left: auto;
+  margin: auto;
+  background-color: rgb(54, 54, 54);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+</style>
