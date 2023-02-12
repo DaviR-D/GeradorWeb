@@ -191,6 +191,7 @@
 <script setup>
 import router from "../router";
 import axios from "axios";
+import api from "../service/api";
 
 let lessonId;
 
@@ -198,7 +199,7 @@ const newLesson = () => {
   console.log(localStorage.getItem("token"));
   axios
     .post(
-      "http://localhost:3000/activitys",
+      `${api}/activitys`,
       { name: "Teste" },
       {
         headers: {
