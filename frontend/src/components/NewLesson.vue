@@ -12,6 +12,7 @@
 <script>
 import router from "../router";
 import axios from "axios";
+import api from "../services/api";
 
 export default {
   name: "NewLesson",
@@ -19,7 +20,7 @@ export default {
     newLesson() {
       axios
         .post(
-          "http://localhost:3000/activitys",
+          `${api}/activitys`,
           { name: this.lessonName },
           {
             headers: {

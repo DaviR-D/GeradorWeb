@@ -34,6 +34,7 @@
 import { useAuthStore } from "@/stores/auth";
 import router from "../router";
 import axios from "axios";
+import api from "../services/api";
 
 export default {
   name: "LoginView",
@@ -48,7 +49,7 @@ export default {
   methods: {
     Login() {
       axios
-        .post("http://localhost:3000/sessions", {
+        .post(`${api}/sessions`, {
           email: this.username,
           password: this.password,
         })

@@ -29,6 +29,7 @@
 import { useIndexStore } from "@/stores/index";
 import router from "@/router";
 import axios from "axios";
+import api from "../../services/api";
 
 export default {
   name: "TheBuilder6",
@@ -60,7 +61,7 @@ export default {
 
       this.question = question;
       axios
-        .post("http://localhost:3000/questions/" + this.lessonId, question, {
+        .post(`${api}/questions/` + this.lessonId, question, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
