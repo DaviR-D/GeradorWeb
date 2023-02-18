@@ -19,8 +19,6 @@ class DeleteQuestionsByActivityController {
       question_ids.push(question.id);
     });
 
-    console.log(question_ids);
-
     await getRepository(QuestionImage)
       .createQueryBuilder("questionImages")
       .delete()

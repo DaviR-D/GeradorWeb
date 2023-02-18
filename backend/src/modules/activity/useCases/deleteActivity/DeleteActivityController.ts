@@ -8,7 +8,7 @@ class DeleteActivityByUserController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { activity_id } = request.params;
     const deleteQuestions = new DeleteQuestionsByActivityController();
-    deleteQuestions.handle(activity_id, response);
+    await deleteQuestions.handle(activity_id, response);
 
     await getRepository(Activity)
       .createQueryBuilder("activitys")

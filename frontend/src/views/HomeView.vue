@@ -249,7 +249,7 @@ export default {
 </script>
 
 <style>
-.dialog {
+/* .dialog {
   width: 25%;
   height: 10%;
   text-align: center;
@@ -259,5 +259,5 @@ export default {
   margin: auto;
   background-color: rgb(54, 54, 54);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+} */
 </style>
