@@ -1,6 +1,7 @@
 <template>
   <div class="dialog">
     <strong> Nome da atividade </strong>
+    <a @click="this.$parent.showNewLesson = false"> X </a>
     <input
       type="text"
       v-model="lessonName"

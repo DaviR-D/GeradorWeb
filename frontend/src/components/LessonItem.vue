@@ -17,7 +17,7 @@ export default {
     return {};
   },
 
-  props: { name: String, id: String },
+  props: { name: String, id: String, index: Number },
   methods: {
     loadLesson() {
       router.push("/lesson/" + this.id);
@@ -29,8 +29,8 @@ export default {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         })
-        .then((response) => {
-          router.push("/list-lessons/");
+        .then(() => {
+          this.$parent.lessons.splice(this.index, 1);
         });
     },
   },
