@@ -2,30 +2,21 @@ import { Request } from "express";
 import { inject, injectable } from "tsyringe";
 
 import { IActivitysRepository } from "@modules/activity/repositories/IActivitysRepository";
-import { ICreateQuestionDTO } from "@modules/questions/dtos/ICreateQuestionDTO";
-import { IQuestionsRepository } from "@modules/questions/repositories/IQuestionsRepository";
+import { ICreateScoreDTO } from "@modules/scores/dtos/ICreateScoreDTO";
+import { IScoresRepository } from "@modules/scores/repositories/IScoresRepository";
 import { AppError } from "@shared/errors/AppError";
 
 @injectable()
-class CreateQuestionUseCase {
+class CreateScoreUseCase {
   constructor(
-    @inject("QuestionsRepository")
-    private questionsRepositories: IQuestionsRepository,
+    @inject("ScoresRepository")
+    private scoresRepositories: IScoresRepository,
     @inject("ActivitysRepository")
     private activitysRepositories: IActivitysRepository
   ) {}
 
   async execute(
-    {
-      name,
-      description,
-      alternatives,
-      answer,
-      score,
-      template,
-      questionImages,
-      activity_id,
-    }: ICreateQuestionDTO | any, // Bug INESPLICAVEL
+    { score, user_id, activity_id }: ICreateScoreDTO | any, // Bug INESPLICAVEL
     id: string
   ): Promise<void> {
     const activity = await this.activitysRepositories.findAcitvityById(
@@ -38,17 +29,12 @@ class CreateQuestionUseCase {
       throw new AppError("Usuário logado diferente");
     }
 
-    await this.questionsRepositories.create({
-      name,
-      description,
-      alternatives,
-      answer,
+    await this.scoresRepositories.create({
       score,
-      template,
-      questionImages,
+      user_id,
       activity_id,
     });
   }
 }
 
-export { CreateQuestionUseCase };
+export { CreateScoreUseCase };

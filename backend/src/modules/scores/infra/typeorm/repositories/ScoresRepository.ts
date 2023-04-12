@@ -14,8 +14,8 @@ class ScoresRepository implements IScoresRepository {
 
   async create({
     score,
-    activity_id,
     user_id,
+    activity_id,
   }: ICreateScoreDTO): Promise<Score> {
     const score_register = this.repository.create({
       score,

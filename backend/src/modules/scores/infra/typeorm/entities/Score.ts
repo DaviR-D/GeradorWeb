@@ -4,7 +4,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
@@ -13,8 +13,8 @@ import { Activity } from "@modules/activity/infra/typeorm/entities/Activity";
 
 @Entity("scores")
 class Score {
-  @PrimaryColumn()
-  id: string;
+  @PrimaryGeneratedColumn("increment")
+  id: number;
 
   @Column()
   score: number;
@@ -35,12 +35,6 @@ class Score {
 
   @CreateDateColumn()
   created_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuidV4();
-    }
-  }
 }
 
 export { Score };

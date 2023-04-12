@@ -1,22 +1,16 @@
-import { Question } from "../infra/typeorm/entities/Question";
-import QuestionImagesView from "./QuestionImagesView";
+import { Score } from "../infra/typeorm/entities/Score";
 
 export default {
-  render(question: Question) {
+  render(score: Score) {
     return {
-      id: question.id,
-      name: question.name,
-      description: question.description,
-      alternatives: question.alternatives,
-      answer: question.answer,
-      score: question.score,
-      template: question.template,
-      activity: question.activity_id,
-      questionImages: QuestionImagesView.renderMany(question.questionImages),
+      id: score.id,
+      score: score.score,
+      user: score.user_id,
+      activity: score.activity_id,
     };
   },
 
-  renderMany(questions: Question[]) {
-    return questions.map((question) => this.render(question));
+  renderMany(scores: Score[]) {
+    return scores.map((score) => this.render(score));
   },
 };

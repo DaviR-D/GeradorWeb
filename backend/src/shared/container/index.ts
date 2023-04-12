@@ -10,6 +10,8 @@ import { ActivitysRepository } from "@modules/activity/infra/typeorm/repositorie
 import { IActivitysRepository } from "@modules/activity/repositories/IActivitysRepository";
 import { QuestionsRepository } from "@modules/questions/infra/typeorm/repositories/QuestionsRepository";
 import { IQuestionsRepository } from "@modules/questions/repositories/IQuestionsRepository";
+import { ScoresRepository } from "@modules/scores/infra/typeorm/repositories/ScoresRepository";
+import { IScoresRepository } from "@modules/scores/repositories/IScoresRepository";
 import { StudentsRepository } from "@modules/students/infra/typeorm/repositories/StudentsRepository";
 import { StudentsTokensRepository } from "@modules/students/infra/typeorm/repositories/StudentsTokensRepository";
 import { IStudentsRepository } from "@modules/students/repositories/IStudentsRepository";
@@ -33,6 +35,11 @@ container.registerSingleton<IActivitysRepository>(
 container.registerSingleton<IQuestionsRepository>(
   "QuestionsRepository",
   QuestionsRepository
+);
+
+container.registerSingleton<IScoresRepository>(
+  "ScoresRepository",
+  ScoresRepository
 );
 
 container.registerSingleton<IStudentsRepository>(
