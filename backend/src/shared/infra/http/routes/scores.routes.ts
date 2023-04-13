@@ -14,7 +14,7 @@ const listScoreByIdController = new ListScoreByIdController();
 const listScoreByActivityController = new ListScoresByActivityController();
 
 scoresRoutes.post(
-  "/:activity_id",
+  "/:activity_id/:score",
   ensureAuthenticated,
   ensureTeacher,
   createScoreController.handle
