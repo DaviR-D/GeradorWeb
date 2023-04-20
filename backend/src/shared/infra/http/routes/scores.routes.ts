@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import { CreateScoreController } from "@modules/scores/useCases/createScores/CreateScoreController";
 // import { ListScoreByIdController } from "@modules/scores/useCases/listScoreById/ListScoreByIdController";
-import { ListScoresByActivityController } from "@modules/scores/useCases/listScoresByActivity/ListScoreByIdController";
+import { ListGroupedScoresController } from "@modules/scores/useCases/listGroupedScores/ListGroupedScoresController";
 
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { ensureTeacher } from "../middlewares/ensureTeacher";
@@ -11,7 +11,7 @@ const scoresRoutes = Router();
 
 const createScoreController = new CreateScoreController();
 // const listScoreByIdController = new ListScoreByIdController();
-const listScoreByActivityController = new ListScoresByActivityController();
+const listGroupedScoreController = new ListGroupedScoresController();
 
 scoresRoutes.post(
   "/:activity_id",
@@ -21,9 +21,9 @@ scoresRoutes.post(
 );
 
 scoresRoutes.get(
-  "/:activity_id",
+  "/Grouped",
   ensureAuthenticated,
-  listScoreByActivityController.handle
+  listGroupedScoreController.handle
 );
 
 // scoresRoutes.get("/scores/:activity_id", listScoreByActivityController.handle);

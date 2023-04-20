@@ -10,8 +10,6 @@ class CreateScoreController {
 
     // const { score } = request.body;
 
-    console.log(score);
-
     const { id } = request.user;
     const user_id = id;
 
