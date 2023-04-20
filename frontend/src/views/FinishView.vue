@@ -19,10 +19,27 @@
 </template>
 <script setup>
 import { useScoreStore } from "@/stores/score";
+import { useRoute } from "vue-router";
+import axios from "axios";
+const route = useRoute();
 
 const store = useScoreStore();
 
 const score = store.getScore;
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
+
+axios
+  .post(
+    "http://localhost:3000/scores/" + route.params.lessonId,
+    { score: score },
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    }
+  )
+  .then((response) => {
+    console.log(response);
+  });
 </script>

@@ -5,7 +5,8 @@ import { CreateScoreUseCase } from "./CreateScoreUseCase";
 
 class CreateScoreController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { activity_id, score } = request.params;
+    const { activity_id } = request.params;
+    const { score } = request.body;
 
     // const { score } = request.body;
 

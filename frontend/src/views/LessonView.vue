@@ -76,7 +76,7 @@ export default {
         this.lesson[this.useIndex.getIndex].value =
           this.lesson[this.useIndex.getIndex].score;
         return this.lesson[this.useIndex.getIndex];
-      } else router.push("/end");
+      } else router.push(`/end/${this.route.params.lesson_id}`);
     },
   },
 };
