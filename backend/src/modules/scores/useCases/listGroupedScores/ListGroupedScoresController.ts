@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import ScoreView from "@modules/scores/View/ScoreView";
+// import ScoreView from "@modules/scores/View/ScoreView";
 
 import { ListGroupedScoresUseCase } from "./ListGroupedScoresUseCase";
 
@@ -11,7 +11,7 @@ class ListGroupedScoresController {
 
     const scores = await listGroupedScoreUseCase.execute();
 
-    return response.json(ScoreView.renderMany(scores));
+    return response.json(scores);
   }
 }
 

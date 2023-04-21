@@ -1,6 +1,5 @@
 import { getRepository, Repository } from "typeorm";
 
-import { User } from "@modules/accounts/infra/typeorm/entities/User";
 import { ICreateScoreDTO } from "@modules/scores/dtos/ICreateScoreDTO";
 import { IScoresRepository } from "@modules/scores/repositories/IScoresRepository";
 
@@ -47,37 +46,12 @@ class ScoresRepository implements IScoresRepository {
   }
 
   async findGroupedScores(): Promise<Score[]> {
-    // const scores = await this.repository
-    //   .createQueryBuilder("score")
-    //   .leftJoin("score.user", "user")
-    //   .select(["user.name", "SUM(score.score) as totalScore"])
-    //   .groupBy("user.name")
-    //   .getRawMany();
-
     const scores = await this.repository
       .createQueryBuilder("score")
-      .select("score.*")
+      .leftJoin("score.user", "user")
+      .select(["user.name", "SUM(score.score) as totalScore"])
+      .groupBy("user.name")
       .getRawMany();
-
-    let groupedScores;
-
-    const somasPorId = scores.reduce((acc, curr) => {
-      if (curr.user_id in acc) {
-        acc[curr.user_id] += curr.score;
-      } else {
-        acc[curr.user_id] = curr.score;
-      }
-      return acc;
-    }, {});
-
-    console.log(somasPorId);
-
-    // const userNames = await getRepository(User)
-    //   .createQueryBuilder("users")
-    //   .select("")
-    //   .from("users")
-    //   .where("activity_id = :id", { id: activity_id })
-    //   .execute();
 
     return scores;
   }
