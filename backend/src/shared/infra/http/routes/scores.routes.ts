@@ -21,7 +21,7 @@ scoresRoutes.post(
 );
 
 scoresRoutes.get(
-  "/Grouped",
+  "/grouped",
   ensureAuthenticated,
   listGroupedScoreController.handle
 );

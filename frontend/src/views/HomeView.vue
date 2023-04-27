@@ -192,6 +192,11 @@
         >Atividades salvas</a
       >
       <a
+        class="bg-green-500 rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"
+        @click="router.push('/ranking')"
+        >Ranking</a
+      >
+      <a
         @click="router.push('/register/false')"
         v-if="isTeacher"
         class="anchor rounded w-60 h-14 flex justify-center items-center text-white font-semibold hover:brightness-75 hover:transition-all"

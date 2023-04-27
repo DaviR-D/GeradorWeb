@@ -51,6 +51,7 @@ class ScoresRepository implements IScoresRepository {
       .leftJoin("score.user", "user")
       .select(["user.name", "SUM(score.score) as totalScore"])
       .groupBy("user.name")
+      .orderBy("totalScore", "DESC")
       .getRawMany();
 
     return scores;

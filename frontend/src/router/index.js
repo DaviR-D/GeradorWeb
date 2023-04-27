@@ -7,6 +7,7 @@ import BuildView from "../views/BuildView.vue";
 import LoginView from "../views/LoginView.vue";
 import ListView from "../views/ListView.vue";
 import HomeView from "../views/HomeView.vue";
+import RankView from "../views/RankView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,11 @@ const router = createRouter({
       path: "/list-lessons",
       name: "List",
       component: ListView,
+    },
+    {
+      path: "/ranking",
+      name: "Rank",
+      component: RankView,
     },
   ],
 });
