@@ -21,7 +21,7 @@
 import { useScoreStore } from "@/stores/score";
 import { useRoute } from "vue-router";
 import axios from "axios";
-import api from "../../services/api";
+import api from "../services/api";
 const route = useRoute();
 
 const store = useScoreStore();
