@@ -9,6 +9,7 @@
 <script>
 import router from "../router";
 import axios from "axios";
+import api from "../../services/api";
 
 export default {
   name: "LessonItem",
@@ -24,7 +25,7 @@ export default {
     },
     deleteLesson() {
       axios
-        .delete(`http://localhost:3000/activitys/${this.id}/`, {
+        .delete(`${api}/activitys/${this.id}/`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

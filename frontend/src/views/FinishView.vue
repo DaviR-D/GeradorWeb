@@ -21,6 +21,7 @@
 import { useScoreStore } from "@/stores/score";
 import { useRoute } from "vue-router";
 import axios from "axios";
+import api from "../../services/api";
 const route = useRoute();
 
 const store = useScoreStore();
@@ -31,7 +32,7 @@ const questionCount = store.getQuestionCount;
 
 axios
   .post(
-    "http://localhost:3000/scores/" + route.params.lessonId,
+    `${api}/scores/` + route.params.lessonId,
     { score: score },
     {
       headers: {

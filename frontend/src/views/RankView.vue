@@ -16,6 +16,7 @@
 
 <script>
 import axios from "axios";
+import api from "../../services/api";
 
 export default {
   components: {},
@@ -33,7 +34,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("http://localhost:3000/scores/grouped", {
+        .get(`${api}/scores/grouped`, {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },
