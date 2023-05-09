@@ -32,6 +32,7 @@
 import axios from "axios";
 import LessonItem from "@/components/LessonItem.vue";
 import NewLesson from "../components/NewLesson.vue";
+import api from "../services/api";
 
 export default {
   components: { LessonItem, NewLesson },
@@ -50,7 +51,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("http://localhost:3000/activitys", {
+        .get(`${api}/activitys`, {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

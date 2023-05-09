@@ -15,20 +15,18 @@ import { useIndexStore } from "@/stores/index";
 import router from "../router";
 import { useRoute } from "vue-router";
 import axios from "axios";
+import api from "../services/api";
+
 
 export default {
   name: "LessonView",
   async mounted() {
     await axios
-      .get(
-        "http://localhost:3000/questions/questions/" +
-          this.route.params.lesson_id,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      )
+      .get(`${api}/questions/questions/` + this.route.params.lesson_id, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((response) => {
         this.lesson = response.data;
         console.log(this.lesson);

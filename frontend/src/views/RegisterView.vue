@@ -41,6 +41,7 @@
 import { useRoute } from "vue-router";
 import router from "../router";
 import axios from "axios";
+import api from "../services/api";
 
 export default {
   name: "RegisterView",
@@ -64,7 +65,7 @@ export default {
   methods: {
     Register() {
       axios
-        .post("http://localhost:3000/users", {
+        .post(`${api}users`, {
           name: this.username,
           password: this.password,
           email: this.email,

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "dotenv": "^16.0.3",
     "pinia": "^2.0.11",
     "vue": "^3.2.40",
     "vue-axios": "^3.4.1",
