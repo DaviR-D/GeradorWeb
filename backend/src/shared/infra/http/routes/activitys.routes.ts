@@ -29,6 +29,7 @@ activitysRoutes.get(
 activitysRoutes.delete(
   "/:activity_id",
   ensureAuthenticated,
+  ensureTeacher,
   deleteActivityByUserController.handle
 );
 

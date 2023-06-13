@@ -16,19 +16,8 @@ class CreateScoreUseCase {
   ) {}
 
   async execute(
-    { score, user_id, activity_id }: ICreateScoreDTO | any, // Bug INESPLICAVEL
-    id: string
+    { score, user_id, activity_id }: ICreateScoreDTO | any // Bug INESPLICAVEL
   ): Promise<void> {
-    const activity = await this.activitysRepositories.findAcitvityById(
-      activity_id
-    );
-
-    const user = activity.user_id;
-
-    if (user !== id) {
-      throw new AppError("Usuário logado diferente");
-    }
-
     await this.scoresRepositories.create({
       score,
       user_id,

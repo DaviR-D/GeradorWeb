@@ -31,7 +31,7 @@ class ActivitysRepository implements IActivitysRepository {
 
   async findByUser(user_id: string): Promise<Activity[]> {
     const activity = await this.repository.find({
-      where: { user_id },
+      // where: { user_id },
     });
 
     return activity;

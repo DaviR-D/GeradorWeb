@@ -16,7 +16,6 @@ const listGroupedScoreController = new ListGroupedScoresController();
 scoresRoutes.post(
   "/:activity_id",
   ensureAuthenticated,
-  ensureTeacher,
   createScoreController.handle
 );
 
