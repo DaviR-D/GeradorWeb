@@ -11,6 +11,7 @@
           :name="lesson.name"
           :id="lesson.id"
           :index="index"
+          :isTeacher="isTeacher"
         />
       </li>
     </div>
@@ -18,7 +19,7 @@
       <h1>Nenhuma atividade disponível</h1>
     </div>
   </div>
-  <div class="flex items-center justify-center">
+  <div v-if="isTeacher" class="flex items-center justify-center">
     <button
       @click="showNewLesson = true"
       class="flex items-center justify-center"
@@ -36,6 +37,21 @@ import NewLesson from "../components/NewLesson.vue";
 export default {
   components: { LessonItem, NewLesson },
   name: "ListView",
+  beforeMount() {
+    axios
+      .get("http://localhost:3000/users/logged", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .catch((response) => {
+        if (!(response.response.status == 401)) {
+          if (response.response.status == 404) this.isTeacher = true;
+          this.logado = true;
+          return;
+        }
+      });
+  },
   mounted() {
     this.Busca();
   },
@@ -44,6 +60,7 @@ export default {
       lessons: [],
       token: localStorage.getItem("token"),
       showNewLesson: false,
+      isTeacher: false,
     };
   },
 
