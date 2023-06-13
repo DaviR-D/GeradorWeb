@@ -5,7 +5,6 @@ import { CreateScoreController } from "@modules/scores/useCases/createScores/Cre
 import { ListGroupedScoresController } from "@modules/scores/useCases/listGroupedScores/ListGroupedScoresController";
 
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { ensureTeacher } from "../middlewares/ensureTeacher";
 
 const scoresRoutes = Router();
 
