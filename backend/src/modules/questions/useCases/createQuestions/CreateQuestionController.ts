@@ -1,3 +1,4 @@
+import { randomInt } from "crypto";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
@@ -14,10 +15,12 @@ class CreateQuestionController {
 
     const requestImages = request.files as Express.Multer.File[];
 
-    const n = 1;
+    // const n = 1;
 
     const images = requestImages?.map((image) => {
-      return { id: n * image.filename.length, path: image.filename };
+      const fileHash = randomInt(0, 2147483647);
+      return { id: fileHash, path: image.filename };
+      // return { id: n * image.filename.length, path: image.filename };
     });
 
     const createQuestionUseCase = container.resolve(CreateQuestionUseCase);

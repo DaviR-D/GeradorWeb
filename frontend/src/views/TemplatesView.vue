@@ -21,12 +21,12 @@ import { useRoute } from "vue-router";
 const route = useRoute();
 
 const images = [
-  "https://i.imgur.com/fSBLcSb.png",
-  "https://i.imgur.com/Evzg5OW.png",
-  "https://i.imgur.com/27qOslm.png",
-  "https://i.imgur.com/NvuyhMg.png",
-  "https://i.imgur.com/8qSh1bg.png",
-  "https://i.imgur.com/ndGjtf1.png",
+  "https://i.imgur.com/I01YbFS.png",
+  "https://i.imgur.com/axVTTi8.png",
+  "https://i.imgur.com/yqQuI8x.png",
+  "https://i.imgur.com/tuLqcuH.png",
+  "https://i.imgur.com/custjWC.png",
+  "https://i.imgur.com/MIwu1e4.png",
 ];
 
 const build = (i) => {
