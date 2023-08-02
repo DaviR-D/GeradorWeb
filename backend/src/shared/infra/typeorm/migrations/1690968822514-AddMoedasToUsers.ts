@@ -13,6 +13,6 @@ export class AddMoedasToUsers1690968822514 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropColumn("users", "moedas");
+    await queryRunner.dropColumn("users", "coins");
   }
 }
