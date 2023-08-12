@@ -10,6 +10,9 @@
       <span class="text-3xl text-green-400">{{ questionCount }}</span> questões
       e teve uma pontuação final de
       <span class="text-3xl text-green-400">{{ score }}</span>
+      <span style="text-align: center; display: block">
+        +{{ coins }} Moedas
+      </span>
     </p>
 
     <p v-else class="text-2xl mb-8">Você finalizou esta aula!</p>
@@ -28,6 +31,7 @@ const route = useRoute();
 const store = useScoreStore();
 
 const score = store.getScore;
+const coins = Math.round(score / 4);
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 
@@ -36,6 +40,20 @@ if (questionCount > 0) {
     .post(
       "http://localhost:3000/scores/" + route.params.lessonId,
       { score: score },
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    )
+    .then((response) => {
+      console.log(response);
+    });
+
+  axios
+    .post(
+      "http://localhost:3000/users/coins",
+      { amount: coins },
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),

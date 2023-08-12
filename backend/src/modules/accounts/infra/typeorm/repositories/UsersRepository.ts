@@ -41,6 +41,24 @@ class UsersRepository implements IUsersRepository {
     const user = await this.repository.findOne(id);
     return user;
   }
+
+  async getCoins(id: string): Promise<number> {
+    const coins = await this.repository
+      .createQueryBuilder("user")
+      .select("user.coins")
+      .where("user.id = :id", { id })
+      .getRawOne();
+    return coins;
+  }
+
+  async addCoins(id: string, amount: number): Promise<void> {
+    this.repository
+      .createQueryBuilder()
+      .update(User)
+      .set({ coins: () => `coins + ${amount}` })
+      .where("id = :id", { id })
+      .execute();
+  }
 }
 
 export { UsersRepository };
