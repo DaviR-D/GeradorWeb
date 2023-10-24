@@ -5,16 +5,14 @@ import ItemView from "@modules/items/View/ItemView";
 
 import { ListItemsUseCase } from "./ListItemsUseCase";
 
-class ListItemByIdController {
+class ListItemsController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { item_id } = request.params;
-
     const listItemByIdUseCase = container.resolve(ListItemsUseCase);
 
-    const item = await listItemByIdUseCase.execute(item_id);
+    const item = await listItemByIdUseCase.execute();
 
-    return response.json(ItemView.render(item));
+    return response.json(ItemView.renderMany(item));
   }
 }
 
-export { ListItemByIdController };
+export { ListItemsController };

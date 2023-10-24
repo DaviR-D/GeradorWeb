@@ -11,33 +11,16 @@ class ItemsRepository implements IItemsRepository {
     this.repository = getRepository(Item);
   }
 
-  async findItemById(score_id: string): Promise<Item> {
-    const score = await this.repository.findOne(score_id, {
-      relations: ["scoreImages"],
-    });
+  async findItemById(item_id: string): Promise<Item> {
+    const item = await this.repository.findOne(item_id);
 
-    return score;
+    return item;
   }
 
-  async findItemsByActivity(activity_id: string): Promise<Item[]> {
-    const scores = await this.repository.find({
-      where: { activity_id },
-      relations: ["scoreImages"],
-    });
+  async findAllItems(): Promise<Item[]> {
+    const items = await this.repository.find();
 
-    return scores;
-  }
-
-  async findGroupedItems(): Promise<Item[]> {
-    const scores = await this.repository
-      .createQueryBuilder("score")
-      .leftJoin("score.user", "user")
-      .select(["user.name", "SUM(score.score) as totalItem"])
-      .groupBy("user.name")
-      .orderBy("totalItem", "DESC")
-      .getRawMany();
-
-    return scores;
+    return items;
   }
 }
 

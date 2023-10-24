@@ -10,10 +10,10 @@ class ListItemsUseCase {
     private itemsRepositories: IItemsRepository
   ) {}
 
-  async execute(item_id: string): Promise<Item> {
-    const itemById = await this.itemsRepositories.findItemById(item_id);
+  async execute(): Promise<Item[]> {
+    const items = await this.itemsRepositories.findAllItems();
 
-    return itemById;
+    return items;
   }
 }
 
