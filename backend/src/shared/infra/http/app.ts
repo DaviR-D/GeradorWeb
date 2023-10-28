@@ -46,4 +46,11 @@ app.use(
   )
 );
 
+app.use(
+  "/items/images",
+  express.static(
+    path.join(__dirname, "..", "..", "..", "..", "tmp", "itemImages")
+  )
+);
+
 export { app };
