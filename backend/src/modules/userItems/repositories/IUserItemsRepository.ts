@@ -1,11 +1,11 @@
-import { ICreateScoreDTO } from "../dtos/ICreateScoreDTO";
-import { Score } from "../infra/typeorm/entities/Score";
+import { Item } from "@modules/items/infra/typeorm/entities/Item";
+import { UserItems } from "@modules/userItems/infra/typeorm/entities/UserItems";
 
-interface IScoresRepository {
-  create(data: ICreateScoreDTO): Promise<Score>;
-  findScoreById(score_id: string): Promise<Score>;
-  findScoresByActivity(activity_id: string): Promise<Score[]>;
-  findGroupedScores(): Promise<Score[]>;
+import { IBuyItemDTO } from "../dtos/IBuyItemDTO";
+
+interface IUserItemsRepository {
+  buyItem(data: IBuyItemDTO): Promise<UserItems>;
+  findItemsByUser(user_id: string): Promise<Item[]>;
 }
 
-export { IScoresRepository };
+export { IUserItemsRepository };

@@ -9,15 +9,12 @@ import {
 import { v4 as uuidV4 } from "uuid";
 
 import { User } from "@modules/accounts/infra/typeorm/entities/User";
-import { Activity } from "@modules/activity/infra/typeorm/entities/Activity";
+import { Item } from "@modules/items/infra/typeorm/entities/Item";
 
-@Entity("scores")
-class Score {
+@Entity("user_itens")
+class UserItems {
   @PrimaryColumn()
   id: string;
-
-  @Column()
-  score: number;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: "user_id" })
@@ -26,12 +23,12 @@ class Score {
   @Column()
   user_id: string;
 
-  @ManyToOne(() => Activity)
-  @JoinColumn({ name: "activity_id" })
-  activity: Activity;
+  @ManyToOne(() => Item)
+  @JoinColumn({ name: "item_id" })
+  item: Item;
 
   @Column()
-  activity_id: string;
+  item_id: string;
 
   @CreateDateColumn()
   created_at: Date;

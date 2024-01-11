@@ -1,61 +1,44 @@
 import { getRepository, Repository } from "typeorm";
 
-import { ICreateScoreDTO } from "@modules/scores/dtos/ICreateScoreDTO";
-import { IScoresRepository } from "@modules/scores/repositories/IScoresRepository";
+import { Item } from "@modules/items/infra/typeorm/entities/Item";
+import { IBuyItemDTO } from "@modules/userItems/dtos/IBuyItemDTO";
+import { UserItems } from "@modules/userItems/infra/typeorm/entities/UserItems";
+import { IUserItemsRepository } from "@modules/userItems/repositories/IUserItemsRepository";
 
-import { Score } from "../entities/Score";
-
-class ScoresRepository implements IScoresRepository {
-  private repository: Repository<Score>;
+class UserItemsRepository implements IUserItemsRepository {
+  private repository: Repository<UserItems>;
 
   constructor() {
-    this.repository = getRepository(Score);
+    this.repository = getRepository(UserItems);
   }
 
-  async create({
-    score,
-    user_id,
-    activity_id,
-  }: ICreateScoreDTO): Promise<Score> {
-    const score_register = this.repository.create({
-      score,
-      activity_id,
+  async buyItem({ item_id, user_id }: IBuyItemDTO): Promise<UserItems> {
+    const user_item = this.repository.create({
+      item_id,
       user_id,
     });
 
-    await this.repository.save(score_register);
+    await this.repository.save(user_item);
 
-    return score_register;
+    return user_item;
   }
 
-  async findScoreById(score_id: string): Promise<Score> {
-    const score = await this.repository.findOne(score_id, {
-      relations: ["scoreImages"],
+  async findItemsByUser(user_id: string): Promise<Item[]> {
+    // Buscar entradas UserItems associadas ao user_id
+    const userItems = await this.repository.find({
+      where: { user_id },
     });
 
-    return score;
-  }
+    // Extrair os item_id das entradas UserItems
+    const itemIds = userItems.map((userItem) => userItem.item_id);
 
-  async findScoresByActivity(activity_id: string): Promise<Score[]> {
-    const scores = await this.repository.find({
-      where: { activity_id },
-      relations: ["scoreImages"],
+    // Buscar os itens correspondentes na tabela de itens
+    const items = await this.itemsRepository.find({
+      where: { id: itemIds },
     });
 
-    return scores;
-  }
-
-  async findGroupedScores(): Promise<Score[]> {
-    const scores = await this.repository
-      .createQueryBuilder("score")
-      .leftJoin("score.user", "user")
-      .select(["user.name", "SUM(score.score) as totalScore"])
-      .groupBy("user.name")
-      .orderBy("totalScore", "DESC")
-      .getRawMany();
-
-    return scores;
+    return items;
   }
 }
 
-export { ScoresRepository };
+export { UserItemsRepository };
