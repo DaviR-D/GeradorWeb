@@ -3,7 +3,7 @@ import { container } from "tsyringe";
 
 import { CreateScoreUseCase } from "./CreateScoreUseCase";
 
-class CreateScoreController {
+class BuyItemController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { activity_id } = request.params;
     const { score } = request.body;
@@ -28,4 +28,4 @@ class CreateScoreController {
   }
 }
 
-export { CreateScoreController };
+export { BuyItemController };
