@@ -8,7 +8,9 @@ import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 const itemsRoutes = Router();
 
 const listItemsController = new ListItemsController();
+const buyItemController = new BuyItemController();
 
 itemsRoutes.get("/", ensureAuthenticated, listItemsController.handle);
+itemsRoutes.post("/buy", ensureAuthenticated, buyItemController.handle);
 
 export { itemsRoutes };

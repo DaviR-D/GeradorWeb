@@ -18,6 +18,8 @@ import { StudentsRepository } from "@modules/students/infra/typeorm/repositories
 import { StudentsTokensRepository } from "@modules/students/infra/typeorm/repositories/StudentsTokensRepository";
 import { IStudentsRepository } from "@modules/students/repositories/IStudentsRepository";
 import { IStudentsTokensRepository } from "@modules/students/repositories/IUsersTokensRepository";
+import { UserItemsRepository } from "@modules/userItems/infra/typeorm/repositories/UserItemsRepository";
+import { IUserItemsRepository } from "@modules/userItems/repositories/IUserItemsRepository";
 
 container.registerSingleton<IUsersRepository>(
   "UsersRepository",
@@ -47,6 +49,11 @@ container.registerSingleton<IScoresRepository>(
 container.registerSingleton<IItemsRepository>(
   "ItemsRepository",
   ItemsRepository
+);
+
+container.registerSingleton<IUserItemsRepository>(
+  "UserItemsRepository",
+  UserItemsRepository
 );
 
 container.registerSingleton<IStudentsRepository>(

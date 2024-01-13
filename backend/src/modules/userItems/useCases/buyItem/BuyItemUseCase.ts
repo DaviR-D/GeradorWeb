@@ -1,28 +1,24 @@
 import { inject, injectable } from "tsyringe";
 
-import { IActivitysRepository } from "@modules/activity/repositories/IActivitysRepository";
-import { ICreateScoreDTO } from "@modules/scores/dtos/ICreateScoreDTO";
-import { IScoresRepository } from "@modules/scores/repositories/IScoresRepository";
+import { IBuyItemDTO } from "@modules/userItems/dtos/IBuyItemDTO";
+import { IUserItemsRepository } from "@modules/userItems/repositories/IUserItemsRepository";
 
 @injectable()
-class CreateScoreUseCase {
+class BuyItemUseCase {
   constructor(
-    @inject("ScoresRepository")
-    private scoresRepositories: IScoresRepository,
-    @inject("ActivitysRepository")
-    private activitysRepositories: IActivitysRepository
+    @inject("UserItemsRepository")
+    private userItemsRepositories: IUserItemsRepository
   ) {}
 
   async execute(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    { score, user_id, activity_id }: ICreateScoreDTO | any // Bug INESPLICAVEL
+    { item_id, user_id }: IBuyItemDTO | any // Bug INESPLICAVEL
   ): Promise<void> {
-    await this.scoresRepositories.create({
-      score,
+    await this.userItemsRepositories.buyItem({
+      item_id,
       user_id,
-      activity_id,
     });
   }
 }
 
-export { CreateScoreUseCase };
+export { BuyItemUseCase };
