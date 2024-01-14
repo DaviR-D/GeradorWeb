@@ -1,20 +1,21 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import ScoreView from "@modules/scores/View/ScoreView";
+import ItemsView from "@modules/userItems/View/UserItemsView";
 
-import { ListScoreByIdUseCase } from "./ListScoreByIdUseCase";
+import { ListItemsByIdUseCase } from "./ListItemsByIdUseCase";
 
-class ListScoreByIdController {
+class ListItemsByIdController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { score_id } = request.params;
+    const { id } = request.user;
+    const user_id = id;
 
-    const listScoreByIdUseCase = container.resolve(ListScoreByIdUseCase);
+    const listItemsByIdUseCase = container.resolve(ListItemsByIdUseCase);
 
-    const score = await listScoreByIdUseCase.execute(score_id);
+    const item = await listItemsByIdUseCase.execute(user_id);
 
-    return response.json(ScoreView.render(score));
+    return response.json(ItemsView.renderMany(item));
   }
 }
 
-export { ListScoreByIdController };
+export { ListItemsByIdController };

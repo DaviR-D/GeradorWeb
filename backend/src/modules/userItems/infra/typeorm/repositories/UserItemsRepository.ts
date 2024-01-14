@@ -1,4 +1,4 @@
-import { getRepository, Repository } from "typeorm";
+import { getRepository, Repository, In } from "typeorm";
 
 import { Item } from "@modules/items/infra/typeorm/entities/Item";
 import { IBuyItemDTO } from "@modules/userItems/dtos/IBuyItemDTO";
@@ -7,9 +7,11 @@ import { IUserItemsRepository } from "@modules/userItems/repositories/IUserItems
 
 class UserItemsRepository implements IUserItemsRepository {
   private repository: Repository<UserItems>;
+  private itemsRepository: Repository<Item>;
 
   constructor() {
     this.repository = getRepository(UserItems);
+    this.itemsRepository = getRepository(Item);
   }
 
   async buyItem({ item_id, user_id }: IBuyItemDTO): Promise<UserItems> {
@@ -34,7 +36,7 @@ class UserItemsRepository implements IUserItemsRepository {
 
     // Buscar os itens correspondentes na tabela de itens
     const items = await this.itemsRepository.find({
-      where: { id: itemIds },
+      where: { id: In(itemIds) },
     });
 
     return items;

@@ -1,20 +1,23 @@
 import { inject, injectable } from "tsyringe";
 
-import { Score } from "@modules/scores/infra/typeorm/entities/Score";
-import { IScoresRepository } from "@modules/scores/repositories/IScoresRepository";
+import { Item } from "@modules/items/infra/typeorm/entities/Item";
+import { UserItems } from "@modules/userItems/infra/typeorm/entities/UserItems";
+import { IUserItemsRepository } from "@modules/userItems/repositories/IUserItemsRepository";
 
 @injectable()
-class ListScoreByIdUseCase {
+class ListItemsByIdUseCase {
   constructor(
-    @inject("ScoresRepository")
-    private scoresRepositories: IScoresRepository
+    @inject("UserItemsRepository")
+    private userItemsRepositories: IUserItemsRepository
   ) {}
 
-  async execute(score_id: string): Promise<Score> {
-    const scoreById = await this.scoresRepositories.findScoreById(score_id);
+  async execute(user_id: string): Promise<Item[]> {
+    const userItemById = await this.userItemsRepositories.findItemsByUser(
+      user_id
+    );
 
-    return scoreById;
+    return userItemById;
   }
 }
 
-export { ListScoreByIdUseCase };
+export { ListItemsByIdUseCase };

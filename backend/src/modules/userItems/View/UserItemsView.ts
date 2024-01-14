@@ -1,16 +1,14 @@
-import { Score } from "../infra/typeorm/entities/Score";
+import { Item } from "@modules/items/infra/typeorm/entities/Item";
 
 export default {
-  render(score: Score) {
+  render(item: Item) {
     return {
-      id: score.id,
-      score: score.score,
-      user: score.user_id,
-      activity: score.activity_id,
+      name: item.name,
+      image: item.image,
     };
   },
 
-  renderMany(scores: Score[]) {
-    return scores.map((score) => this.render(score));
+  renderMany(items: Item[]) {
+    return items.map((item) => this.render(item));
   },
 };
