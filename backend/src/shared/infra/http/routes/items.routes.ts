@@ -14,6 +14,6 @@ const buyItemController = new BuyItemController();
 
 itemsRoutes.get("/", ensureAuthenticated, listItemsController.handle);
 itemsRoutes.post("/buy", ensureAuthenticated, buyItemController.handle);
-itemsRoutes.post("/list", ensureAuthenticated, listItemsByIdController.handle);
+itemsRoutes.get("/list", ensureAuthenticated, listItemsByIdController.handle);
 
 export { itemsRoutes };
