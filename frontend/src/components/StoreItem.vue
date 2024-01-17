@@ -1,7 +1,9 @@
 <template>
   <div>
     <img :src="image" />
-    <button class="w-60 h-14" @click="buyItem()">Comprar {{ name }}</button>
+    <button class="w-60 h-14" @click="buyItem()">
+      Comprar {{ name }} {{ price }}
+    </button>
   </div>
 </template>
 
@@ -28,6 +30,20 @@ export default {
         .post(
           "http://localhost:3000/items/buy",
           { item_id: this.id },
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response);
+        });
+
+      axios
+        .post(
+          "http://localhost:3000/users/coins",
+          { amount: -this.price },
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
