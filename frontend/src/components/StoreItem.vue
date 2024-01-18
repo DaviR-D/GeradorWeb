@@ -1,4 +1,5 @@
 <template>
+  Moedas: {{ coins }}
   <div>
     <img :src="image" />
     <button class="w-60 h-14" @click="buyItem()">
@@ -12,9 +13,11 @@ import axios from "axios";
 
 export default {
   name: "StoreItem",
-  mounted() {},
+  async mounted() {
+    this.getCoins();
+  },
   data() {
-    return {};
+    return { coins: 0 };
   },
 
   props: {
@@ -52,6 +55,18 @@ export default {
         )
         .then((response) => {
           console.log(response);
+        });
+    },
+    getCoins() {
+      axios
+        .get("http://localhost:3000/users/coins", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .catch((response) => {
+          this.coins = response.data;
+          console.log(this.coins);
         });
     },
   },
