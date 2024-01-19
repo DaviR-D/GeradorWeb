@@ -3,6 +3,7 @@
     <div
       class="flex flex-col h-2/3 justify-center gap-2 text-white text-xl items-center border-[1px] p-4 w-1/3 m-auto rounded"
     >
+      Moedas: {{ coins }}
       <li class="list-none" v-for="(item, index) in items" :key="index">
         <store-item
           class="flex items-center justify-center gap-2"
@@ -40,11 +41,13 @@ export default {
   },
   mounted() {
     this.Busca();
+    this.getCoins();
   },
   data() {
     return {
       items: [],
       token: localStorage.getItem("token"),
+      coins: 0,
     };
   },
 
@@ -58,6 +61,17 @@ export default {
         })
         .then((response) => {
           this.items = response.data;
+        });
+    },
+    getCoins() {
+      axios
+        .get("http://localhost:3000/users/coins", {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        })
+        .then((response) => {
+          this.coins = response.data.user_coins;
         });
     },
   },

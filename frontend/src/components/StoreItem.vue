@@ -1,5 +1,4 @@
 <template>
-  Moedas: {{ coins }}
   <div>
     <img :src="image" />
     <button class="w-60 h-14" @click="buyItem()">
@@ -13,11 +12,9 @@ import axios from "axios";
 
 export default {
   name: "StoreItem",
-  async mounted() {
-    this.getCoins();
-  },
+  async mounted() {},
   data() {
-    return { coins: 0 };
+    return {};
   },
 
   props: {
@@ -29,45 +26,36 @@ export default {
   },
   methods: {
     buyItem() {
-      axios
-        .post(
-          "http://localhost:3000/items/buy",
-          { item_id: this.id },
-          {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        });
+      if (this.$parent.coins >= this.price) {
+        axios
+          .post(
+            "http://localhost:3000/items/buy",
+            { item_id: this.id },
+            {
+              headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+            }
+          )
+          .then((response) => {
+            console.log(response);
+          });
 
-      axios
-        .post(
-          "http://localhost:3000/users/coins",
-          { amount: -this.price },
-          {
-            headers: {
-              Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-          }
-        )
-        .then((response) => {
-          console.log(response);
-        });
-    },
-    getCoins() {
-      axios
-        .get("http://localhost:3000/users/coins", {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        })
-        .catch((response) => {
-          this.coins = response.data;
-          console.log(this.coins);
-        });
+        axios
+          .post(
+            "http://localhost:3000/users/coins",
+            { amount: -this.price },
+            {
+              headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+            }
+          )
+          .then((response) => {
+            console.log(response);
+          });
+        this.$parent.coins = this.$parent.coins - this.price;
+      }
     },
   },
 };
