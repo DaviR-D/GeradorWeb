@@ -12,6 +12,7 @@
           :price="item.price"
           :image="item.url"
           :index="index"
+          :userItems="userItems"
         />
       </li>
     </div>
@@ -42,12 +43,14 @@ export default {
   mounted() {
     this.Busca();
     this.getCoins();
+    this.getUserItems();
   },
   data() {
     return {
       items: [],
       token: localStorage.getItem("token"),
       coins: 0,
+      userItems: [],
     };
   },
 
@@ -72,6 +75,17 @@ export default {
         })
         .then((response) => {
           this.coins = response.data.user_coins;
+        });
+    },
+    getUserItems() {
+      axios
+        .get("http://localhost:3000/items/list", {
+          headers: {
+            Authorization: `Bearer ${this.token}`,
+          },
+        })
+        .then((response) => {
+          this.userItems = response.data;
         });
     },
   },

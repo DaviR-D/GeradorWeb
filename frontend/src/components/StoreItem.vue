@@ -23,6 +23,7 @@ export default {
     price: Number,
     image: String,
     index: Number,
+    userItems: Array,
   },
   methods: {
     buyItem() {
