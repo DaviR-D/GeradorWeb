@@ -1,9 +1,10 @@
 <template>
   <div>
     <img :src="image" />
-    <button class="w-60 h-14" @click="buyItem()">
+    <button v-if="verificarComprado()" class="w-60 h-14" @click="buyItem()">
       Comprar {{ name }} {{ price }}
     </button>
+    <span v-else>Item adquirido</span>
   </div>
 </template>
 
@@ -12,7 +13,7 @@ import axios from "axios";
 
 export default {
   name: "StoreItem",
-  async mounted() {},
+  mounted() {},
   data() {
     return {};
   },
@@ -23,7 +24,6 @@ export default {
     price: Number,
     image: String,
     index: Number,
-    userItems: Array,
   },
   methods: {
     buyItem() {
@@ -57,6 +57,12 @@ export default {
           });
         this.$parent.coins = this.$parent.coins - this.price;
       }
+      this.$parent.userItems.push(this);
+    },
+    verificarComprado() {
+      return !this.$parent.userItems
+        .map((userItem) => userItem.id)
+        .includes(this.id);
     },
   },
 };

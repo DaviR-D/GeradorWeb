@@ -5,6 +5,7 @@ export default {
     return {
       name: item.name,
       image: item.image,
+      id: item.id,
     };
   },
 

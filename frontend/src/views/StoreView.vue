@@ -12,7 +12,6 @@
           :price="item.price"
           :image="item.url"
           :index="index"
-          :userItems="userItems"
         />
       </li>
     </div>
@@ -40,7 +39,7 @@ export default {
         }
       });
   },
-  mounted() {
+  async mounted() {
     this.Busca();
     this.getCoins();
     this.getUserItems();
