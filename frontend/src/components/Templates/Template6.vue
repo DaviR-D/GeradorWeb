@@ -62,6 +62,7 @@ export default {
       }
       this.score.incrementQuestionCounter();
       this.answered = true;
+      this.answer = "";
     },
   },
 };
