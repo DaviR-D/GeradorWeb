@@ -56,8 +56,8 @@ export default {
             console.log(response);
           });
         this.$parent.coins = this.$parent.coins - this.price;
+        this.$parent.userItems.push(this);
       }
-      this.$parent.userItems.push(this);
     },
     verificarComprado() {
       return !this.$parent.userItems
