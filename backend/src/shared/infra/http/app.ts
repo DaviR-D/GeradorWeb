@@ -53,4 +53,11 @@ app.use(
   )
 );
 
+app.use(
+  "/achievements/images",
+  express.static(
+    path.join(__dirname, "..", "..", "..", "..", "tmp", "achievementImages")
+  )
+);
+
 export { app };

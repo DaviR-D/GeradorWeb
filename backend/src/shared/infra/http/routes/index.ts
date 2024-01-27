@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+import { achievementsRoutes } from "./achievements.routes";
 import { activitysRoutes } from "./activitys.routes";
 import { authenticateRoutes } from "./authenticate.routes";
 import { authenticateStudentRoutes } from "./authenticateStudents.routes";
@@ -19,6 +20,7 @@ router.use("/activitys", activitysRoutes);
 router.use("/questions", questionsRoutes);
 router.use("/scores", scoresRoutes);
 router.use("/items", itemsRoutes);
+router.use("/achievements", achievementsRoutes);
 router.use("/students", authenticateStudentRoutes);
 router.use(authenticateRoutes);
 

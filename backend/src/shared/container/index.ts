@@ -6,6 +6,8 @@ import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/Us
 import { UsersTokensRepository } from "@modules/accounts/infra/typeorm/repositories/UsersTokensRepository";
 import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 import { IUsersTokensRepository } from "@modules/accounts/repositories/IUsersTokensRepository";
+import { AchievementsRepository } from "@modules/achievements/infra/typeorm/repositories/AchievementsRepository";
+import { IAchievementsRepository } from "@modules/achievements/repositories/IAchievementsRepository";
 import { ActivitysRepository } from "@modules/activity/infra/typeorm/repositories/ActivitysRepository";
 import { IActivitysRepository } from "@modules/activity/repositories/IActivitysRepository";
 import { ItemsRepository } from "@modules/items/infra/typeorm/repositories/ItemsRepository";
@@ -54,6 +56,11 @@ container.registerSingleton<IItemsRepository>(
 container.registerSingleton<IUserItemsRepository>(
   "UserItemsRepository",
   UserItemsRepository
+);
+
+container.registerSingleton<IAchievementsRepository>(
+  "AchievementsRepository",
+  AchievementsRepository
 );
 
 container.registerSingleton<IStudentsRepository>(
