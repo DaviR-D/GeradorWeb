@@ -15,12 +15,12 @@ class UserAchievementsRepository implements IUserAchievementsRepository {
   }
 
   async getAchievement({
-    achievement_id,
     user_id,
+    achievement_id,
   }: IGetAchievementDTO): Promise<UserAchievements> {
     const user_achievement = this.repository.create({
-      achievement_id,
       user_id,
+      achievement_id,
     });
 
     await this.repository.save(user_achievement);

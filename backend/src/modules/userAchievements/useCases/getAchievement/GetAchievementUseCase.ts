@@ -12,11 +12,11 @@ class GetAchievementUseCase {
 
   async execute(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    { achievement_id, user_id }: IGetAchievementDTO | any // Bug INESPLICAVEL
+    { user_id, achievement_id }: IGetAchievementDTO | any // Bug INESPLICAVEL
   ): Promise<void> {
     await this.userAchievementsRepositories.getAchievement({
-      achievement_id,
       user_id,
+      achievement_id,
     });
   }
 }

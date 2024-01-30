@@ -13,8 +13,8 @@ class GetAchievementController {
     const getAchievementUseCase = container.resolve(GetAchievementUseCase);
 
     await getAchievementUseCase.execute({
-      achievement_id,
       user_id,
+      achievement_id,
     });
 
     return response.status(201).send();

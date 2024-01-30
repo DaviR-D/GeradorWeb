@@ -20,6 +20,8 @@ import { StudentsRepository } from "@modules/students/infra/typeorm/repositories
 import { StudentsTokensRepository } from "@modules/students/infra/typeorm/repositories/StudentsTokensRepository";
 import { IStudentsRepository } from "@modules/students/repositories/IStudentsRepository";
 import { IStudentsTokensRepository } from "@modules/students/repositories/IUsersTokensRepository";
+import { UserAchievementsRepository } from "@modules/userAchievements/infra/typeorm/repositories/UserAchievementsRepository";
+import { IUserAchievementsRepository } from "@modules/userAchievements/repositories/IUserAchievementsRepository";
 import { UserItemsRepository } from "@modules/userItems/infra/typeorm/repositories/UserItemsRepository";
 import { IUserItemsRepository } from "@modules/userItems/repositories/IUserItemsRepository";
 
@@ -61,6 +63,11 @@ container.registerSingleton<IUserItemsRepository>(
 container.registerSingleton<IAchievementsRepository>(
   "AchievementsRepository",
   AchievementsRepository
+);
+
+container.registerSingleton<IUserAchievementsRepository>(
+  "UserAchievementsRepository",
+  UserAchievementsRepository
 );
 
 container.registerSingleton<IStudentsRepository>(
