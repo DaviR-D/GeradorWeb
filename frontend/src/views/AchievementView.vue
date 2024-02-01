@@ -13,6 +13,7 @@
           :name="achievement.name"
           :id="achievement.id"
           :image="achievement.url"
+          :description="achievement.description"
           :index="index"
         />
       </li>

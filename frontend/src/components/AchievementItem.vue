@@ -5,6 +5,7 @@
       {{ name }}
     </span>
     <span v-else> {{ name }}: Conquista adquirida</span>
+    <span>{{ description }}</span>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ export default {
     name: String,
     id: String,
     image: String,
+    description: String,
     index: Number,
   },
   methods: {
