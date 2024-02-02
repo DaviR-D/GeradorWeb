@@ -1,10 +1,18 @@
 <template>
-  <div>
-    <img :src="image" />
-    <button v-if="verificarComprado()" class="w-60 h-14" @click="buyItem()">
-      Comprar {{ name }} {{ price }}
-    </button>
-    <span v-else>Item adquirido</span>
+  <div class="flex items-center justify-between bg-gray-800 p-4 rounded mb-4">
+    <div class="flex items-center gap-8">
+      <img :src="image" class="w-36 h-36 rounded" />
+      <div class="flex flex-col">
+        <p class="text-xl font-bold">{{ name }}</p>
+        <p class="text-gray-400">{{ price }} moedas</p>
+      </div>
+    </div>
+    <div>
+      <button v-if="verificarComprado()" class="btn-comprar" @click="buyItem()">
+        Comprar
+      </button>
+      <span v-else class="text-green-500 font-bold">Item adquirido</span>
+    </div>
   </div>
 </template>
 
@@ -67,3 +75,17 @@ export default {
   },
 };
 </script>
+<style scoped>
+.btn-comprar {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-comprar:hover {
+  background-color: #45a049;
+}
+</style>

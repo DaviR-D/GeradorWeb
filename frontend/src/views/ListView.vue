@@ -2,30 +2,32 @@
   <div class="h-screen flex items-center justify-center">
     <new-lesson v-if="showNewLesson" />
     <div
-      class="flex flex-col h-2/3 justify-center gap-2 text-white text-xl items-center border-[1px] p-4 w-1/3 m-auto rounded"
+      class="flex flex-col justify-center gap-2 text-white text-xl items-center border-[1px] p-4 w-2/3 m-auto rounded"
       v-if="lessons.length"
     >
-      <li class="list-none" v-for="(lesson, index) in lessons" :key="index">
+      <div
+        class="flex flex-col gap-4"
+        style="max-height: calc(100% - 2rem); overflow-y-auto;"
+      >
         <lesson-item
-          class="flex items-center justify-center gap-2"
+          v-for="(lesson, index) in lessons"
+          :key="index"
           :name="lesson.name"
           :id="lesson.id"
           :index="index"
           :isTeacher="isTeacher"
         />
-      </li>
+      </div>
+      <button
+        @click="showNewLesson = true"
+        class="flex items-center justify-center"
+      >
+        Criar atividade
+      </button>
     </div>
     <div v-else>
       <h1>Nenhuma atividade disponível</h1>
     </div>
-  </div>
-  <div v-if="isTeacher" class="flex items-center justify-center">
-    <button
-      @click="showNewLesson = true"
-      class="flex items-center justify-center"
-    >
-      Criar atividade
-    </button>
   </div>
 </template>
 

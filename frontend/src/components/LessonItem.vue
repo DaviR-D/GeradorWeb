@@ -1,10 +1,35 @@
 <template>
-  <div>
-    <button class="w-60 h-14" @click="loadLesson()">{{ name }}</button
-    ><button v-if="isTeacher" class="w-60 h-14">Editar</button
-    ><button v-if="isTeacher" class="w-60 h-14" @click="deleteLesson">
-      Remover
-    </button>
+  <div class="flex flex-col items-center mb-8">
+    <div
+      class="relative mb-2 w-80"
+      style="border-radius: 0.5rem; overflow: hidden; background-color: black"
+    >
+      <h3 class="text-white text-lg p-0 text-center">{{ name }}</h3>
+    </div>
+
+    <div class="flex gap-4">
+      <button
+        class="flex-1 h-12 bg-green-500 text-white rounded"
+        @click="loadLesson()"
+      >
+        Acessar
+      </button>
+
+      <button
+        v-if="isTeacher"
+        class="flex-1 h-12 bg-yellow-500 text-white rounded"
+      >
+        Editar
+      </button>
+
+      <button
+        v-if="isTeacher"
+        class="flex-1 h-12 bg-red-500 text-white rounded"
+        @click="deleteLesson"
+      >
+        Remover
+      </button>
+    </div>
   </div>
 </template>
 

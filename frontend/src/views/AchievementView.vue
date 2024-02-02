@@ -1,8 +1,6 @@
 <template>
   <div class="h-screen flex items-center justify-center">
-    <div
-      class="flex flex-col h-2/3 justify-center gap-2 text-white text-xl items-center border-[1px] p-4 w-1/3 m-auto rounded"
-    >
+    <div class="achievements-container">
       <li
         class="list-none"
         v-for="(achievement, index) in achievements"
@@ -81,3 +79,19 @@ export default {
   },
 };
 </script>
+<style scoped>
+.achievements-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.achievement-item {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  padding: 16px;
+  background-color: #374151;
+  border-radius: 8px;
+}
+</style>
