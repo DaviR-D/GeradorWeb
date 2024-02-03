@@ -1,25 +1,31 @@
 <template>
   <div class="h-screen flex items-center justify-center">
     <div
-      class="flex flex-col h-2/3 justify-center gap-2 text-white text-xl items-center p-4 w-1/3 m-auto rounded"
+      class="flex flex-col h-2/3 justify-center gap-2 text-white text-xl items-center p-4 w-1/3 m-auto rounded bg-gray-800"
       v-if="Object.keys(ranking).length"
     >
-      <h1>RANKING</h1>
-      <table>
-        <tr>
-          <th>POSIÇÃO</th>
-          <th>ALUNO</th>
-          <th>PONTUAÇÃO</th>
-        </tr>
-        <tr v-for="(key, index) in Object.keys(ranking)" :key="key">
-          <td class="cell">{{ (index + 1).toString() + "º" }}</td>
-          <td class="cell">
-            <img src="https://i.imgur.com/d0jdZdk.png" class="user-image" />{{
-              ranking[key]["user_name"]
-            }}
-          </td>
-          <td class="cell">{{ ranking[key]["totalscore"] }}</td>
-        </tr>
+      <h1 class="text-3xl font-semibold mb-4">RANKING</h1>
+      <table class="w-full table-auto">
+        <thead>
+          <tr>
+            <th class="py-2">POSIÇÃO</th>
+            <th class="py-2">ALUNO</th>
+            <th class="py-2">PONTUAÇÃO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(key, index) in Object.keys(ranking)" :key="key">
+            <td class="cell">{{ (index + 1).toString() + "º" }}</td>
+            <td class="cell flex items-center">
+              <img
+                src="https://i.imgur.com/d0jdZdk.png"
+                class="user-image mr-2"
+              />
+              {{ ranking[key]["user_name"] }}
+            </td>
+            <td class="cell">{{ ranking[key]["totalscore"] }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <div v-else>
@@ -59,25 +65,32 @@ export default {
   },
 };
 </script>
-<style>
-.cell {
-  text-align: center;
-  padding: 5px;
+
+<style scoped>
+.user-image {
+  width: 24px; /* Ajuste conforme necessário */
+  height: 24px; /* Ajuste conforme necessário */
+  border-radius: 50%;
 }
 
-.user-image {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  display: inline-block;
-  float: left;
+.cell {
+  border: 1px solid #4a5568;
+  padding: 8px;
 }
 
 table {
+  border-collapse: collapse;
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 10px;
-  font-size: 25px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #2d3748;
+  color: #cbd5e0;
 }
 </style>
