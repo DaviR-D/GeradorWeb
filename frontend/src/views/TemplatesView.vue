@@ -11,11 +11,7 @@
             @click="build(i)"
             :src="images[i - 1]"
           />
-          <div
-            class="overlay absolute inset-0 flex items-center justify-center"
-          >
-            <span class="text-white font-semibold">Template {{ i }}</span>
-          </div>
+          <span class="template-name">{{ "Template " + i }}</span>
         </div>
       </div>
     </div>
@@ -51,23 +47,31 @@ const build = (i) => {
 .imagem {
   height: 350px;
   width: 100%;
-  object-fit: contain; /* Alteração aqui */
+  object-fit: contain;
+  border: 3px solid black;
   border-radius: 8px;
   transition: transform 0.3s;
 }
 
-.overlay {
-  opacity: 0;
-  transition: opacity 0.3s;
+.template-name {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
+  padding: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 100%;
+  text-align: center;
+  color: white;
 }
 
 .relative:hover .imagem {
   transform: scale(1.1);
 }
 
-.relative:hover .overlay {
-  opacity: 1;
+.relative:hover .template-name {
+  opacity: 0;
 }
 </style>
