@@ -45,13 +45,19 @@ class ScoresRepository implements IScoresRepository {
     return scores;
   }
 
-  async findGroupedScores(): Promise<Score[]> {
+  async findGroupedScores(user_id: string): Promise<Score[]> {
     const scores = await this.repository
       .createQueryBuilder("score")
       .leftJoin("score.user", "user")
-      .select(["user.name", "SUM(score.score) as totalScore"])
+      .select([
+        "user.name",
+        "SUM(score.score) as totalScore",
+        "CASE WHEN user.id = :userId THEN 1 ELSE 0 END AS isCurrentUser",
+      ])
       .groupBy("user.name")
+      .addGroupBy("user.id")
       .orderBy("totalScore", "DESC")
+      .setParameters({ userId: user_id })
       .getRawMany();
 
     return scores;

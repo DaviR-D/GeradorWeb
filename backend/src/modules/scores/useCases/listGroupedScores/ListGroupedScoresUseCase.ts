@@ -10,8 +10,8 @@ class ListGroupedScoresUseCase {
     private scoresRepositories: IScoresRepository
   ) {}
 
-  async execute(): Promise<Score[]> {
-    const scores = await this.scoresRepositories.findGroupedScores();
+  async execute(user_id: string): Promise<Score[]> {
+    const scores = await this.scoresRepositories.findGroupedScores(user_id);
 
     return scores;
   }

@@ -68,8 +68,8 @@ export default {
 
 <style scoped>
 .user-image {
-  width: 24px; /* Ajuste conforme necessário */
-  height: 24px; /* Ajuste conforme necessário */
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
 }
 

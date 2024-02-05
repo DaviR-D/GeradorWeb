@@ -63,5 +63,31 @@ if (questionCount > 0) {
     .then((response) => {
       console.log(response);
     });
+
+  // checkAchievements();
 }
+
+// const achievements = {
+//   iniciante_competidor: () => {
+//     let pontuacaoTotal = 0;
+//     axios
+//       .get("http://localhost:3000/scores/grouped", {
+//         headers: {
+//           Authorization: "Bearer " + localStorage.getItem("token"),
+//         },
+//       })
+//       .then((response) => {
+//         pontuacaoTotal = response.data;
+//         const isCurrentUserPresent = pontuacaoTotal.some(
+//           (user) => user.isCurrentUser === true
+//         );
+
+//         return isCurrentUserPresent;
+//       });
+//   },
+// };
+
+// const checkAchievements = () => {
+//   console.log(achievements.iniciante_competidor());
+// };
 </script>
