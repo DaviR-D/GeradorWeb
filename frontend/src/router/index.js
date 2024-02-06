@@ -3,6 +3,7 @@ import TemplatesView from "../views/TemplatesView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import FinishView from "../views/FinishView.vue";
 import LessonView from "../views/LessonView.vue";
+import EditLessonView from "../views/EditLessonView.vue";
 import BuildView from "../views/BuildView.vue";
 import LoginView from "../views/LoginView.vue";
 import StoreView from "../views/StoreView.vue";
@@ -48,6 +49,11 @@ const router = createRouter({
       path: "/lesson/:lesson_id",
       name: "Lesson",
       component: LessonView,
+    },
+    {
+      path: "/edit-lesson/:lesson_id",
+      name: "EditLesson",
+      component: EditLessonView,
     },
     {
       path: "/list-lessons",
