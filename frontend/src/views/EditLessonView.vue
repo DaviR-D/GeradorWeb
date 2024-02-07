@@ -1,11 +1,11 @@
 <template>
-  <div class="grid grid-cols-3 gap-4">
+  <div class="thumbnails-grid">
     <component
       v-for="(lessonItem, index) in lesson"
       :key="index"
       :is="templates[lessonItem.template - 1]"
       :data="lessonItem"
-      class="thumbnail border border-gray-300 rounded overflow-hidden transform scale-90"
+      class="thumbnail"
     />
   </div>
 </template>
@@ -21,7 +21,7 @@ import { useRoute } from "vue-router";
 import axios from "axios";
 
 export default {
-  name: "LessonView",
+  name: "EditLessonView",
   async mounted() {
     await axios
       .get(
@@ -74,13 +74,14 @@ export default {
 <style scoped>
 .thumbnails-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
   gap: 16px;
 }
 
 .thumbnail {
-  width: 100%;
-  height: auto;
+  width: 23vw;
+  height: 23vw;
+  object-fit: cover;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;

@@ -2,21 +2,23 @@
   <div class="flex flex-col items-center w-full justify-center h-screen">
     <h1 class="">Selecione a opção correspondente a imagem</h1>
     <img :src="data.questionImages[0]['url']" class="img mb-4" />
-    <li
-      v-for="alternative in data.alternatives.split(', ')"
-      :key="alternative"
-      class="list-none w-full flex flex-col items-center justify-center"
-    >
-      <button @click="checkAnswer(alternative)">
-        {{ alternative }}
-      </button>
-    </li>
+    <ul class="w-full">
+      <li
+        v-for="alternative in data.alternatives.split(', ')"
+        :key="alternative"
+        class="list-none w-full flex flex-col items-center justify-center"
+      >
+        <button @click="checkAnswer(alternative)">
+          {{ alternative }}
+        </button>
+      </li>
+    </ul>
+    <answer-message
+      v-if="answered"
+      :rightAnswer="rightAnswer"
+      :value="data.value"
+    />
   </div>
-  <answer-message
-    v-if="answered"
-    :rightAnswer="rightAnswer"
-    :value="data.value"
-  />
 </template>
 
 <script>
