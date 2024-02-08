@@ -1,12 +1,12 @@
 <template>
   <div class="thumbnails-grid">
-    <component
-      v-for="(lessonItem, index) in lesson"
-      :key="index"
-      :is="templates[lessonItem.template - 1]"
-      :data="lessonItem"
-      class="thumbnail"
-    />
+    <div class="thumbnail" v-for="(lessonItem, index) in lesson" :key="index">
+      <component
+        :is="templates[lessonItem.template - 1]"
+        :data="lessonItem"
+        class="template-content"
+      />
+    </div>
   </div>
 </template>
 
@@ -81,12 +81,17 @@ export default {
 .thumbnail {
   width: 23vw;
   height: 23vw;
-  object-fit: cover;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  cursor: pointer;
   transition: transform 0.3s ease-in-out;
+}
+
+.template-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 0.45;
 }
 
 .thumbnail:hover {
