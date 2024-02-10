@@ -1,11 +1,13 @@
 <template>
-  <div class="thumbnails-grid">
-    <div class="thumbnail" v-for="(lessonItem, index) in lesson" :key="index">
-      <component
-        :is="templates[lessonItem.template - 1]"
-        :data="lessonItem"
-        class="template-content"
-      />
+  <div class="centered-grid">
+    <div class="thumbnails-grid">
+      <div class="thumbnail" v-for="(lessonItem, index) in lesson" :key="index">
+        <component
+          :is="templates[lessonItem.template - 1]"
+          :data="lessonItem"
+          class="template-content"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -71,11 +73,20 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+.centered-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+}
+
 .thumbnails-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
   gap: 16px;
+  max-width: 80vw; /* Defina a largura máxima desejada para manter a grade */
 }
 
 .thumbnail {
