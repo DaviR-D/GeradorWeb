@@ -9,6 +9,7 @@
         />
       </div>
     </div>
+    <button class="add-button">+</button>
   </div>
 </template>
 
@@ -77,16 +78,17 @@ export default {
 <style scoped>
 .centered-grid {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 100% of the viewport height */
+  height: 100vh;
 }
 
 .thumbnails-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
   gap: 16px;
-  max-width: 80vw; /* Defina a largura máxima desejada para manter a grade */
+  max-width: 80vw;
 }
 
 .thumbnail {
@@ -107,5 +109,16 @@ export default {
 
 .thumbnail:hover {
   transform: scale(1.1);
+}
+
+.add-button {
+  margin-top: 16px;
+  padding: 10px;
+  font-size: 2rem;
+  background-color: transparent;
+  color: green;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 </style>
