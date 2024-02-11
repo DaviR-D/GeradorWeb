@@ -2,6 +2,16 @@
   <div class="centered-grid">
     <div class="thumbnails-grid">
       <div class="thumbnail" v-for="(lessonItem, index) in lesson" :key="index">
+        <div class="thumbnail-overlay">
+          <div class="button-container">
+            <button class="edit-button" @click="editLesson(index)">
+              Editar
+            </button>
+            <button class="delete-button" @click="deleteLesson(index)">
+              Deletar
+            </button>
+          </div>
+        </div>
         <component
           :is="templates[lessonItem.template - 1]"
           :data="lessonItem"
@@ -87,11 +97,12 @@ export default {
 .thumbnails-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
-  gap: 16px;
+  gap: 25px;
   max-width: 80vw;
 }
 
 .thumbnail {
+  position: relative;
   width: 23vw;
   height: 23vw;
   border: 1px solid #ddd;
@@ -105,10 +116,62 @@ export default {
   height: 100%;
   object-fit: cover;
   scale: 0.45;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.thumbnail-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1; /* Adicionado z-index */
+}
+
+.thumbnail:hover .thumbnail-overlay {
+  opacity: 1;
+}
+
+.thumbnail:hover .template-content {
+  opacity: 0.3;
 }
 
 .thumbnail:hover {
   transform: scale(1.1);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+  position: relative;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #45a049;
 }
 
 .add-button {
