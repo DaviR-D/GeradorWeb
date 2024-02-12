@@ -18,6 +18,7 @@
       <button
         v-if="isTeacher"
         class="flex-1 h-12 bg-yellow-500 text-white rounded"
+        @click="editLesson()"
       >
         Editar
       </button>
@@ -48,6 +49,9 @@ export default {
   methods: {
     loadLesson() {
       router.push("/lesson/" + this.id);
+    },
+    editLesson() {
+      router.push("/edit-lesson/" + this.id);
     },
     deleteLesson() {
       axios

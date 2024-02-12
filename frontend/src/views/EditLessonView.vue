@@ -155,8 +155,7 @@ export default {
   position: relative;
 }
 
-.edit-button,
-.delete-button {
+.edit-button {
   background-color: #4caf50;
   color: white;
   border: none;
@@ -169,8 +168,24 @@ export default {
   border-radius: 4px;
 }
 
-.edit-button:hover,
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .delete-button:hover {
+  background-color: red;
+}
+
+.edit-button:hover {
   background-color: #45a049;
 }
 
