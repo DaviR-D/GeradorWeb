@@ -3,6 +3,7 @@ import multer from "multer";
 
 import uploadConfig from "@config/upload";
 import { CreateQuestionController } from "@modules/questions/useCases/createQuestions/CreateQuestionController";
+import { DeleteQuestionController } from "@modules/questions/useCases/deleteQuestion/DeleteQuestionController";
 import { ListQuestionByIdController } from "@modules/questions/useCases/listQuestionById/ListQuestionByIdController";
 import { ListQuestionsByActivityController } from "@modules/questions/useCases/listQuestionsByActivity/ListQuestionByIdController";
 
@@ -16,6 +17,7 @@ const uploadQuestionImages = multer(
 );
 
 const createQuestionController = new CreateQuestionController();
+const deleteQuestionController = new DeleteQuestionController();
 const listQuestionByIdController = new ListQuestionByIdController();
 const listQuestionByActivityController =
   new ListQuestionsByActivityController();
@@ -37,6 +39,13 @@ questionsRoutes.get(
 questionsRoutes.get(
   "/questions/:activity_id",
   listQuestionByActivityController.handle
+);
+
+questionsRoutes.delete(
+  "/",
+  ensureAuthenticated,
+  ensureTeacher,
+  deleteQuestionController.handle
 );
 
 export { questionsRoutes };
