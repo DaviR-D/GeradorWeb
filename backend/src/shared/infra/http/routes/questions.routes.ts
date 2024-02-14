@@ -42,7 +42,7 @@ questionsRoutes.get(
 );
 
 questionsRoutes.delete(
-  "/",
+  "/:id",
   ensureAuthenticated,
   ensureTeacher,
   deleteQuestionController.handle

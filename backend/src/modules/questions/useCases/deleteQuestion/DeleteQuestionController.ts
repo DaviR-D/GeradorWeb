@@ -5,7 +5,7 @@ import { DeleteQuestionUseCase } from "./DeleteQuestionUseCase";
 
 class DeleteQuestionController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { id } = request.body;
+    const { id } = request.params;
 
     const deleteQuestionUseCase = container.resolve(DeleteQuestionUseCase);
 

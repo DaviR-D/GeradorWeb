@@ -1,25 +1,25 @@
 <template>
   <div class="centered-grid">
     <div class="thumbnails-grid">
-      <div class="thumbnail" v-for="(lessonItem, index) in lesson" :key="index">
+      <div class="thumbnail" v-for="(question, index) in lesson" :key="index">
         <div class="thumbnail-overlay">
           <div class="button-container">
-            <button class="edit-button" @click="editLesson(index)">
+            <button class="edit-button" @click="editQuestion(index)">
               Editar
             </button>
-            <button class="delete-button" @click="deleteLesson(index)">
+            <button class="delete-button" @click="deleteQuestion(index)">
               Deletar
             </button>
           </div>
         </div>
         <component
-          :is="templates[lessonItem.template - 1]"
-          :data="lessonItem"
+          :is="templates[question.template - 1]"
+          :data="question"
           class="template-content"
         />
       </div>
     </div>
-    <button class="add-button">+</button>
+    <button class="add-button" @click="newQuestion()">+</button>
   </div>
 </template>
 
@@ -31,6 +31,7 @@ import TheTemplate4 from "@/components/Templates/Template4.vue";
 import TheTemplate5 from "@/components/Templates/Template5.vue";
 import TheTemplate6 from "@/components/Templates/Template6.vue";
 import { useRoute } from "vue-router";
+import router from "../router";
 import axios from "axios";
 
 export default {
@@ -81,6 +82,19 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    deleteQuestion(index) {
+      axios.delete("http://localhost:3000/questions/" + this.lesson[index].id, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      this.lesson.splice(index, 1);
+    },
+    newQuestion() {
+      router.push("/templates/" + this.route.params.lesson_id);
+    },
   },
 };
 </script>
