@@ -6,6 +6,7 @@ import { CreateQuestionController } from "@modules/questions/useCases/createQues
 import { DeleteQuestionController } from "@modules/questions/useCases/deleteQuestion/DeleteQuestionController";
 import { ListQuestionByIdController } from "@modules/questions/useCases/listQuestionById/ListQuestionByIdController";
 import { ListQuestionsByActivityController } from "@modules/questions/useCases/listQuestionsByActivity/ListQuestionByIdController";
+import { UpdateQuestionController } from "@modules/questions/useCases/updateQuestion/UpdateQuestionController";
 
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { ensureTeacher } from "../middlewares/ensureTeacher";
@@ -17,6 +18,7 @@ const uploadQuestionImages = multer(
 );
 
 const createQuestionController = new CreateQuestionController();
+const updateQuestionController = new UpdateQuestionController();
 const deleteQuestionController = new DeleteQuestionController();
 const listQuestionByIdController = new ListQuestionByIdController();
 const listQuestionByActivityController =
@@ -28,6 +30,14 @@ questionsRoutes.post(
   ensureTeacher,
   uploadQuestionImages.array("questionImages"),
   createQuestionController.handle
+);
+
+questionsRoutes.post(
+  "/:activity_id/update",
+  ensureAuthenticated,
+  ensureTeacher,
+  uploadQuestionImages.array("questionImages"),
+  updateQuestionController.handle
 );
 
 questionsRoutes.get(

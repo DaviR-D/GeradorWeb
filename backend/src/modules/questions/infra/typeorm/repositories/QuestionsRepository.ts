@@ -1,6 +1,7 @@
 import { getRepository, Repository } from "typeorm";
 
 import { ICreateQuestionDTO } from "@modules/questions/dtos/ICreateQuestionDTO";
+import { IUpdateQuestionDTO } from "@modules/questions/dtos/IUpdateQuestionDTO";
 import { QuestionImage } from "@modules/questions/infra/typeorm/entities/QuestionImages";
 import { IQuestionsRepository } from "@modules/questions/repositories/IQuestionsRepository";
 
@@ -37,6 +38,31 @@ class QuestionsRepository implements IQuestionsRepository {
     await this.repository.save(question);
 
     return question;
+  }
+
+  async update({
+    name,
+    description,
+    alternatives,
+    answer,
+    score,
+    template,
+    questionImages,
+    question_id,
+  }: IUpdateQuestionDTO): Promise<Question> {
+    await this.repository.update(question_id, {
+      name,
+      description,
+      alternatives,
+      answer,
+      score,
+      template,
+      questionImages,
+    });
+
+    const updatedQuestion = await this.repository.findOne(question_id);
+
+    return updatedQuestion;
   }
 
   async delete(id: string): Promise<void> {
