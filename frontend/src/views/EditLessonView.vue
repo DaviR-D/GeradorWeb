@@ -95,6 +95,14 @@ export default {
     newQuestion() {
       router.push("/templates/" + this.route.params.lesson_id);
     },
+    editQuestion(index) {
+      router.push(
+        "/build/true/" +
+          this.lesson[index].id +
+          "/" +
+          this.lesson[index].template
+      );
+    },
   },
 };
 </script>

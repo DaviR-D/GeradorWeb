@@ -31,8 +31,13 @@ const router = createRouter({
       component: TemplatesView,
     },
     {
-      path: "/build/:lessonId/:template",
+      path: "/build/:edit/:lessonId/:template",
       name: "Build",
+      component: BuildView,
+    },
+    {
+      path: "/build/:edit/:questionId/:template",
+      name: "Edit",
       component: BuildView,
     },
     {

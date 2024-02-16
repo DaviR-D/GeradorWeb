@@ -47,7 +47,7 @@ export default {
     };
   },
 
-  props: { lessonId: { type: String } },
+  props: { lessonId: { type: String }, questionId: { type: String } },
   methods: {
     onFileChange(e, i) {
       var files = e.target.files || e.dataTransfer.files;

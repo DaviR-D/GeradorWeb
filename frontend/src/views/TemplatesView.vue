@@ -39,7 +39,7 @@ const images = [
 ];
 
 const build = (i) => {
-  router.push("/build/" + route.params.lessonId + "/" + i);
+  router.push("/build/" + false + "/" + route.params.lessonId + "/" + i);
 };
 </script>
 
