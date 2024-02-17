@@ -1,6 +1,11 @@
 <template>
   <div>
-    <component :is="template()" :lessonId="lessonId" :questionId="questionId" />
+    <component
+      @save="save"
+      :is="template()"
+      :lessonId="lessonId"
+      :questionId="questionId"
+    />
   </div>
 </template>
 
@@ -12,6 +17,8 @@ import TheBuilder4 from "@/components/Builders/Builder4.vue";
 import TheBuilder5 from "@/components/Builders/Builder5.vue";
 import TheBuilder6 from "@/components/Builders/Builder6.vue";
 import { useRoute } from "vue-router";
+import router from "@/router";
+import axios from "axios";
 
 const builders = [
   TheBuilder1,
@@ -35,5 +42,18 @@ if (route.params.edit == "false") {
 
 const template = () => {
   return builders[route.params.template - 1];
+};
+
+const save = (question) => {
+  axios
+    .post("http://localhost:3000/questions/" + lessonId, question, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+    .then((response) => {
+      console.log(response);
+    });
+  router.push("/templates/" + lessonId);
 };
 </script>
