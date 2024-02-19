@@ -37,13 +37,10 @@
 </template>
 
 <script>
-import { useIndexStore } from "@/stores/index";
-
 export default {
   name: "TheBuilder1",
   data() {
     return {
-      index: useIndexStore(),
       alternatives: [],
       image: "",
       rightAnswer: "",

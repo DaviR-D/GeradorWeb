@@ -31,23 +31,16 @@
 </template>
 
 <script>
-import { useIndexStore } from "@/stores/index";
-import router from "@/router";
-import axios from "axios";
-
 export default {
   name: "TheBuilder4",
   data() {
     return {
-      index: useIndexStore(),
       words: [],
       images: [],
       value: "",
-      question: {},
     };
   },
 
-  props: { lessonId: { type: String }, questionId: { type: String } },
   methods: {
     onFileChange(e, i) {
       var files = e.target.files || e.dataTransfer.files;
@@ -64,18 +57,7 @@ export default {
         question.append("questionImages", image);
       });
 
-      this.question = question;
-      console.log(question);
-      axios
-        .post("http://localhost:3000/questions/" + this.lessonId, question, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        })
-        .then((response) => {
-          console.log(response);
-        });
-      router.push("/templates/" + this.lessonId);
+      this.$emit("save", question);
     },
   },
 };

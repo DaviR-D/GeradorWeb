@@ -25,19 +25,15 @@
 </template>
 
 <script>
-import { useIndexStore } from "@/stores/index";
-
 export default {
   name: "TheBuilder2",
   data() {
     return {
-      index: useIndexStore(),
       text: "",
       image: "",
     };
   },
 
-  props: { lessonId: { type: String }, questionId: { type: String } },
   methods: {
     onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
