@@ -26,8 +26,6 @@
 
 <script>
 import { useIndexStore } from "@/stores/index";
-import router from "@/router";
-import axios from "axios";
 
 export default {
   name: "TheBuilder2",
@@ -36,7 +34,6 @@ export default {
       index: useIndexStore(),
       text: "",
       image: "",
-      question: {},
     };
   },
 
@@ -55,17 +52,7 @@ export default {
       question.append("description", this.text);
       question.append("questionImages", this.image);
 
-      this.question = question;
-      axios
-        .post("http://localhost:3000/questions/" + this.lessonId, question, {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-        })
-        .then((response) => {
-          console.log(response);
-        });
-      router.push("/templates/" + this.lessonId);
+      this.$emit("save", question);
     },
   },
 };

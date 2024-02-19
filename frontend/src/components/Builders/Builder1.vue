@@ -48,7 +48,6 @@ export default {
       image: "",
       rightAnswer: "",
       value: "",
-      question: {},
     };
   },
 
@@ -69,7 +68,6 @@ export default {
       question.append("score", this.value);
       question.append("questionImages", this.image);
 
-      this.question = question;
       this.$emit("save", question);
     },
   },
