@@ -5,13 +5,13 @@
       <img src="https://i.imgur.com/ndGjtf1.png" class="w-full" alt="" />
       <input type="file" @change="onFileChange" />
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         placeholder="Palavra"
         v-model="rightAnswer"
       />
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         v-model="value"
         placeholder="Valor da questão"
