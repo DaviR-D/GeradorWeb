@@ -45,8 +45,30 @@ const template = () => {
 };
 
 const save = (question) => {
+  if (route.params.edit == "false") {
+    create(question);
+  } else {
+    update(question);
+  }
+};
+
+const create = (question) => {
   axios
     .post("http://localhost:3000/questions/" + lessonId, question, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+    .then((response) => {
+      console.log(response);
+    });
+  router.push("/templates/" + lessonId);
+};
+
+const update = (question) => {
+  question.question_id = questionId;
+  axios
+    .post("http://localhost:3000/" + lessonId + "/update", question, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
