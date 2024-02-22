@@ -36,7 +36,7 @@ const router = createRouter({
       component: BuildView,
     },
     {
-      path: "/build/:edit/:questionId/:template",
+      path: "/build/:edit/:questionId/:lessonId/:template",
       name: "Edit",
       component: BuildView,
     },

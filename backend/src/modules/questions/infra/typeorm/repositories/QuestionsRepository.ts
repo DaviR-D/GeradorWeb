@@ -9,9 +9,11 @@ import { Question } from "../entities/Question";
 
 class QuestionsRepository implements IQuestionsRepository {
   private repository: Repository<Question>;
+  private imagesRepository: Repository<QuestionImage>;
 
   constructor() {
     this.repository = getRepository(Question);
+    this.imagesRepository = getRepository(QuestionImage);
   }
 
   async create({
@@ -50,19 +52,18 @@ class QuestionsRepository implements IQuestionsRepository {
     questionImages,
     question_id,
   }: IUpdateQuestionDTO): Promise<Question> {
-    await this.repository.update(question_id, {
-      name,
-      description,
-      alternatives,
-      answer,
-      score,
-      template,
-      questionImages,
-    });
+    const question = await this.repository.findOne(question_id);
 
-    const updatedQuestion = await this.repository.findOne(question_id);
+    question.name = name;
+    question.description = description;
+    question.alternatives = alternatives;
+    question.answer = answer;
+    question.score = score;
+    question.template = template;
 
-    return updatedQuestion;
+    await this.repository.save(question);
+
+    return question;
   }
 
   async delete(id: string): Promise<void> {

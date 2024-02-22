@@ -49,7 +49,6 @@ export default {
       )
       .then((response) => {
         this.lesson = response.data;
-        console.log(this.lesson);
       });
   },
   data() {
@@ -97,10 +96,7 @@ export default {
     },
     editQuestion(index) {
       router.push(
-        "/build/true/" +
-          this.lesson[index].id +
-          "/" +
-          this.lesson[index].template
+        `/build/true/${this.lesson[index].id}/${this.route.params.lesson_id}/${this.lesson[index].template}`
       );
     },
   },

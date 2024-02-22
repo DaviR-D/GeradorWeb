@@ -38,6 +38,7 @@ if (route.params.edit == "false") {
   lessonId = route.params.lessonId;
 } else {
   questionId = route.params.questionId;
+  lessonId = route.params.lessonId;
 }
 
 const template = () => {
@@ -66,9 +67,9 @@ const create = (question) => {
 };
 
 const update = (question) => {
-  question.question_id = questionId;
+  question.append("question_id", questionId);
   axios
-    .post("http://localhost:3000/" + lessonId + "/update", question, {
+    .post("http://localhost:3000/questions/" + lessonId + "/update", question, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -76,6 +77,6 @@ const update = (question) => {
     .then((response) => {
       console.log(response);
     });
-  router.push("/templates/" + lessonId);
+  router.push("/edit-lesson/" + lessonId);
 };
 </script>
