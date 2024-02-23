@@ -4,25 +4,25 @@
       <h1>Imagem de exemplo:</h1>
       <img src="https://i.imgur.com/fSBLcSb.png" class="w-full" alt="" />
       <input
-        class="rounded p-2 w-96 text-lg"
+        class="rounded p-2 w-96 text-lg text-black"
         type="file"
         @change="onFileChange"
       />
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         placeholder="Escreva as opções separando às por vírgulas"
         v-model="alternatives"
       />
       <p class="text-lg mb-4">Exemplo: Carro, Moto, Casa, Computador</p>
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         v-model="rightAnswer"
         placeholder="Resposta correta"
       />
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         v-model="value"
         placeholder="Valor da questão"

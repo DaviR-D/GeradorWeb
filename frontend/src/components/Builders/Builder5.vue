@@ -4,7 +4,7 @@
       <h1>Imagem de exemplo:</h1>
       <img src="https://i.imgur.com/8qSh1bg.png" class="w-full" alt="" />
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         placeholder="Palavra"
         v-model="word"
@@ -15,13 +15,13 @@
       </li>
 
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         v-model="value"
         placeholder="Valor da questão"
       />
       <input
-        class="rounded p-2 shadow-sm w-96 shadow-slate-50"
+        class="rounded p-2 shadow-sm w-96 shadow-slate-50 text-black"
         type="text"
         v-model="rightAnswer"
         placeholder="Alternativa correta (número)"

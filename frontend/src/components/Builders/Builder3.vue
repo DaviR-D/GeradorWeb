@@ -6,7 +6,12 @@
       <ol>
         <li v-for="i in [0, 1, 2, 3]" :key="i">
           <input type="file" @change="(e) => onFileChange(e, i)" />
-          <input type="text" :placeholder="i + 1" v-model="words[i]" />
+          <input
+            class="text-black"
+            type="text"
+            :placeholder="i + 1"
+            v-model="words[i]"
+          />
         </li>
       </ol>
       <a
