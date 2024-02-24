@@ -151,6 +151,7 @@ export default {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   z-index: 1; /* Adicionado z-index */
+  backdrop-filter: blur(6px);
 }
 
 .thumbnail:hover .thumbnail-overlay {
