@@ -51,15 +51,6 @@ export default {
     },
   },
   methods: {
-    openToast(icon, message) {
-      this.$toast.open({
-        message: message,
-        type: icon,
-        duration: 5000,
-        dismissible: true,
-        position: "top-right",
-      });
-    },
     checkAnswer(alternative) {
       if (alternative == this.data.rightAnswer) {
         this.score.update(this.data.value);
