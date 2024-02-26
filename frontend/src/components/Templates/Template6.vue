@@ -55,13 +55,10 @@ export default {
   },
   methods: {
     checkAnswer() {
-      if (this.answer.toLowerCase() == this.data.rightAnswer.toLowerCase()) {
-        this.score.update(this.data.value);
-        this.score.incrementAnswerCounter();
-        this.rightAnswer = true;
-      }
-      this.score.incrementQuestionCounter();
-      this.answered = true;
+      this.$emit("checkAnswer", {
+        userAnswer: this.answer.toLowerCase(),
+        rightAnswer: this.data.rightAnswer.toLowerCase(),
+      });
       this.answer = "";
     },
   },

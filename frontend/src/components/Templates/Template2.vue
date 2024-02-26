@@ -11,14 +11,10 @@
 </template>
 
 <script>
-import { useIndexStore } from "@/stores/index";
-
 export default {
   name: "TheTemplate2",
   data() {
-    return {
-      index: useIndexStore(),
-    };
+    return {};
   },
 
   props: {
@@ -32,7 +28,7 @@ export default {
   },
   methods: {
     nextQuestion() {
-      this.index.increment();
+      this.$emit("nextQuestion");
     },
   },
 };

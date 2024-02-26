@@ -33,34 +33,19 @@
         Confirmar
       </button>
     </div>
-
-    <answer-message
-      v-if="answered"
-      :rightAnswer="rightAnswer"
-      :value="data.value"
-    />
   </div>
 </template>
 
 <script>
-import { useIndexStore } from "@/stores/index";
-import { useScoreStore } from "@/stores/score";
-import AnswerMessage from "@/components/AnswerMessage.vue";
-
 export default {
-  components: { AnswerMessage },
   name: "TheTemplate4",
   mounted() {
     this.generateAnswer();
   },
   data() {
     return {
-      index: useIndexStore(),
-      score: useScoreStore(),
       answer: [],
       correctAnswer: [],
-      answered: false,
-      rightAnswer: false,
     };
   },
 
@@ -83,13 +68,10 @@ export default {
       this.correctAnswer.sort(() => Math.random() - 0.5);
     },
     checkAnswer() {
-      if (this.answer.toString() == this.correctAnswer.toString()) {
-        this.score.update(this.data.value);
-        this.score.incrementAnswerCounter();
-        this.rightAnswer = true;
-      }
-      this.score.incrementQuestionCounter();
-      this.answered = true;
+      this.$emit("checkAnswer", {
+        userAnswer: this.answer.toString(),
+        rightAnswer: this.correctAnswer.toString(),
+      });
     },
   },
 };
