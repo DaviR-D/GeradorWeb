@@ -1,34 +1,41 @@
 <template>
   <div class="flex flex-col items-center justify-center h-screen w-screen">
-    <h1 class="text-base md:text-2xl">Associe as imagens com as palavras:</h1>
-    <li
-      class="list-none mb-4"
-      v-for="(image, index) in data.questionImages"
-      :key="index"
-    >
-      <div class="grid grid-cols-8 gap-2 h-24">
-        <div class="display-none md:col-span-1"></div>
-        <div class="col-span-1 flex justify-center mr-2 items-center">
-          <h1>{{ index + 1 }}</h1>
-        </div>
-        <div class="col-span-2 flex items-center justify-center">
-          <img :src="image['url']" class="imagem" />
-        </div>
-        <div class="col-span-2 flex items-center justify-center">
-          <input
-            class="max-w-[60px] md:max-w-[100px]"
-            type="number"
-            v-model="answer[index]"
-          />
-        </div>
-        <div class="col-span-1 flex items-center justify-start">
-          <h1>
-            {{ data.description.split(", ")[correctAnswer[index] - 1] }}
-          </h1>
-        </div>
-      </div>
-    </li>
-    <div class="w-full flex items-center justify-center">
+    <h1 class="text-base md:text-2xl mb-4">
+      Associe as imagens com as palavras:
+    </h1>
+    <table class="w-full text-white">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Imagem</th>
+          <th></th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(image, index) in data.questionImages" :key="index">
+          <td>{{ index + 1 }}</td>
+          <td></td>
+          <td class="col-span-2">
+            <img :src="image.url" class="imagem" />
+          </td>
+          <td>
+            <input
+              class="max-w-[60px] md:max-w-[100px] text-center text-black"
+              type="number"
+              v-model="answer[index]"
+            />
+          </td>
+          <td>
+            <span class="ml-2">
+              {{ data.description.split(", ")[correctAnswer[index] - 1] }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="w-full flex items-center justify-center mt-4">
       <button class="botao ml-10 md:ml-0" @click="checkAnswer()">
         Confirmar
       </button>
@@ -78,6 +85,23 @@ export default {
 </script>
 <style scoped>
 .imagem {
-  height: 96px !important;
+  width: 55%;
+  height: 55%;
+  object-fit: cover;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td,
+th {
+  padding: 8px;
+  text-align: center;
+}
+
+td.col-span-2 {
+  column-span: all;
 }
 </style>
