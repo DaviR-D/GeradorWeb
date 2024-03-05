@@ -15,7 +15,16 @@
         </thead>
         <tbody>
           <tr v-for="(key, index) in Object.keys(ranking)" :key="key">
-            <td class="cell">{{ (index + 1).toString() + "º" }}</td>
+            <td
+              :class="{
+                gold: index === 0,
+                silver: index === 1,
+                bronze: index === 2,
+              }"
+              class="cell"
+            >
+              {{ (index + 1).toString() + "º" }}
+            </td>
             <td class="cell flex items-center">
               <img
                 src="https://i.imgur.com/d0jdZdk.png"
@@ -92,5 +101,17 @@ td {
 th {
   background-color: #2d3748;
   color: #cbd5e0;
+}
+
+.gold {
+  color: gold;
+}
+
+.silver {
+  color: silver;
+}
+
+.bronze {
+  color: #cd7f32;
 }
 </style>
