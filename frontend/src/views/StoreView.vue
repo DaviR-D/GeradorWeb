@@ -1,6 +1,8 @@
 <template>
   <p class="text-2xl font-bold mb-4 text-right p-8 text-white">
-    Moedas: <span class="text-green-300"> {{ coins }}</span>
+    <span class="rounded-lg bg-gray-800 p-2">
+      Moedas: <span class="text-green-300">{{ coins }}</span>
+    </span>
   </p>
   <div class="h-screen flex items-center justify-center">
     <div
