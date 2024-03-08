@@ -1,12 +1,12 @@
 <template>
   <div class="dialog">
-    <strong> Nome da atividade </strong>
-    <a @click="this.$parent.showNewLesson = false"> X </a>
+    <strong class="text-white">Nome da atividade</strong>
+    <a @click="this.$parent.showNewLesson = false">X</a>
     <input
       type="text"
       v-model="lessonName"
       @keyup.enter="newLesson"
-      style="align: center"
+      class="custom-input"
     />
   </div>
 </template>
@@ -50,5 +50,14 @@ export default {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 4px;
   z-index: 1;
+}
+
+.custom-input {
+  width: 60%;
+  height: 40%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 8px;
 }
 </style>
