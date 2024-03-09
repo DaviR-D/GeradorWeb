@@ -1,7 +1,7 @@
 <template>
   <div class="dialog">
     <strong class="text-white">Nome da atividade</strong>
-    <a @click="this.$parent.showNewLesson = false">X</a>
+    <a @click="this.$parent.showNewLesson = false" class="close-button">X</a>
     <input
       type="text"
       v-model="lessonName"
@@ -59,5 +59,22 @@ export default {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: 1px;
+  right: 8px;
+  color: #fff;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 100%;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.close-button:hover {
+  color: #000;
+  border-color: #d84e4e;
+  background-color: #d84e4e;
 }
 </style>
