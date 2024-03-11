@@ -1,4 +1,5 @@
 import { Question } from "../infra/typeorm/entities/Question";
+import { QuestionImage } from "../infra/typeorm/entities/QuestionImages";
 
 interface IUpdateQuestionDTO {
   name: string;
@@ -7,7 +8,7 @@ interface IUpdateQuestionDTO {
   answer: string;
   score: number;
   template: number;
-  questionImages?: Question[];
+  questionImages?: QuestionImage[];
   question_id: string;
 }
 

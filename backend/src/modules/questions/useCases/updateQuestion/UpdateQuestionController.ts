@@ -18,6 +18,8 @@ class UpdateQuestionController {
       question_id,
     } = request.body;
 
+    const q_id = question_id;
+
     const { id } = request.user;
 
     const requestImages = request.files as Express.Multer.File[];

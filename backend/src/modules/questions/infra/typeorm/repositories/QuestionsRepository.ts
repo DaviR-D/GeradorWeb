@@ -52,7 +52,9 @@ class QuestionsRepository implements IQuestionsRepository {
     questionImages,
     question_id,
   }: IUpdateQuestionDTO): Promise<Question> {
-    const question = await this.repository.findOne(question_id);
+    const question = await this.repository.findOne(question_id, {
+      relations: ["questionImages"],
+    });
 
     question.name = name;
     question.description = description;
@@ -62,6 +64,22 @@ class QuestionsRepository implements IQuestionsRepository {
     question.template = template;
 
     await this.repository.save(question);
+
+    await this.imagesRepository
+      .createQueryBuilder("questionImages")
+      .delete()
+      .from(QuestionImage)
+      .where("question_id = :id", { id: question_id })
+      .execute();
+
+    const images = questionImages.map((img) =>
+      this.imagesRepository.create({
+        path: img.path,
+        question,
+      })
+    );
+
+    await this.imagesRepository.save(images);
 
     return question;
   }
