@@ -1,7 +1,7 @@
 <template>
-  <div class="h-screen flex items-center justify-center">
+  <div class="h-screen w-screen flex items-center justify-center">
     <div
-      class="flex flex-col h-2/3 justify-center gap-2 text-white text-xl items-center p-4 w-1/3 m-auto rounded bg-gray-800"
+      class="h-screen w-screen flex flex-col justify-center gap-2 text-white text-xl items-center p-4 w-1/3 m-auto rounded"
       v-if="Object.keys(ranking).length"
     >
       <h1 class="text-3xl font-semibold mb-4">RANKING</h1>
@@ -84,7 +84,7 @@ export default {
 
 .cell {
   border: 1px solid #4a5568;
-  padding: 8px;
+  padding: 20px;
 }
 
 table {
