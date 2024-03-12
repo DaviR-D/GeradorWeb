@@ -114,6 +114,8 @@ class QuestionsRepository implements IQuestionsRepository {
       relations: ["questionImages"],
     });
 
+    questions.sort((a, b) => a.created_at.getTime() - b.created_at.getTime());
+
     return questions;
   }
 }
