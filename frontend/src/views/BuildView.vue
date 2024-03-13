@@ -77,6 +77,7 @@ const update = (question) => {
     .then((response) => {
       console.log(response);
     });
-  router.push("/edit-lesson/" + lessonId);
+  //router.push("/edit-lesson/" + lessonId);
+  router.push("/list-lessons");
 };
 </script>
