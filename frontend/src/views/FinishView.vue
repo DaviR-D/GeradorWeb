@@ -34,6 +34,7 @@ const score = store.getScore;
 const coins = Math.round(score / 4);
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
+let userAchievements;
 
 if (questionCount > 0) {
   axios
@@ -66,6 +67,18 @@ if (questionCount > 0) {
 
   // checkAchievements();
 }
+
+const getUserAchievements = () => {
+  axios
+    .get("http://localhost:3000/achievements/list", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+    .then((response) => {
+      userAchievements = response.data;
+    });
+};
 
 // const achievements = {
 //   iniciante_competidor: () => {
