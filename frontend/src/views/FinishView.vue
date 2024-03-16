@@ -34,7 +34,27 @@ const score = store.getScore;
 const coins = Math.round(score / 4);
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
-let userAchievements;
+
+const getUserAchievements = async () => {
+  await axios
+    .get("http://localhost:3000/achievements/list", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+    .then((response) => {
+      console.log(response.data);
+      return response.data;
+    });
+};
+
+const checkAchievements = (userAchievements) => {
+  let achievementsNames;
+  userAchievements.forEach((achievement) => {
+    achievementsNames.append(achievement.name);
+  });
+  console.log(achievementsNames);
+};
 
 if (questionCount > 0) {
   axios
@@ -65,22 +85,6 @@ if (questionCount > 0) {
       console.log(response);
     });
 
-  // checkAchievements();
+  checkAchievements(getUserAchievements());
 }
-
-const getUserAchievements = () => {
-  axios
-    .get("http://localhost:3000/achievements/list", {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-    .then((response) => {
-      userAchievements = response.data;
-    });
-};
-
-// const checkAchievements = () => {
-//   console.log(achievements.iniciante_competidor());
-// };
 </script>
