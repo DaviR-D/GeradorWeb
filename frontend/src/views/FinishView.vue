@@ -43,12 +43,12 @@ const getUserAchievements = async () => {
       },
     })
     .then((response) => {
-      console.log(response.data);
       return response.data;
     });
 };
 
-const checkAchievements = (userAchievements) => {
+const checkAchievements = async () => {
+  const userAchievements = await getUserAchievements();
   let achievementsNames;
   userAchievements.forEach((achievement) => {
     achievementsNames.append(achievement.name);
@@ -85,6 +85,6 @@ if (questionCount > 0) {
       console.log(response);
     });
 
-  checkAchievements(getUserAchievements());
+  checkAchievements();
 }
 </script>
