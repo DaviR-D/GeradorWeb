@@ -35,6 +35,8 @@ const coins = Math.round(score / 4);
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 
+const iniciante = () => {};
+
 const getUserAchievements = async () => {
   await axios
     .get("http://localhost:3000/achievements/list", {
@@ -52,7 +54,7 @@ const checkAchievements = async (userAchievements) => {
   userAchievements.forEach((achievement) => {
     achievementsNames.push(achievement.name);
   });
-  console.log(achievementsNames);
+  if (!achievementsNames.includes("Iniciante")) iniciante();
 };
 
 if (questionCount > 0) {
