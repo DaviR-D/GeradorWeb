@@ -35,7 +35,38 @@ const coins = Math.round(score / 4);
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 
-const iniciante = () => {};
+const iniciante = () => {
+  axios.post(
+    "http://localhost:3000/achievements/get",
+    { achievement_id: "123b9805-a479-4e61-bac0-47554fca010d" },
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    }
+  );
+};
+
+const competidor = () => {
+  // axios
+  //   .get("http://localhost:3000/scores/grouped", {
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("token"),
+  //     },
+  //   })
+  //   .then((response) => {
+  //     console.log(response.data);
+  //   });
+  // axios.post(
+  //   "http://localhost:3000/achievements/get",
+  //   { achievement_id: "30710fbd-8c0a-4e25-b340-0e9578f4e340" },
+  //   {
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("token"),
+  //     },
+  //   }
+  // );
+};
 
 const getUserAchievements = async () => {
   await axios
@@ -55,6 +86,7 @@ const checkAchievements = async (userAchievements) => {
     achievementsNames.push(achievement.name);
   });
   if (!achievementsNames.includes("Iniciante")) iniciante();
+  if (!achievementsNames.includes("Competidor")) competidor();
 };
 
 if (questionCount > 0) {
