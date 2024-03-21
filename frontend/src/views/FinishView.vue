@@ -24,6 +24,7 @@
 </template>
 <script setup>
 import { useScoreStore } from "@/stores/score";
+import { ToastPlugin } from "vue-toast-notification";
 import { useRoute } from "vue-router";
 import axios from "axios";
 const route = useRoute();
@@ -45,6 +46,13 @@ const iniciante = () => {
       },
     }
   );
+  ToastPlugin.open({
+    message: "Conquista adquirida: Iniciante",
+    type: "sucess",
+    duration: 5000,
+    dismissible: true,
+    position: "top-right",
+  });
 };
 
 const competidor = () => {
