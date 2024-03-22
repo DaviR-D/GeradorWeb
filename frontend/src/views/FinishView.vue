@@ -24,12 +24,14 @@
 </template>
 <script setup>
 import { useScoreStore } from "@/stores/score";
-import { ToastPlugin } from "vue-toast-notification";
+import { useToast } from "vue-toast-notification";
 import { useRoute } from "vue-router";
 import axios from "axios";
 const route = useRoute();
 
 const store = useScoreStore();
+
+const $toast = useToast();
 
 const score = store.getScore;
 const coins = Math.round(score / 4);
@@ -46,7 +48,7 @@ const iniciante = () => {
       },
     }
   );
-  ToastPlugin.open({
+  $toast.open({
     message: "Conquista adquirida: Iniciante",
     type: "sucess",
     duration: 5000,
