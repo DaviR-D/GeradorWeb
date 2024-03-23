@@ -48,13 +48,7 @@ const iniciante = () => {
       },
     }
   );
-  $toast.open({
-    message: "Conquista adquirida: Iniciante",
-    type: "sucess",
-    duration: 5000,
-    dismissible: true,
-    position: "top-right",
-  });
+  $toast.success("Conquista adquirida: Iniciante");
 };
 
 const competidor = () => {
