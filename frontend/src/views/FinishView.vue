@@ -38,6 +38,10 @@ const coins = Math.round(score / 4);
 const answerCount = store.getAnswerCount;
 const questionCount = store.getQuestionCount;
 
+const notification = (text) => {
+  $toast.success(text);
+};
+
 const iniciante = () => {
   axios.post(
     "http://localhost:3000/achievements/get",
@@ -48,7 +52,7 @@ const iniciante = () => {
       },
     }
   );
-  $toast.success("Conquista adquirida: Iniciante");
+  notification("Conquista adquirida: Iniciante");
 };
 
 const competidor = () => {
