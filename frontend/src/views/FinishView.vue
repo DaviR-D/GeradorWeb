@@ -56,24 +56,26 @@ const iniciante = () => {
 };
 
 const competidor = () => {
-  // axios
-  //   .get("http://localhost:3000/scores/grouped", {
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem("token"),
-  //     },
-  //   })
-  //   .then((response) => {
-  //     console.log(response.data);
-  //   });
-  // axios.post(
-  //   "http://localhost:3000/achievements/get",
-  //   { achievement_id: "30710fbd-8c0a-4e25-b340-0e9578f4e340" },
-  //   {
-  //     headers: {
-  //       Authorization: "Bearer " + localStorage.getItem("token"),
-  //     },
-  //   }
-  // );
+  axios
+    .get("http://localhost:3000/scores/grouped", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+    .then((response) => {
+      if (response.data[0].iscurrentuser == 1) {
+        axios.post(
+          "http://localhost:3000/achievements/get",
+          { achievement_id: "30710fbd-8c0a-4e25-b340-0e9578f4e340" },
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
+        notification("Conquista adquirida: Competidor");
+      }
+    });
 };
 
 const getUserAchievements = async () => {
