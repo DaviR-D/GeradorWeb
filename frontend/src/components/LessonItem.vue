@@ -17,7 +17,7 @@
 
       <button
         v-if="isTeacher"
-        class="flex-1 h-12 bg-yellow-500 text-white rounded"
+        class="flex-1 h-12 bg-yellow-500 text-white rounded shadow-yellow-600"
         @click="editLesson()"
       >
         Editar
@@ -25,7 +25,7 @@
 
       <button
         v-if="isTeacher"
-        class="flex-1 h-12 bg-red-500 text-white rounded"
+        class="flex-1 h-12 bg-red-500 text-white rounded shadow-red-600"
         @click="deleteLesson"
       >
         Remover
