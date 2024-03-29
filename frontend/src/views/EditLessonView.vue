@@ -7,7 +7,10 @@
             <button class="edit-button" @click="editQuestion(index)">
               Editar
             </button>
-            <button class="delete-button" @click="deleteQuestion(index)">
+            <button
+              class="delete-button shadow-red-600"
+              @click="deleteQuestion(index)"
+            >
               Deletar
             </button>
           </div>
