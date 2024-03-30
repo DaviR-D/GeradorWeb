@@ -215,8 +215,6 @@ export default {
   margin-top: 16px;
   padding: 10px;
   font-size: 2rem;
-  background-color: transparent;
-  color: green;
   border: none;
   border-radius: 8px;
   cursor: pointer;
