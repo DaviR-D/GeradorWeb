@@ -4,7 +4,10 @@
       <div class="thumbnail" v-for="(question, index) in lesson" :key="index">
         <div class="thumbnail-overlay">
           <div class="button-container">
-            <button class="edit-button" @click="editQuestion(index)">
+            <button
+              class="edit-button shadow-yellow-600 bg-yellow-500"
+              @click="editQuestion(index)"
+            >
               Editar
             </button>
             <button
@@ -178,7 +181,6 @@ export default {
 }
 
 .edit-button {
-  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -201,14 +203,6 @@ export default {
   font-size: 16px;
   cursor: pointer;
   border-radius: 4px;
-}
-
-.delete-button:hover {
-  background-color: red;
-}
-
-.edit-button:hover {
-  background-color: #45a049;
 }
 
 .add-button {
