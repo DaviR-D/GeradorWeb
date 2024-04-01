@@ -29,7 +29,9 @@
       </div>
       <div class="mt-4 flex flex-col items-center justify-center">
         <button class="h-12 text-xl" @click="Register">Registrar</button>
-        <a class="anchor text-xl flex items-center justify-center h-12" href=""
+        <a
+          class="anchor text-xl flex items-center justify-center h-12"
+          @click="Voltar"
           >Voltar</a
         >
       </div>
@@ -81,6 +83,9 @@ export default {
             position: "top-right",
           });
         });
+    },
+    Voltar() {
+      router.push("/");
     },
   },
 };
