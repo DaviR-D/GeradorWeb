@@ -6,21 +6,21 @@
         <img src="../assets/in.png" class="h-20 w-20" alt="" />
         <p class="font-bold">{{ title }}</p>
         <input
-          class="h-10 w-3/4 p-2 rounded"
+          class="h-10 w-3/4 p-2 rounded text-black"
           id="username"
           type="text"
           v-model="username"
           placeholder="Nome"
         />
         <input
-          class="h-10 w-3/4 p-2 rounded"
+          class="h-10 w-3/4 p-2 rounded text-black"
           id="email"
           type="text"
           v-model="email"
           placeholder="E-mail"
         />
         <input
-          class="h-10 w-3/4 p-2 rounded"
+          class="h-10 w-3/4 p-2 rounded text-black"
           type="password"
           v-model="password"
           :feedback="false"
