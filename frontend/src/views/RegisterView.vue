@@ -59,6 +59,7 @@ export default {
       email: "",
       isTeacher: false,
       title: "",
+      avatar: "",
       route: useRoute(),
     };
   },
