@@ -4,15 +4,6 @@
       Associe as imagens com as palavras:
     </h1>
     <table class="w-full text-white">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th>Imagem</th>
-          <th></th>
-          <th>Descrição</th>
-        </tr>
-      </thead>
       <tbody>
         <tr v-for="(image, index) in data.questionImages" :key="index">
           <td>{{ index + 1 }}</td>
