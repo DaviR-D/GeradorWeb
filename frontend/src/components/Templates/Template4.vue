@@ -76,9 +76,8 @@ export default {
 </script>
 <style scoped>
 .imagem {
-  width: 55%;
-  height: 55%;
-  object-fit: cover;
+  max-width: 300px;
+  max-height: 150px;
 }
 
 table {
