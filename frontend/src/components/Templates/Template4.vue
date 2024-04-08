@@ -3,7 +3,7 @@
     <h1 class="text-base md:text-2xl mb-4">
       Associe as imagens com as palavras:
     </h1>
-    <table class="w-full text-white">
+    <table class="w-full text-white font-bold">
       <tbody>
         <tr v-for="(image, index) in data.questionImages" :key="index">
           <td>{{ index + 1 }}</td>
