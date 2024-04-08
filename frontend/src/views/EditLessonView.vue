@@ -129,7 +129,7 @@ export default {
   position: relative;
   width: 23vw;
   height: 23vw;
-  border: 1px solid #ddd;
+  border: 1px solid black;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
