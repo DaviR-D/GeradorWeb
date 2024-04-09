@@ -170,6 +170,7 @@ export default {
 
 .thumbnail:hover {
   transform: scale(1.1);
+  border: 0px;
 }
 
 .button-container {
