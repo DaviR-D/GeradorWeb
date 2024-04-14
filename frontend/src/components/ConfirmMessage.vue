@@ -2,13 +2,15 @@
   <div class="dialog">
     <strong class="text-white">Deseja realmente deletar esse item?</strong>
     <a @click="this.$parent.showConfirm = false" class="close-button">X</a>
-    <button class="delete-button">Deletar</button>
+    <button @click="delete()" class="delete-button">Deletar</button>
   </div>
 </template>
 <script>
 export default {
   name: "ConfirmMessage",
-  methods: {},
+  methods: {
+    delete() {},
+  },
 };
 </script>
 
