@@ -24,6 +24,7 @@
           class="template-content"
         />
       </div>
+      <confirm-message v-if="confirm" />
     </div>
     <button class="add-button" @click="newQuestion()">+</button>
   </div>
@@ -36,11 +37,13 @@ import TheTemplate3 from "@/components/Templates/Template3.vue";
 import TheTemplate4 from "@/components/Templates/Template4.vue";
 import TheTemplate5 from "@/components/Templates/Template5.vue";
 import TheTemplate6 from "@/components/Templates/Template6.vue";
+import ConfirmMessage from "../components/ConfirmMessage.vue";
 import { useRoute } from "vue-router";
 import router from "../router";
 import axios from "axios";
 
 export default {
+  components: { ConfirmMessage },
   name: "EditLessonView",
   async mounted() {
     await axios
@@ -59,6 +62,7 @@ export default {
   },
   data() {
     return {
+      confirm: false,
       route: useRoute(),
       templates: [
         TheTemplate1,
