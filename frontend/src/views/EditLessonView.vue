@@ -12,7 +12,7 @@
             </button>
             <button
               class="delete-button shadow-red-600"
-              @click="deleteQuestion(index)"
+              @click="confirmDelete(index)"
             >
               Deletar
             </button>
@@ -24,7 +24,7 @@
           class="template-content"
         />
       </div>
-      <confirm-message v-if="confirm" />
+      <confirm-message @delete="deleteQuestion" :index="index" v-if="confirm" />
     </div>
     <button class="add-button" @click="newQuestion()">+</button>
   </div>
@@ -62,6 +62,7 @@ export default {
   },
   data() {
     return {
+      questionIndex: 0,
       confirm: false,
       route: useRoute(),
       templates: [
@@ -108,6 +109,10 @@ export default {
       router.push(
         `/build/true/${this.lesson[index].id}/${this.route.params.lesson_id}/${this.lesson[index].template}`
       );
+    },
+    confirmDelete(index) {
+      this.questionIndex = index;
+      this.confirm = true;
     },
   },
 };

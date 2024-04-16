@@ -8,9 +8,10 @@
 <script>
 export default {
   name: "ConfirmMessage",
+  props: { index: { type: Number } },
   methods: {
     Delete() {
-      this.$emit("delete");
+      this.$emit("delete", this.index);
     },
   },
 };
