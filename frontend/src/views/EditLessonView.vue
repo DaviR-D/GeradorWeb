@@ -24,7 +24,11 @@
           class="template-content"
         />
       </div>
-      <confirm-message @delete="deleteQuestion" :index="index" v-if="confirm" />
+      <confirm-message
+        @delete="deleteQuestion"
+        :index="questionIndex"
+        v-if="confirm"
+      />
     </div>
     <button class="add-button" @click="newQuestion()">+</button>
   </div>

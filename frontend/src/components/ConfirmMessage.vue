@@ -1,7 +1,7 @@
 <template>
   <div class="dialog">
     <strong class="text-white">Deseja realmente deletar esse item?</strong>
-    <a @click="this.$parent.showConfirm = false" class="close-button">X</a>
+    <a @click="this.$parent.confirm = false" class="close-button">X</a>
     <button class="delete-button" @click="Delete">Deletar</button>
   </div>
 </template>
@@ -11,7 +11,9 @@ export default {
   props: { index: { type: Number } },
   methods: {
     Delete() {
+      console.log(this.index);
       this.$emit("delete", this.index);
+      this.$parent.confirm = false;
     },
   },
 };
