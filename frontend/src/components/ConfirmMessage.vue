@@ -50,4 +50,12 @@ export default {
   border-color: #d84e4e;
   background-color: #d84e4e;
 }
+
+.delete-button {
+  width: 60%;
+  height: 40%;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
 </style>
