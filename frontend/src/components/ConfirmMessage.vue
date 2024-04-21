@@ -2,7 +2,9 @@
   <div class="dialog">
     <strong class="text-white">Deseja realmente deletar esse item?</strong>
     <a @click="this.$parent.confirm = false" class="close-button">X</a>
-    <button class="delete-button" @click="Delete">Deletar</button>
+    <button class="delete-button confirm-button" @click="Delete">
+      Deletar
+    </button>
   </div>
 </template>
 <script>
@@ -51,7 +53,7 @@ export default {
   background-color: #d84e4e;
 }
 
-.delete-button {
+.confirm-button {
   width: 60%;
   height: 40%;
   padding: 8px;
