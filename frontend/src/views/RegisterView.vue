@@ -67,7 +67,7 @@ export default {
   methods: {
     Register() {
       axios
-        .post("http://localhost:3000/users", {
+        .post(this.$apiUrl + "/users", {
           name: this.username,
           password: this.password,
           email: this.email,

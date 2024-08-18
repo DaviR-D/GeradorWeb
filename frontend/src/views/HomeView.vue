@@ -233,7 +233,7 @@ export default {
 
   beforeMount() {
     axios
-      .get("http://localhost:3000/users/logged", {
+      .get(this.$apiUrl + "/users/logged", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },

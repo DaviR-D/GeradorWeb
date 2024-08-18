@@ -38,7 +38,7 @@ export default {
       if (this.$parent.coins >= this.price) {
         axios
           .post(
-            "http://localhost:3000/items/buy",
+            this.$apiUrl + "/items/buy",
             { item_id: this.id },
             {
               headers: {
@@ -52,7 +52,7 @@ export default {
 
         axios
           .post(
-            "http://localhost:3000/users/coins",
+            this.$apiUrl + "/users/coins",
             { amount: -this.price },
             {
               headers: {

@@ -62,7 +62,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("http://localhost:3000/scores/grouped", {
+        .get(this.$apiUrl + "/scores/grouped", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

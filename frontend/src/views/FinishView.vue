@@ -44,7 +44,7 @@ const notification = (text) => {
 
 const iniciante = () => {
   axios.post(
-    "http://localhost:3000/achievements/get",
+    this.$apiUrl + "/achievements/get",
     { achievement_id: "123b9805-a479-4e61-bac0-47554fca010d" },
     {
       headers: {
@@ -57,7 +57,7 @@ const iniciante = () => {
 
 const competidor = () => {
   axios
-    .get("http://localhost:3000/scores/grouped", {
+    .get(this.$apiUrl + "/scores/grouped", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -65,7 +65,7 @@ const competidor = () => {
     .then((response) => {
       if (response.data[0].iscurrentuser == 1) {
         axios.post(
-          "http://localhost:3000/achievements/get",
+          this.$apiUrl + "/achievements/get",
           { achievement_id: "30710fbd-8c0a-4e25-b340-0e9578f4e340" },
           {
             headers: {
@@ -80,7 +80,7 @@ const competidor = () => {
 
 const getUserAchievements = async () => {
   await axios
-    .get("http://localhost:3000/achievements/list", {
+    .get(this.$apiUrl + "/achievements/list", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -102,7 +102,7 @@ const checkAchievements = async (userAchievements) => {
 if (questionCount > 0) {
   axios
     .post(
-      "http://localhost:3000/scores/" + route.params.lessonId,
+      this.$apiUrl + "/scores/" + route.params.lessonId,
       { score: score },
       {
         headers: {
@@ -116,7 +116,7 @@ if (questionCount > 0) {
 
   axios
     .post(
-      "http://localhost:3000/users/coins",
+      this.$apiUrl + "/users/coins",
       { amount: coins },
       {
         headers: {

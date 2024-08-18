@@ -15,4 +15,6 @@ app.use(router);
 app.use(VueAxios, axios);
 app.use(ToastPlugin);
 
+app.config.globalProperties.$apiUrl = "https://200.201.11.141/api";
+
 app.mount("#app");

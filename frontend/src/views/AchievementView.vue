@@ -28,7 +28,7 @@ export default {
   name: "AchievementView",
   beforeMount() {
     axios
-      .get("http://localhost:3000/users/logged", {
+      .get(this.$apiUrl + "/users/logged", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -56,7 +56,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("http://localhost:3000/achievements", {
+        .get(this.$apiUrl + "/achievements", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },
@@ -67,7 +67,7 @@ export default {
     },
     getUserAchievements() {
       axios
-        .get("http://localhost:3000/achievements/list", {
+        .get(this.$apiUrl + "/achievements/list", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

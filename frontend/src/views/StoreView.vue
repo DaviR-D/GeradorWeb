@@ -33,7 +33,7 @@ export default {
   name: "StoreView",
   beforeMount() {
     axios
-      .get("http://localhost:3000/users/logged", {
+      .get(this.$apiUrl + "/users/logged", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -62,7 +62,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("http://localhost:3000/items", {
+        .get(this.$apiUrl + "/items", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },
@@ -73,7 +73,7 @@ export default {
     },
     getCoins() {
       axios
-        .get("http://localhost:3000/users/coins", {
+        .get(this.$apiUrl + "/users/coins", {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -84,7 +84,7 @@ export default {
     },
     getUserItems() {
       axios
-        .get("http://localhost:3000/items/list", {
+        .get(this.$apiUrl + "/items/list", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

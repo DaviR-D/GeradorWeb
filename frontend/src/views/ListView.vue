@@ -41,7 +41,7 @@ export default {
   name: "ListView",
   beforeMount() {
     axios
-      .get("http://localhost:3000/users/logged", {
+      .get(this.$apiUrl + "/users/logged", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
@@ -69,7 +69,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("http://localhost:3000/activitys", {
+        .get("/activitys", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

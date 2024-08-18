@@ -34,8 +34,7 @@ export default {
   async mounted() {
     await axios
       .get(
-        "http://localhost:3000/questions/questions/" +
-          this.route.params.lesson_id,
+        this.$apiUrl + "/questions/questions/" + this.route.params.lesson_id,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

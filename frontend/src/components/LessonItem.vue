@@ -55,7 +55,7 @@ export default {
     },
     deleteLesson() {
       axios
-        .delete(`http://localhost:3000/activitys/${this.id}/`, {
+        .delete(`${this.$apiUrl}/activitys/${this.id}/`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

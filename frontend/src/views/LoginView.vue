@@ -51,7 +51,7 @@ export default {
   methods: {
     Login() {
       axios
-        .post("http://localhost:3000/sessions", {
+        .post(this.$apiUrl + "/sessions", {
           email: this.username,
           password: this.password,
         })

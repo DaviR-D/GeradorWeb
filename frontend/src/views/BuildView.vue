@@ -55,7 +55,7 @@ const save = (question) => {
 
 const create = (question) => {
   axios
-    .post("http://localhost:3000/questions/" + lessonId, question, {
+    .post(this.$apiUrl + "/questions/" + lessonId, question, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -69,7 +69,7 @@ const create = (question) => {
 const update = (question) => {
   question.append("question_id", questionId);
   axios
-    .post("http://localhost:3000/questions/" + lessonId + "/update", question, {
+    .post(this.$apiUrl + "/questions/" + lessonId + "/update", question, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

@@ -52,8 +52,7 @@ export default {
   async mounted() {
     await axios
       .get(
-        "http://localhost:3000/questions/questions/" +
-          this.route.params.lesson_id,
+        this.$apiUrl + "/questions/questions/" + this.route.params.lesson_id,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -99,7 +98,7 @@ export default {
   },
   methods: {
     deleteQuestion(index) {
-      axios.delete("http://localhost:3000/questions/" + this.lesson[index].id, {
+      axios.delete(this.$apiUrl + "/questions/" + this.lesson[index].id, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

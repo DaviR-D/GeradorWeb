@@ -20,7 +20,7 @@ export default {
     newLesson() {
       axios
         .post(
-          "http://localhost:3000/activitys",
+          this.$apiUrl + "/activitys",
           { name: this.lessonName },
           {
             headers: {
