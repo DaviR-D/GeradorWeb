@@ -4,7 +4,7 @@ export default {
   render(image: QuestionImage) {
     return {
       id: image.id,
-      url: `http://localhost:3000/questions/images/${image.path}`,
+      url: `https://200.201.11.141/api/questions/images/${image.path}`,
     };
   },
 

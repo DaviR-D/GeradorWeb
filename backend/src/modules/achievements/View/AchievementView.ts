@@ -7,7 +7,7 @@ export default {
       name: achievement.name,
       description: achievement.description,
       created_at: achievement.created_at,
-      url: `http://localhost:3000/achievements/images/${achievement.image}`,
+      url: `https://200.201.11.141/api/achievements/images/${achievement.image}`,
     };
   },
 

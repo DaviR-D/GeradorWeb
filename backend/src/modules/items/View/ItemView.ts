@@ -7,7 +7,7 @@ export default {
       name: item.name,
       price: item.price,
       created_at: item.created_at,
-      url: `http://localhost:3000/items/images/${item.image}`,
+      url: `https://200.201.11.141/api/items/images/${item.image}`,
     };
   },
 
