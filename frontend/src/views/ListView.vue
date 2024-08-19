@@ -69,7 +69,7 @@ export default {
   methods: {
     Busca() {
       axios
-        .get("/activitys", {
+        .get(this.$apiUrl + "/activitys", {
           headers: {
             Authorization: `Bearer ${this.token}`,
           },

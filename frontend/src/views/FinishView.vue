@@ -29,6 +29,8 @@ import { useRoute } from "vue-router";
 import axios from "axios";
 const route = useRoute();
 
+const apiUrl = "https://200.201.11.141/api";
+
 const store = useScoreStore();
 
 const $toast = useToast();
@@ -44,7 +46,7 @@ const notification = (text) => {
 
 const iniciante = () => {
   axios.post(
-    this.$apiUrl + "/achievements/get",
+    apiUrl + "/achievements/get",
     { achievement_id: "123b9805-a479-4e61-bac0-47554fca010d" },
     {
       headers: {
@@ -57,7 +59,7 @@ const iniciante = () => {
 
 const competidor = () => {
   axios
-    .get(this.$apiUrl + "/scores/grouped", {
+    .get(apiUrl + "/scores/grouped", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -65,7 +67,7 @@ const competidor = () => {
     .then((response) => {
       if (response.data[0].iscurrentuser == 1) {
         axios.post(
-          this.$apiUrl + "/achievements/get",
+          apiUrl + "/achievements/get",
           { achievement_id: "30710fbd-8c0a-4e25-b340-0e9578f4e340" },
           {
             headers: {
@@ -80,7 +82,7 @@ const competidor = () => {
 
 const getUserAchievements = async () => {
   await axios
-    .get(this.$apiUrl + "/achievements/list", {
+    .get(apiUrl + "/achievements/list", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -102,7 +104,7 @@ const checkAchievements = async (userAchievements) => {
 if (questionCount > 0) {
   axios
     .post(
-      this.$apiUrl + "/scores/" + route.params.lessonId,
+      apiUrl + "/scores/" + route.params.lessonId,
       { score: score },
       {
         headers: {
@@ -116,7 +118,7 @@ if (questionCount > 0) {
 
   axios
     .post(
-      this.$apiUrl + "/users/coins",
+      apiUrl + "/users/coins",
       { amount: coins },
       {
         headers: {

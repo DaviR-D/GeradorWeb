@@ -20,6 +20,8 @@ import { useRoute } from "vue-router";
 import router from "@/router";
 import axios from "axios";
 
+const apiUrl = "https://200.201.11.141/api";
+
 const builders = [
   TheBuilder1,
   TheBuilder2,
@@ -55,7 +57,7 @@ const save = (question) => {
 
 const create = (question) => {
   axios
-    .post(this.$apiUrl + "/questions/" + lessonId, question, {
+    .post(apiUrl + "/questions/" + lessonId, question, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -69,7 +71,7 @@ const create = (question) => {
 const update = (question) => {
   question.append("question_id", questionId);
   axios
-    .post(this.$apiUrl + "/questions/" + lessonId + "/update", question, {
+    .post(apiUrl + "/questions/" + lessonId + "/update", question, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
