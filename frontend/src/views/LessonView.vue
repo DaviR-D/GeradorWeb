@@ -1,6 +1,7 @@
 <template>
   <div>
     <component
+      v-if="!answered"
       :is="templates[question().template - 1]"
       :data="question()"
       @checkAnswer="checkAnswer"
